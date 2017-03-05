@@ -20,7 +20,17 @@
                         <Image url="@../images/menu_back_1.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="labelHeadline" alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" prefHeight="73.0" prefWidth="415.0" text="Archivierung V 1.0" textAlignment="CENTER" textFill="#023537">
+                  <Label fx:id="labelHeadline" alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" prefHeight="73.0" prefWidth="361.0" text="Archivierung V 1.0" textAlignment="CENTER" textFill="#023537">
+                     <font>
+                        <Font name="Arial Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelBindestrich" disable="true" layoutX="357.0" layoutY="24.0" prefHeight="37.0" prefWidth="5.0" text="-" textFill="#023537" visible="false">
+                     <font>
+                        <Font name="Arial Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelSite" disable="true" layoutX="374.0" layoutY="25.0" prefHeight="39.0" prefWidth="265.0" textFill="#023537">
                      <font>
                         <Font name="Arial Black" size="24.0" />
                      </font>
