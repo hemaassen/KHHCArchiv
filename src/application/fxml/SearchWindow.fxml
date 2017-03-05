@@ -6,19 +6,17 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SearchWindowController">
    <children>
-      <ImageView fitHeight="674.0" fitWidth="1114.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/details_back.png" />
          </image>
       </ImageView>
-      <Separator layoutX="545.0" layoutY="10.0" orientation="VERTICAL" prefHeight="649.0" prefWidth="7.0" />
       <Label layoutX="26.0" layoutY="42.0" text="Datum von:" />
       <DatePicker fx:id="dateFrom" layoutX="93.0" layoutY="38.0" onAction="#inputFromDate" prefWidth="180.0" promptText="tt.mm.jj" />
       <Label layoutX="294.0" layoutY="42.0" text="Datum bis:" />
