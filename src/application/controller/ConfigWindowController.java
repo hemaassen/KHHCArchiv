@@ -86,9 +86,10 @@ public class ConfigWindowController implements Initializable{
 	    	
 	    	if(source.exists()&& destination.exists()){
 	    		
-	    		  		System.out.println(con.insertConfig(labelPathSourceLocation.getText(), 
+	    		  		con.insertConfig(labelPathSourceLocation.getText(), 
 	    				labelPathDestinationLocation.getText(), 
-	    				"true")); //Version 1 noch fester Wert
+	    				"true"); //Version 1 noch fester Wert
+	    		  		takeChange.setDisable(true);
 	    	}
 	    }
 
