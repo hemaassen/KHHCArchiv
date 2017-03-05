@@ -48,6 +48,12 @@ public final class MainWindowController {
 
 	@FXML
 	private Label labelHeadline;
+	
+	@FXML
+    private Label labelBindestrich;
+
+    @FXML
+    private Label labelSite;
 
 	/**
 	 * @author kerstin
@@ -83,7 +89,8 @@ public final class MainWindowController {
 		AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
 
 		anchorDetails.getChildren().setAll(pane);
-		labelHeadline.setText("Manuelle Ablage");
+		labelBindestrich.setVisible(true);
+		labelSite.setText("Manuelle Ablage");
 
 	}
 
@@ -108,7 +115,8 @@ public final class MainWindowController {
 		config.setDisable(false);
 		AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/SearchWindow.fxml"));
 		anchorDetails.getChildren().setAll(pane);
-		labelHeadline.setText("Dokument suchen");
+		labelBindestrich.setVisible(true);
+		labelSite.setText("Dokument suchen");
 
 	}
 
@@ -147,8 +155,8 @@ public final class MainWindowController {
 					break;
 				}
 			anchorDetails.getChildren().setAll(configPane);
-
-			labelHeadline.setText("Einstellungen");
+			labelBindestrich.setVisible(true);
+			labelSite.setText("Einstellungen");
 		}
 	}
 
