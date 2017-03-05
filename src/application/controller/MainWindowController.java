@@ -1,10 +1,13 @@
 package application.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jfoenix.controls.JFXButton;
 
 import application.Main;
+import helper.PaneHelper;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * Controller für das Hauptfenster
@@ -46,12 +50,6 @@ public final class MainWindowController {
 
 	@FXML
 	private Label labelHeadline;
-	
-	@FXML
-    private Label labelBindestrich;
-
-    @FXML
-    private Label labelSite;
 
 	/**
 	 * @author kerstin
@@ -87,8 +85,7 @@ public final class MainWindowController {
 		AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
 
 		anchorDetails.getChildren().setAll(pane);
-		labelBindestrich.setVisible(true);
-		labelSite.setText("Manuelle Ablage");
+		labelHeadline.setText("Manuelle Ablage");
 
 	}
 
@@ -113,8 +110,7 @@ public final class MainWindowController {
 		config.setDisable(false);
 		AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/SearchWindow.fxml"));
 		anchorDetails.getChildren().setAll(pane);
-		labelBindestrich.setVisible(true);
-		labelSite.setText("Dokument suchen");
+		labelHeadline.setText("Dokument suchen");
 
 	}
 
@@ -139,26 +135,23 @@ public final class MainWindowController {
 		search.setDisable(false);
 		config.setDisable(true);
 		AnchorPane configPane = FXMLLoader.load(getClass().getResource("../fxml/ConfigWindow.fxml"));
-		for (Node n : configPane.getChildren()) {
-			if (n.getId() != null) {
-				if (n.getId().equals("labelPathSourceLocation")) {
-					Label lb= (Label) n;
-					lb.setText(main.getMyConfig().getSourceDir());
-					n=lb;
-				} 
-				if (n.getId().equals("labelPathDestinationLocation")) {
-					Label lb= (Label) n;
-					lb.setText(main.getMyConfig().getDestinationDir());
-					n=lb;
-				} 
-				//Manual noch ausgespart
-
+		List<Node> activeNodes = PaneHelper.activeNodes(configPane);
+		int count = 0;
+		for (Node n : activeNodes) {
+			if (PaneHelper.initializeLable(n, "labelPathSourceLocation", main.getMyConfig().getSourceDir())) {
+				count++;
 			}
-		}
-		anchorDetails.getChildren().setAll(configPane);
-		labelBindestrich.setVisible(true);
-		labelSite.setText("Einstellungen");
+			if (PaneHelper.initializeLable(n, "labelPathDestinationLocation", main.getMyConfig().getDestinationDir())) {
+				count++;
+				
+			}
+			if (count == 2) {
+					break;
+				}
+			anchorDetails.getChildren().setAll(configPane);
 
+			labelHeadline.setText("Einstellungen");
+		}
 	}
 
 	/**

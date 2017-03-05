@@ -142,7 +142,7 @@ public class ConfigTable {
 		} else {
 			// wird zwar nix eingefügt, da aber nur eine Zeile reindarf ist
 			// trotzdem alles ok
-			result = true;
+			result = updateConfigSource(source) & updateConfigDestination(destination);
 		}
 
 		return result;
@@ -160,6 +160,26 @@ public class ConfigTable {
 			if (erfolg == 1) {
 				result = true;
 				sourceDir = source;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public boolean updateConfigDestination(String destination) {
+		boolean result = false;
+		try (Connection con = DriverManager.getConnection("jdbc:sqlite:database/archiv.db");
+				Statement stmt = con.createStatement();) {
+			String sql = "Update config  SET destinationRoot = '" + destination + "' WHERE _id =1;";
+			// executeUpdate wirft keinen Fehler, wenn die Anweisung nichts
+			// ändert
+			// darum excplizieter Check
+			int erfolg = stmt.executeUpdate(sql);
+			if (erfolg == 1) {
+				result = true;
+				destinationDir = destination;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

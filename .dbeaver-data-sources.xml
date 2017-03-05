@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<data-sources>
-	<data-source id="sqlite_jdbc-15a8e126447-1954b00d4bd66673" provider="generic" driver="sqlite_jdbc" name="SQLite - test.db" save-password="true" show-system-objects="true" read-only="false">
-		<connection server="" database="D:\neon\git\KHHCArchiv\test.db" url="jdbc:sqlite:D:\neon\git\KHHCArchiv\test.db" type="dev"/>
-	</data-source>
-	<data-source id="sqlite_jdbc-15a8e29722c-29067c91f7daa085" provider="generic" driver="sqlite_jdbc" name="SQLite - archiv.db" save-password="true" show-system-objects="true" read-only="false">
-		<connection server="" database="D:\neon\git\KHHCArchiv\database\archiv.db" url="jdbc:sqlite:D:\neon\git\KHHCArchiv\database\archiv.db" type="dev"/>
-	</data-source>
-</data-sources>
