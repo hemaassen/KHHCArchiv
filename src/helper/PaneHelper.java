@@ -30,9 +30,7 @@ public class PaneHelper {
 
 	public static List<Node> activeNodes(Pane pane) {
 		List<Node> result = new ArrayList<>();
-		int count = 0;
 		for (Node n : pane.getChildren()) {
-			count++;
 			if (n.getId() != null) {
 				result.add(n);
 			}

@@ -1,7 +1,6 @@
 package application.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.jfoenix.controls.JFXButton;
@@ -15,7 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 
 /**
  * Controller für das Hauptfenster
