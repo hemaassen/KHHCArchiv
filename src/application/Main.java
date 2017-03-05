@@ -43,6 +43,7 @@ public void setMyConfig(ConfigTable myConfig) {
   public void start(Stage primaryStage) {
 	  myConfig= new ConfigTable();
 	  this.primarayStage = primaryStage;
+	  primarayStage.setTitle("Archivierung V 1.0");
     mainWindow();
   }
 
