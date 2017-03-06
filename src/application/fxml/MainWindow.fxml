@@ -50,7 +50,7 @@
                   <JFXButton fx:id="config" buttonType="RAISED" layoutX="23.0" layoutY="637.0" onAction="#handleConfigButtonAction" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Einstellungen" />
                   <AnchorPane fx:id="anchorDetails" layoutX="166.0" layoutY="90.0" prefHeight="674.0" prefWidth="1108.0" stylesheets="@../css/anchor.css">
                      <children>
-                        <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="674.0" fitWidth="1101.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/details_back.png" />
                            </image>
