@@ -8,3 +8,12 @@
 #anchorNewKeyword{
 	-fx-background-color: #effafa
 }
+.scrollPainMain{
+	-fx-background-color: #0e7477
+}
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color: #0e7477
+}
+#anchorParent{
+	-fx-background-color: #0e7477
+}
