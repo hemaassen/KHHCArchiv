@@ -16,7 +16,7 @@ public class PaneHelper {
 	public void enableNodes(Pane pane) {
 
 	}
-	public static boolean initializeLable(Node n, String name, String value){
+	public static boolean initializeLabel(Node n, String name, String value){
 		boolean result=false;
 		if (n.getId().equals(name)) {
 			Label lb= (Label) n;
