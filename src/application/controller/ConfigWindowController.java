@@ -25,9 +25,8 @@ import persistence.ConfigTable;
  */
 public class ConfigWindowController implements Initializable{
 	
-	public Main main; //hs
-	public void setMain(Main main) {
-	this.main = main;}
+	public static Main main;
+	
 	private ConfigTable con= new ConfigTable();
 	
 	 @FXML
@@ -83,7 +82,8 @@ public class ConfigWindowController implements Initializable{
 	    void handleTakeChange(ActionEvent event) {
 	    	File source=new File(labelPathSourceLocation.getText());
 	    	File destination= new File(labelPathDestinationLocation.getText());
-	    	
+	    	main.getMyConfig().setDestinationDir(labelPathDestinationLocation.getText());
+        main.getMyConfig().setSourceDir(labelPathSourceLocation.getText());
 	    	if(source.exists()&& destination.exists()){
 	    		
 	    		  		con.insertConfig(labelPathSourceLocation.getText(), 
