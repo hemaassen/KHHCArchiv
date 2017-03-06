@@ -35,10 +35,13 @@
                         <Rectangle2D height="60.0" width="468.0" />
                      </viewport>
                   </ImageView>
-                  <ImageView fitHeight="674.0" fitWidth="158.0" layoutX="24.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="674.0" fitWidth="157.0" layoutX="24.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/menu_back_1.png" />
                      </image>
+                     <viewport>
+                        <Rectangle2D height="674.0" width="158.0" />
+                     </viewport>
                   </ImageView>
                   <JFXButton fx:id="stop" buttonType="RAISED" layoutX="41.0" layoutY="718.0" onAction="#stopProgram" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Beenden" />
                   <JFXButton fx:id="manualStore" buttonType="RAISED" layoutX="41.0" layoutY="142.0" onAction="#handleManualButtonAction" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Manuelle Ablage" textFill="#023537" />
@@ -50,7 +53,7 @@
                   <JFXButton fx:id="config" buttonType="RAISED" layoutX="41.0" layoutY="660.0" onAction="#handleConfigButtonAction" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Einstellungen" />
                   <AnchorPane fx:id="anchorDetails" layoutX="189.0" layoutY="112.0" prefHeight="674.0" prefWidth="1108.0" stylesheets="@../css/anchor.css">
                      <children>
-                        <ImageView fitHeight="681.0" fitWidth="1111.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/details_back.png" />
                            </image>
