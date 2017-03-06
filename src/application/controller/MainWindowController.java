@@ -148,11 +148,11 @@ public final class MainWindowController {
     List<Node> activeNodes = PaneHelper.activeNodes(configPane);
     int count = 0;
     for (Node n : activeNodes) {
-      if (PaneHelper.initializeLable(n, "labelPathSourceLocation",
+      if (PaneHelper.initializeLabel(n, "labelPathSourceLocation",
           main.getMyConfig().getSourceDir())) {
         count++;
       }
-      if (PaneHelper.initializeLable(n, "labelPathDestinationLocation",
+      if (PaneHelper.initializeLabel(n, "labelPathDestinationLocation",
           main.getMyConfig().getDestinationDir())) {
         count++;
 

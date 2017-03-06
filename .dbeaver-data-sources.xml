@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="sqlite_jdbc-15aa48e8843-31b83a48486f9e5b" provider="generic" driver="sqlite_jdbc" name="SQLite - archiv.db" save-password="true" show-system-objects="true" read-only="false">
+		<connection server="" database="D:\neon\git\KHHCArchiv\database\archiv.db" url="jdbc:sqlite:D:\neon\git\KHHCArchiv\database\archiv.db" type="dev"/>
+	</data-source>
+</data-sources>
