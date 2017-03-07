@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.List;
 
 import application.KeyWord;
+import javafx.collections.ObservableList;
 
 public class TestDB {
 
@@ -16,9 +17,10 @@ public class TestDB {
 
 	public static void main(String[] args) {
 //		int newID= KeywordTable.getHighestID()+1;
-//		KeyWord keyword= new KeyWord(newID, "Kerstin", "Kerstin", 1, 1);
+//		//Reihenfolge: id, keyword,pfad,parent,level
+//		KeyWord keyword= new KeyWord(newID, "Versicherung", "Versicherung", 3, 2);
 //		KeywordTable.insertKeyword(keyword);
-//		List<KeyWord> l=KeywordTable.selectLevel(1);
+//		ObservableList<KeyWord> l=KeywordTable.selectLevel(1);
 //		for(KeyWord k:l){
 //			System.out.println(k);
 //		}
@@ -35,6 +37,10 @@ public class TestDB {
 //					e.printStackTrace();
 //				}
 //
+		ObservableList<KeyWord>ol=KeywordTable.getChildren(2);
+		for(KeyWord k:ol){
+			System.out.println(k);
+		}
 	}
 
 }

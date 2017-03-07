@@ -115,4 +115,37 @@ public class KeywordTable {
 		ObservableList<KeyWord> result= FXCollections.observableArrayList(list);
 		return result;
 	}
+	public static ObservableList<KeyWord> getChildren(Integer id){
+		List<KeyWord> list=new ArrayList<>(); 
+		try(Connection con=DriverManager.getConnection("jdbc:sqlite:database/archiv.db");
+				Statement stmt=con.createStatement();){
+				String sql;
+				//erstmal alle Schlüsselwörter des levels und den standardwert holen
+				sql="SELECT * FROM keywords WHERE id IN(SELECT child FROM childParent WHERE parent=" + id+ ") OR level = 0;";
+				ResultSet rs=stmt.executeQuery(sql);
+				while (rs.next()) {
+					//parent ist noch leer (beim Standardwert gibt es kein Parent)
+					KeyWord k=new KeyWord(rs.getInt("id"),
+							rs.getString("keyword"),
+							rs.getString("pathName"),
+							0,
+							rs.getInt("level"));
+					Statement stmt1=con.createStatement();
+					//jetzt hole ich das Elternteil
+					ResultSet rs1=stmt1.executeQuery(
+							"SELECT parent FROM childParent WHERE child = " +rs.getInt("id")+ ";");
+					while(rs1.next()){
+						//der Standardwert hat keinen Elternteil darum liefert das resultset.next false 
+						k.setParent(rs1.getInt(1));
+					}
+					list.add(k);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		ObservableList<KeyWord> result= FXCollections.observableArrayList(list);
+		return result;
+		
+	}
 }

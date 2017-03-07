@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import application.KeyWord;
 import application.Main;
+import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -80,7 +81,7 @@ public class ManualWindowController implements Initializable {
 	private ComboBox<KeyWord> listKeywordOne;
 
 	@FXML
-	private ComboBox<String> listKeywordTwo;
+	private ComboBox<KeyWord> listKeywordTwo;
 
 	@FXML
 	private ComboBox<String> listKeywordThree;
@@ -96,9 +97,9 @@ public class ManualWindowController implements Initializable {
 
 	@FXML
 	private Button zoomMinus;
-	
+
 	KeyWord selectedKeyword;
-	ObservableList<KeyWord> olLevel1=KeywordTable.selectLevel(1);
+	ObservableList<KeyWord> olLevel1 = KeywordTable.selectLevel(1);
 
 	/**
 	 * Suche des manuell abzulegenden Dokuments <br>
@@ -159,6 +160,7 @@ public class ManualWindowController implements Initializable {
 
 	/**
 	 * hier kommt rein was die methode macht....
+	 * 
 	 * @author helge
 	 * @param event
 	 */
@@ -168,8 +170,7 @@ public class ManualWindowController implements Initializable {
 		if (datePicker.getValue() != null) {
 			listKeywordOne.setDisable(false);
 		} else {
-			//listKeywordOne.setValue("");
-			listKeywordTwo.setValue("");
+			
 			listKeywordThree.setValue("");
 			listKeywordFour.setValue("");
 			listKeywordFive.setValue("");
@@ -184,73 +185,76 @@ public class ManualWindowController implements Initializable {
 
 	@FXML
 	void inputManualKeywordOne(ActionEvent event) {
-//		if (listKeywordOne.getValue().length() > 0) {
-//			listKeywordOne.setDisable(false);
-//			listKeywordTwo.setDisable(false);
-//			save.setDisable(false);
-//		} else {
-//			listKeywordTwo.setValue(null);
-//			listKeywordThree.setValue(null);
-//			listKeywordFour.setValue(null);
-//			listKeywordFive.setValue(null);
-//			listKeywordTwo.setDisable(true);
-//			listKeywordThree.setDisable(true);
-//			listKeywordFour.setDisable(true);
-//			listKeywordFive.setDisable(true);
-//			save.setDisable(true);
-//		}
-		
-		try{
-		selectedKeyword=listKeywordOne.getValue();
-		if(selectedKeyword.getKeyword().equals("Neuer Eintrag..")){
-			System.out.println("jetzt muss der dialog auf");
-		}else{
-			System.out.println("children vom gewählten Eintrag müssen ermittelt und zugewiesen werden");
+		if (listKeywordOne.getValue() !=null ) {
+		// listKeywordOne.setDisable(false);
+		listKeywordTwo.setDisable(false);
+		save.setDisable(false);
+		 } else {
+		// listKeywordTwo.setValue(null);
+		// listKeywordThree.setValue(null);
+		// listKeywordFour.setValue(null);
+		// listKeywordFive.setValue(null);
+		// listKeywordTwo.setDisable(true);
+		// listKeywordThree.setDisable(true);
+		// listKeywordFour.setDisable(true);
+		// listKeywordFive.setDisable(true);
+		 save.setDisable(true);
+		 }
+
+		try {
+			selectedKeyword = listKeywordOne.getValue();
+			if (selectedKeyword.getKeyword().equals("Neuer Eintrag..")) {
+				System.out.println("jetzt muss der dialog auf");
+			} else {
+				System.out.println("children vom gewählten Eintrag müssen ermittelt und zugewiesen werden");
+				listKeywordTwo.setItems(KeywordTable.getChildren(selectedKeyword.getId()));
+			}
+			System.out.println(selectedKeyword.getId() + " " + selectedKeyword.getKeyword());
+		} catch (Exception e) {
+			//da der geworfene Fehler völlig sinnlos ist,
+			//fangen wir ihn und ignorieren ihn
+			
+//			System.out.println("Fehlergrund: " + e.getCause());
+//			System.out.println("Fehlermeldung: " + e.getMessage());
+//			System.out.println("Fehlerlokalisiertemeldung: " + e.getLocalizedMessage());
 		}
-		System.out.println(selectedKeyword.getId()+ " " + selectedKeyword.getKeyword());
-		}catch (Exception e){
-			System.out.println("Fehlergrund: " +e.getCause());
-			System.out.println("Fehlermeldung: "+ e.getMessage());
-			System.out.println("Fehlerlokalisiertemeldung: "+ e.getLocalizedMessage());
-		}
-		
-		
+
 	}
 
 	@FXML
 	void inputManualKeywordOneChanged(InputMethodEvent event) {
 		System.out.println("inputManualKeywordOneChanged");
-		if (listKeywordOne.getValue() != null) {
-			listKeywordOne.setDisable(false);
-			listKeywordTwo.setDisable(false);
-			save.setDisable(false);
-		} else {
-			listKeywordTwo.setValue(null);
-			listKeywordThree.setValue(null);
-			listKeywordFour.setValue(null);
-			listKeywordFive.setValue(null);
-			listKeywordTwo.setDisable(true);
-			listKeywordThree.setDisable(true);
-			listKeywordFour.setDisable(true);
-			listKeywordFive.setDisable(true);
-			save.setDisable(true);
-		}
+		// if (listKeywordOne.getValue() != null) {
+		// listKeywordOne.setDisable(false);
+		// listKeywordTwo.setDisable(false);
+		// save.setDisable(false);
+		// } else {
+		// listKeywordTwo.setValue(null);
+		// listKeywordThree.setValue(null);
+		// listKeywordFour.setValue(null);
+		// listKeywordFive.setValue(null);
+		// listKeywordTwo.setDisable(true);
+		// listKeywordThree.setDisable(true);
+		// listKeywordFour.setDisable(true);
+		// listKeywordFive.setDisable(true);
+		// save.setDisable(true);
+		// }
 	}
 
 	@FXML
 	void inputManualKeywordTwo(ActionEvent event) {
-		if (listKeywordTwo.getValue().length() > 0) {
-			listKeywordOne.setDisable(false);
-			listKeywordTwo.setDisable(false);
-			listKeywordThree.setDisable(false);
-		} else {
-			listKeywordThree.setValue("");
-			listKeywordFour.setValue("");
-			listKeywordFive.setValue("");
-			listKeywordThree.setDisable(true);
-			listKeywordFour.setDisable(true);
-			listKeywordFive.setDisable(true);
-		}
+//		if (listKeywordTwo.getValue().length() > 0) {
+//			listKeywordOne.setDisable(false);
+//			listKeywordTwo.setDisable(false);
+//			listKeywordThree.setDisable(false);
+//		} else {
+//			listKeywordThree.setValue("");
+//			listKeywordFour.setValue("");
+//			listKeywordFive.setValue("");
+//			listKeywordThree.setDisable(true);
+//			listKeywordFour.setDisable(true);
+//			listKeywordFive.setDisable(true);
+//		}
 	}
 
 	@FXML
@@ -285,7 +289,7 @@ public class ManualWindowController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		listKeywordOne.setItems(olLevel1);
-		
+
 	}
 
 }
