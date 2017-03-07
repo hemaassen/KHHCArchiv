@@ -25,7 +25,7 @@ import helper.PDFHelper;
  */
 public class ManualWindowController {
 
-	public Main main;
+	public static Main main;
 
 	@FXML
 	private AnchorPane anchorMain;

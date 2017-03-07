@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,7 +17,8 @@ import javafx.scene.input.InputMethodEvent;
  *
  */
 public class SearchWindowController {
-
+	
+	public static Main main;
 	@FXML
 	private DatePicker dateFrom;
 

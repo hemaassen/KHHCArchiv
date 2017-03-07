@@ -88,7 +88,7 @@ public final class MainWindowController {
     config.setDisable(false);
     AnchorPane pane = FXMLLoader
         .load(getClass().getResource("../fxml/ManualWindow.fxml"));
-
+    ManualWindowController.main=this.main;
     anchorDetails.getChildren().setAll(pane);
     labelBindestrich.setVisible(true);
     labelSite.setText("Manuelle Ablage");
@@ -116,6 +116,7 @@ public final class MainWindowController {
     config.setDisable(false);
     AnchorPane pane = FXMLLoader
         .load(getClass().getResource("../fxml/SearchWindow.fxml"));
+    SearchWindowController.main=this.main;
     anchorDetails.getChildren().setAll(pane);
     labelBindestrich.setVisible(true);
     labelSite.setText("Dokument suchen");
