@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import application.KeyWord;
@@ -112,6 +113,7 @@ public class KeywordTable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		Collections.sort(list);
 		ObservableList<KeyWord> result= FXCollections.observableArrayList(list);
 		return result;
 	}
@@ -139,6 +141,7 @@ public class KeywordTable {
 						k.setParent(rs1.getInt(1));
 					}
 					list.add(k);
+					Collections.sort(list);
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

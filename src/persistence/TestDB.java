@@ -37,10 +37,10 @@ public class TestDB {
 //					e.printStackTrace();
 //				}
 //
-		ObservableList<KeyWord>ol=KeywordTable.getChildren(2);
-		for(KeyWord k:ol){
-			System.out.println(k);
-		}
+//		ObservableList<KeyWord>ol=KeywordTable.getChildren(2);
+//		for(KeyWord k:ol){
+//			System.out.println(k);
+//		}
 	}
 
 }

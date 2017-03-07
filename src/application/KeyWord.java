@@ -1,6 +1,6 @@
 package application;
 
-public class KeyWord {
+public class KeyWord implements Comparable<KeyWord>{
 	private Integer id;
 	private String keyword;  	//Schlüsselwort
 	private String path;		//ein eventuell abweichender Pfad vom Schlüsselwort
@@ -54,6 +54,7 @@ public class KeyWord {
 	public KeyWord() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	public KeyWord(Integer id, String keyword, String path, Integer parent, int level) {
 		super();
@@ -68,5 +69,15 @@ public class KeyWord {
 	public String toString() {
 		return keyword;
 	}
+	@Override
+	public int compareTo(KeyWord k) {
+		int result=0;
+		result=keyword.compareTo(k.getKeyword());
+		
+		return result;
+	}
+
+	
+	
 	
 }

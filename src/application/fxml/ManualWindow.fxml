@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ManualWindowController">
+<AnchorPane fx:id="anchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ManualWindowController">
    <children>
       <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -37,11 +37,11 @@
       <Label fx:id="labelKeywordFour" layoutX="665.0" layoutY="404.0" text="Schlüsselwort 4" />
       <Label fx:id="labelKeywordFive" layoutX="665.0" layoutY="476.0" text="Schlüsselwort 5" />
       <Button fx:id="save" disable="true" layoutX="784.0" layoutY="569.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/button.css" text="Speichern" />
-      <ComboBox fx:id="listKeywordOne" disable="true" editable="true" layoutX="759.0" layoutY="167.0" onAction="#inputManualKeywordOne" onInputMethodTextChanged="#inputManualKeywordOneChanged" prefHeight="35.0" prefWidth="200.0" />
-      <ComboBox fx:id="listKeywordTwo" disable="true" editable="true" layoutX="759.0" layoutY="243.0" onAction="#inputManualKeywordTwo" prefHeight="35.0" prefWidth="200.0" />
-      <ComboBox fx:id="listKeywordThree" disable="true" editable="true" layoutX="759.0" layoutY="320.0" onAction="#inputManualKeywordThree" prefHeight="35.0" prefWidth="200.0" />
-      <ComboBox fx:id="listKeywordFour" disable="true" editable="true" layoutX="759.0" layoutY="395.0" onAction="#inputManualKeywordFour" prefHeight="35.0" prefWidth="200.0" />
-      <ComboBox fx:id="listKeywordFive" disable="true" editable="true" layoutX="759.0" layoutY="467.0" prefHeight="35.0" prefWidth="200.0" />
+      <ComboBox fx:id="listKeywordOne" disable="true" layoutX="759.0" layoutY="167.0" onAction="#inputManualKeywordOne" onInputMethodTextChanged="#inputManualKeywordOneChanged" prefHeight="35.0" prefWidth="200.0" />
+      <ComboBox fx:id="listKeywordTwo" disable="true" layoutX="759.0" layoutY="243.0" onAction="#inputManualKeywordTwo" prefHeight="35.0" prefWidth="200.0" />
+      <ComboBox fx:id="listKeywordThree" disable="true" layoutX="759.0" layoutY="320.0" onAction="#inputManualKeywordThree" prefHeight="35.0" prefWidth="200.0" />
+      <ComboBox fx:id="listKeywordFour" disable="true" layoutX="759.0" layoutY="395.0" onAction="#inputManualKeywordFour" prefHeight="35.0" prefWidth="200.0" />
+      <ComboBox fx:id="listKeywordFive" disable="true" layoutX="759.0" layoutY="467.0" prefHeight="35.0" prefWidth="200.0" />
       <Button fx:id="zoomPlus" disable="true" layoutX="458.0" layoutY="101.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom +" />
       <Button fx:id="zoomMinus" disable="true" layoutX="458.0" layoutY="143.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom -" />
       <ImageView fx:id="imageActualDoc" accessibleRole="PARENT" fitHeight="558.0" fitWidth="394.0" layoutX="42.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
