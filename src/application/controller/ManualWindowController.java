@@ -1,10 +1,15 @@
 package application.controller;
 
 import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import application.KeyWord;
 import application.Main;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -15,6 +20,8 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import persistence.KeywordTable;
+import sun.nio.ch.SelChImpl;
 import helper.PDFHelper;
 
 /**
@@ -23,7 +30,7 @@ import helper.PDFHelper;
  * @author kerstin, helge, chris, holger
  *
  */
-public class ManualWindowController {
+public class ManualWindowController implements Initializable {
 
 	public static Main main;
 
@@ -70,7 +77,7 @@ public class ManualWindowController {
 	private Button save;
 
 	@FXML
-	private ComboBox<String> listKeywordOne;
+	private ComboBox<KeyWord> listKeywordOne;
 
 	@FXML
 	private ComboBox<String> listKeywordTwo;
@@ -89,6 +96,9 @@ public class ManualWindowController {
 
 	@FXML
 	private Button zoomMinus;
+	
+	KeyWord selectedKeyword;
+	ObservableList<KeyWord> olLevel1=KeywordTable.selectLevel(1);
 
 	/**
 	 * Suche des manuell abzulegenden Dokuments <br>
@@ -106,9 +116,7 @@ public class ManualWindowController {
 	@FXML
 	public void handleSearchDoc() {
 
-		// noch fest codiert, wenn wir eine Datenbankanbindung haben sollte
-		// hier der Wert von config.rootDir
-		File sourceDir = new File("C:");
+		File sourceDir = new File(main.getMyConfig().getSourceDir());
 		// vordefinierte Klasse zur Dateiauswahl
 		FileChooser fileChooser = new FileChooser();
 		// grundkonfiguration
@@ -139,7 +147,6 @@ public class ManualWindowController {
 					imageActualDoc.setImage(fxImage);
 				} else {
 					Image myImage = new Image(myFile.toURI().toURL().toExternalForm(), 595.0, 842.0, false, true);
-					System.out.println((myImage).heightProperty());
 					imageActualDoc.setImage(myImage);
 				}
 			} catch (Exception e) {
@@ -161,7 +168,7 @@ public class ManualWindowController {
 		if (datePicker.getValue() != null) {
 			listKeywordOne.setDisable(false);
 		} else {
-			listKeywordOne.setValue("");
+			//listKeywordOne.setValue("");
 			listKeywordTwo.setValue("");
 			listKeywordThree.setValue("");
 			listKeywordFour.setValue("");
@@ -177,25 +184,42 @@ public class ManualWindowController {
 
 	@FXML
 	void inputManualKeywordOne(ActionEvent event) {
-		if (listKeywordOne.getValue().length() > 0) {
-			listKeywordOne.setDisable(false);
-			listKeywordTwo.setDisable(false);
-			save.setDisable(false);
-		} else {
-			listKeywordTwo.setValue(null);
-			listKeywordThree.setValue(null);
-			listKeywordFour.setValue(null);
-			listKeywordFive.setValue(null);
-			listKeywordTwo.setDisable(true);
-			listKeywordThree.setDisable(true);
-			listKeywordFour.setDisable(true);
-			listKeywordFive.setDisable(true);
-			save.setDisable(true);
+//		if (listKeywordOne.getValue().length() > 0) {
+//			listKeywordOne.setDisable(false);
+//			listKeywordTwo.setDisable(false);
+//			save.setDisable(false);
+//		} else {
+//			listKeywordTwo.setValue(null);
+//			listKeywordThree.setValue(null);
+//			listKeywordFour.setValue(null);
+//			listKeywordFive.setValue(null);
+//			listKeywordTwo.setDisable(true);
+//			listKeywordThree.setDisable(true);
+//			listKeywordFour.setDisable(true);
+//			listKeywordFive.setDisable(true);
+//			save.setDisable(true);
+//		}
+		
+		try{
+		selectedKeyword=listKeywordOne.getValue();
+		if(selectedKeyword.getKeyword().equals("Neuer Eintrag..")){
+			System.out.println("jetzt muss der dialog auf");
+		}else{
+			System.out.println("children vom gewählten Eintrag müssen ermittelt und zugewiesen werden");
 		}
+		System.out.println(selectedKeyword.getId()+ " " + selectedKeyword.getKeyword());
+		}catch (Exception e){
+			System.out.println("Fehlergrund: " +e.getCause());
+			System.out.println("Fehlermeldung: "+ e.getMessage());
+			System.out.println("Fehlerlokalisiertemeldung: "+ e.getLocalizedMessage());
+		}
+		
+		
 	}
 
 	@FXML
 	void inputManualKeywordOneChanged(InputMethodEvent event) {
+		System.out.println("inputManualKeywordOneChanged");
 		if (listKeywordOne.getValue() != null) {
 			listKeywordOne.setDisable(false);
 			listKeywordTwo.setDisable(false);
@@ -256,6 +280,12 @@ public class ManualWindowController {
 			listKeywordFive.setValue("");
 			listKeywordFive.setDisable(true);
 		}
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		listKeywordOne.setItems(olLevel1);
+		
 	}
 
 }

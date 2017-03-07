@@ -6,7 +6,7 @@ public class KeyWord {
 	private String path;		//ein eventuell abweichender Pfad vom Schlüsselwort
 								//in Version 1=keyword
 	private Integer parent;		//die Id des übergeordneten Schlüsselwortes
-	private Integer level;		//die dem Schlüsselwort zugeordnete Ebene
+	private int level;		//die dem Schlüsselwort zugeordnete Ebene
 	
 	//Getter und Setter
 	
@@ -55,7 +55,7 @@ public class KeyWord {
 		// TODO Auto-generated constructor stub
 	}
 
-	public KeyWord(Integer id, String keyword, String path, Integer parent, Integer level) {
+	public KeyWord(Integer id, String keyword, String path, Integer parent, int level) {
 		super();
 		this.id = id;
 		this.keyword = keyword;
@@ -66,8 +66,7 @@ public class KeyWord {
 
 	@Override
 	public String toString() {
-		return "KeyWord [id=" + id + ", keyword=" + keyword + ", path=" + path + ", parent=" + parent + ", level="
-				+ level + "]";
+		return keyword;
 	}
 	
 }
