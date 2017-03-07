@@ -10,7 +10,10 @@ import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -21,6 +24,7 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
 import persistence.KeywordTable;
 import sun.nio.ch.SelChImpl;
 import helper.PDFHelper;
@@ -205,6 +209,20 @@ public class ManualWindowController implements Initializable {
 				listKeywordTwo.setItems(null);
 				save.setDisable(true);
 				System.out.println("jetzt muss der dialog auf");
+				
+
+// Das sollte der Coder für Popup sein!!!!!!!!!
+//				try {
+//					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../fxml/NewKeywordWindow.fxml"));
+//					Parent root1 = (Parent) fxmlLoader.load();
+//					Stage stage = new Stage();
+//					stage.setScene(new Scene(root1));
+//					stage.show();
+//				} catch (Exception e) {
+//					System.out.println("Popup kann leider nicht geöffnet werden");
+//				}
+				
+				
 			} else {
 				System.out.println("children vom gewählten Eintrag müssen ermittelt und zugewiesen werden");
 				listKeywordTwo.setItems(KeywordTable.getChildren(selectedKeywordOne.getId()));
