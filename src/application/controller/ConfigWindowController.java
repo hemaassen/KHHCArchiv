@@ -1,7 +1,5 @@
 package application.controller;
 
-
-
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,103 +21,100 @@ import persistence.ConfigTable;
  * @author kerstin, helge, chris, holger
  *
  */
-public class ConfigWindowController implements Initializable{
-	
+public class ConfigWindowController implements Initializable {
+
 	public static Main main;
-	
-	private ConfigTable con= new ConfigTable();
-	
-	 @FXML
-	    private Button searchDestinationLocation;
 
-	    @FXML
-	    private Label labelPathSourceLocation;
+	private ConfigTable con = new ConfigTable();
 
-	    @FXML
-	    private Label labelLocation;
+	@FXML
+	private Button searchDestinationLocation;
 
-	    @FXML
-	    private Button searchSourceLocation;
+	@FXML
+	private Label labelPathSourceLocation;
 
-	    @FXML
-	    private Label labelPathDestinationLocation;
+	@FXML
+	private Label labelLocation;
 
-	    @FXML
-	    private Label labelStoreType;
+	@FXML
+	private Button searchSourceLocation;
 
-	    @FXML
-	    private RadioButton radioButtonStoreManual;
+	@FXML
+	private Label labelPathDestinationLocation;
 
-	    @FXML
-	    private RadioButton radioButtonStoreAuto;
+	@FXML
+	private Label labelStoreType;
 
-	    @FXML
-	    private Label labelScannerChoice;
+	@FXML
+	private RadioButton radioButtonStoreManual;
 
-	    @FXML
-	    private ChoiceBox<?> listScanner;
+	@FXML
+	private RadioButton radioButtonStoreAuto;
 
-	    @FXML
-	    private Button abort;
+	@FXML
+	private Label labelScannerChoice;
 
-	    @FXML
-	    private Button takeChange;
+	@FXML
+	private ChoiceBox<?> listScanner;
 
-	    @FXML
-	    void handleSearchDestinationLocation(ActionEvent event) {
-	    	String title="Bitte wählen Sie das WurzelVerzeichnis aus, in das Ihre Dateien abgelegt werden sollen";
-	    	useDirChooser(labelPathDestinationLocation,title);
-	    	takeChange.setDisable(false);
-	    }
+	@FXML
+	private Button abort;
 
-	    @FXML
-	    void handleSearchSourceLocation(ActionEvent event) {
-	    	String title="Bitte wählen Sie das Verzeichnis aus, in dem die zu archivierenden Dateien liegen";
-			useDirChooser(labelPathSourceLocation,title);
-			takeChange.setDisable(false);
-	    }
-	    @FXML
-	    void handleTakeChange(ActionEvent event) {
-	    	File source=new File(labelPathSourceLocation.getText());
-	    	File destination= new File(labelPathDestinationLocation.getText());
-	    	main.getMyConfig().setDestinationDir(labelPathDestinationLocation.getText());
-        main.getMyConfig().setSourceDir(labelPathSourceLocation.getText());
-	    	if(source.exists()&& destination.exists()){
-	    		
-	    		  		con.insertConfig(labelPathSourceLocation.getText(), 
-	    				labelPathDestinationLocation.getText(), 
-	    				"true"); //Version 1 noch fester Wert
-	    		  		takeChange.setDisable(true);
-	    	}
-	    }
+	@FXML
+	private Button takeChange;
 
-		@Override
-		public void initialize(URL arg0, ResourceBundle arg1) {
-			// TODO Auto-generated method stub
-			
+	@FXML
+	void handleSearchDestinationLocation(ActionEvent event) {
+		String title = "Bitte wählen Sie das WurzelVerzeichnis aus, in das Ihre Dateien abgelegt werden sollen";
+		useDirChooser(labelPathDestinationLocation, title);
+		takeChange.setDisable(false);
+	}
+
+	@FXML
+	void handleSearchSourceLocation(ActionEvent event) {
+		String title = "Bitte wählen Sie das Verzeichnis aus, in dem die zu archivierenden Dateien liegen";
+		useDirChooser(labelPathSourceLocation, title);
+		takeChange.setDisable(false);
+	}
+
+	@FXML
+	void handleTakeChange(ActionEvent event) {
+		File source = new File(labelPathSourceLocation.getText());
+		File destination = new File(labelPathDestinationLocation.getText());
+		main.getMyConfig().setDestinationDir(labelPathDestinationLocation.getText());
+		main.getMyConfig().setSourceDir(labelPathSourceLocation.getText());
+		if (source.exists() && destination.exists()) {
+			con.insertConfig(labelPathSourceLocation.getText(), labelPathDestinationLocation.getText(), "true"); // Version
+			takeChange.setDisable(true);
 		}
-		private void useDirChooser(Label lbl, String title){
-			/*
-			 * kerstin
-			 * damit nicht mehrmals faktisch derselbe Code dasteht eigene Methode
-			 * es wird ein Directory ausgewählt und das Ergebnis in das entsprechende Label 
-			 * geschrieben
-			 * Bricht der Anwender die Auswahl ab, passiert nix
-			 */
-			DirectoryChooser dirChooser = new DirectoryChooser();
-	    	File myFile= new File(lbl.getText());
-			if (myFile.exists() && myFile.isDirectory()){
-				dirChooser.setInitialDirectory(myFile);
-			}
-			dirChooser.setTitle(title);
-			// dir wird gelesen
-			myFile = dirChooser.showDialog(lbl.getScene().getWindow());
-			if(myFile!=null){
-				//bei null hätte der User die Auswahl abgebrochen und es würde nullpointerException geben
-				lbl.setText(myFile.getAbsolutePath());
-			}
-		}
+	}
 
-	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void useDirChooser(Label lbl, String title) {
+		/*
+		 * kerstin: damit nicht mehrmals faktisch derselbe Code dasteht eigene
+		 * Methode es wird ein Directory ausgewählt und das Ergebnis in das
+		 * entsprechende Label geschrieben. Bricht der Anwender die Auswahl ab,
+		 * passiert nix
+		 */
+		DirectoryChooser dirChooser = new DirectoryChooser();
+		File myFile = new File(lbl.getText());
+		if (myFile.exists() && myFile.isDirectory()) {
+			dirChooser.setInitialDirectory(myFile);
+		}
+		dirChooser.setTitle(title);
+		// dir wird gelesen
+		myFile = dirChooser.showDialog(lbl.getScene().getWindow());
+		if (myFile != null) {
+			// bei null hätte der User die Auswahl abgebrochen und es würde
+			// nullpointerException geben
+			lbl.setText(myFile.getAbsolutePath());
+		}
+	}
 
 }

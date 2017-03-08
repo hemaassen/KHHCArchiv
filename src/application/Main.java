@@ -15,9 +15,8 @@ import persistence.ConfigTable;
  * <ul>
  * <li>manuellen Ablage,
  * <li>automatischen Ablage,
- * <li>Dokumentensuche und zu den 
- * <li>Einstellungen
- * </li>
+ * <li>Dokumentensuche und zu den
+ * <li>Einstellungen</li>
  * </ul>
  * 
  * @author kerstin, helge, chris, holger
@@ -25,56 +24,52 @@ import persistence.ConfigTable;
  */
 public class Main extends Application {
 
-  private Stage primarayStage; // ist das klassische "Fenster" unsere Bühne
-  private ConfigTable myConfig;
-  public Stage getPrimarayStage() {
-    return primarayStage;
-  }
+	private Stage primarayStage; // ist das klassische "Fenster" unsere Bühne
+	private ConfigTable myConfig;
 
-  public ConfigTable getMyConfig() {
-	return myConfig;
-}
+	public Stage getPrimarayStage() {
+		return primarayStage;
+	}
 
-public void setMyConfig(ConfigTable myConfig) {
-	this.myConfig = myConfig;
-}
+	public ConfigTable getMyConfig() {
+		return myConfig;
+	}
 
-@Override
-  public void start(Stage primaryStage) {
-	  myConfig= new ConfigTable();
-	  this.primarayStage = primaryStage;
-	  primarayStage.setTitle("Archivierung V 1.0");
-    mainWindow();
-  }
+	public void setMyConfig(ConfigTable myConfig) {
+		this.myConfig = myConfig;
+	}
 
-  public void mainWindow() {
-    try {
-      FXMLLoader loader = new FXMLLoader(
-          Main.class.getResource("fxml/MainWindow.fxml"));
-      // es muss hier der äußerste Container geladen werden hier SplitPane
-      AnchorPane pane = loader.load(); // der Container in dem alle Elemente
-                                       // liegen
+	@Override
+	public void start(Stage primaryStage) {
+		myConfig = new ConfigTable();
+		this.primarayStage = primaryStage;
+		primarayStage.setTitle("Archivierung V 1.0");
+		mainWindow();
+	}
 
-      // Was wird hier gespielt - die erste Szene = das Fenster im Urzustand
-      Scene scene = new Scene(pane);
+	public void mainWindow() {
+		try {
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("fxml/MainWindow.fxml"));
+			// es muss hier der äußerste Container geladen werden hier AnchorPane
+			AnchorPane pane = loader.load(); // der Container in dem alle Elemente liegen
+			// Was wird hier gespielt - die erste Szene = das Fenster im Urzustand
+			Scene scene = new Scene(pane);
+			// kopplung des Fensters (Bühne) mit der Szene
+			primarayStage.setScene(scene);
+			// und hier steht das Drehbuch
+			MainWindowController mainWindowController = loader.getController();
+			// dem Drehbuch mitteilen zu welchem Stück es gehört
+			mainWindowController.setMain(this);
+			// der Vorgang geht auf
+			primarayStage.show();
+		} catch (IOException e) {
+			// TODO Automatisch generierter Erfassungsblock
+			e.printStackTrace();
+		}
+	}
 
-      // kopplung des Fensters (Bühne) mit der Szene
-      primarayStage.setScene(scene);
-      // der Vorgang geht auf
-
-      // und hier steht das Drehbuch
-      MainWindowController mainWindowController = loader.getController();
-      // dem Drehbuch mitteilen zu welchem St�ck es gehört
-      mainWindowController.setMain(this);
-      primarayStage.show();
-    } catch (IOException e) {
-      // TODO Automatisch generierter Erfassungsblock
-      e.printStackTrace();
-    }
-  }
-
-  public static void main(String[] args) {
-    launch(args);
-  }
+	public static void main(String[] args) {
+		launch(args);
+	}
 
 }
