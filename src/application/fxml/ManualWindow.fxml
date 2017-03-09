@@ -5,12 +5,13 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ManualWindowController">
+<AnchorPane fx:id="anchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ManualWindowController">
    <children>
       <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -44,10 +45,14 @@
       <ComboBox fx:id="listKeywordFive" disable="true" layoutX="759.0" layoutY="467.0" prefHeight="35.0" prefWidth="200.0" />
       <Button fx:id="zoomPlus" disable="true" layoutX="458.0" layoutY="101.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom +" />
       <Button fx:id="zoomMinus" disable="true" layoutX="458.0" layoutY="143.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom -" />
-      <ImageView fx:id="imageActualDoc" accessibleRole="PARENT" fitHeight="558.0" fitWidth="394.0" layoutX="42.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
-         <viewport>
-            <Rectangle2D height="842.0" width="595.0" />
-         </viewport>
-      </ImageView>
+      <ScrollPane fx:id="ImageScrollPane" layoutX="42.0" layoutY="92.0" prefHeight="571.0" prefWidth="409.0">
+         <content>
+            <ImageView fx:id="imageActualDoc" accessibleRole="PARENT" fitHeight="558.0" fitWidth="394.0" pickOnBounds="true" preserveRatio="true">
+               <viewport>
+                  <Rectangle2D height="842.0" width="595.0" />
+               </viewport>
+            </ImageView>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
