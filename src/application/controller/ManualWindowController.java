@@ -222,6 +222,12 @@ public class ManualWindowController implements Initializable {
      zoomMinus.setDisable(false); // hs
   }
   
+  /**
+   * Zwei Methoden für Zoom In und Zoom Out per Mausklick auf dei entsprechenden Buttons
+   * 
+   * @author kerstin, helge, chris
+   * @param event
+   */
   @FXML
   void onClickZoomIn(MouseEvent event) {
 	  zoomProperty.set(zoomProperty.get() * 1.1);
