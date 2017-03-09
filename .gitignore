@@ -2,7 +2,7 @@
 /.classpath
 /database/
 
-# von https://github.com/github/gitignore/blob/master/Java.gitignore
+# von https://github.com/github/gitignore/blob/master/Java.gitignore CB
 # Compiled class file
 *.class
 
