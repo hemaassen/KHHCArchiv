@@ -23,6 +23,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -217,8 +218,8 @@ public class ManualWindowController implements Initializable {
         e.printStackTrace();
       }
     }
-    // zoomPlus.setDisable(false); // hs
-    // zoomMinus.setDisable(false); // hs
+     zoomPlus.setDisable(false); // hs
+     zoomMinus.setDisable(false); // hs
   }
 
   /**
@@ -381,7 +382,15 @@ public class ManualWindowController implements Initializable {
     // listKeywordFive.setDisable(true);
     // }
   }
-
+  @FXML
+  void onClickZoomIn(MouseEvent event) {
+	  zoomProperty.set(zoomProperty.get() * 1.1);
+  }
+  @FXML
+  void onClickZoomOut(MouseEvent event) {
+	  zoomProperty.set(zoomProperty.get() / 1.1);
+  }
+  
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     listKeywordOne.setItems(KeywordTable.selectLevel(1));
