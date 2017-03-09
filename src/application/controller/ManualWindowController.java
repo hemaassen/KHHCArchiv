@@ -221,7 +221,16 @@ public class ManualWindowController implements Initializable {
      zoomPlus.setDisable(false); // hs
      zoomMinus.setDisable(false); // hs
   }
-
+  
+  @FXML
+  void onClickZoomIn(MouseEvent event) {
+	  zoomProperty.set(zoomProperty.get() * 1.1);
+  }
+  @FXML
+  void onClickZoomOut(MouseEvent event) {
+	  zoomProperty.set(zoomProperty.get() / 1.1);
+  }
+  
   /**
    * hier kommt rein was die methode macht....
    * 
@@ -382,15 +391,7 @@ public class ManualWindowController implements Initializable {
     // listKeywordFive.setDisable(true);
     // }
   }
-  @FXML
-  void onClickZoomIn(MouseEvent event) {
-	  zoomProperty.set(zoomProperty.get() * 1.1);
-  }
-  @FXML
-  void onClickZoomOut(MouseEvent event) {
-	  zoomProperty.set(zoomProperty.get() / 1.1);
-  }
-  
+ 
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     listKeywordOne.setItems(KeywordTable.selectLevel(1));
