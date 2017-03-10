@@ -12,7 +12,12 @@
 	-fx-background-color: #0e7477
 }
 .scroll-bar:horizontal, .scroll-bar:vertical{
-    -fx-background-color: #0e7477
+    -fx-background-color: #ffffff
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+	-fx-background-color: #0e7477
 }
 #anchorParent{
 	-fx-background-color: #0e7477
