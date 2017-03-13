@@ -4,3 +4,6 @@
 4. HM 170224: wie gehen die Daten der Datenbank auf dem Computer auf das Handy?
 5. 02.03.17:  neue/weitere klassen für die persistierung erstellen, combobox-inhalte sperren, wenn inhalte gelöscht wurden 
 				(abhängigkeit der reihenfolge beachten), javadoc für neu erstellte methoden, usw.... 
+				170313: Datensicherung für Datenbank, import(überprüfung ob Struktur richtig ist), export 
+				170313: Datenbank aus der Struktur wiederherstellen path=Keyword (absoluter Notfall)
+				
