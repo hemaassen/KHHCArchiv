@@ -8,12 +8,16 @@ import java.util.ResourceBundle;
 
 import application.KeyWord;
 import application.Main;
+import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -77,7 +81,7 @@ public class ManualWindowController implements Initializable {
 	private Label labelKeywordTwo;
 
 	@FXML
-	private Label labelKeywordtThree;
+	private Label labelKeywordThree;
 
 	@FXML
 	private Label labelKeywordFour;
@@ -88,9 +92,9 @@ public class ManualWindowController implements Initializable {
 	@FXML
 	private Button save;
 
-	
 	@FXML
 	private ComboBox<KeyWord> listKeywordOne;
+	
 	@FXML
 	private ComboBox<KeyWord> listKeywordTwo;
 
@@ -109,15 +113,20 @@ public class ManualWindowController implements Initializable {
 	@FXML
 	private Button zoomMinus;
 
-	// hs
 	@FXML
 	private ScrollPane ImageScrollPane;
 
 	KeyWord selectedKeywordOne;
-	KeyWord selectedKeyWordTwo;
+	KeyWord selectedKeywordTwo;
+	KeyWord selectedKeywordThree;
+	KeyWord selectedKeywordFour;
+	KeyWord selectedKeywordFive;
 	ObservableList<KeyWord> olLevel1 = KeywordTable.selectLevel(1);
+	ObservableList<KeyWord> olLevel2 = KeywordTable.selectLevel(2);
+	ObservableList<KeyWord> olLevel3 = KeywordTable.selectLevel(3);
+	ObservableList<KeyWord> olLevel4 = KeywordTable.selectLevel(4);
+	ObservableList<KeyWord> olLevel5 = KeywordTable.selectLevel(5);
 
-	// hs - test zum zoomen
 	final DoubleProperty zoomProperty = new SimpleDoubleProperty(200);
 
 	/**
@@ -243,7 +252,9 @@ public class ManualWindowController implements Initializable {
 	}
 
 	/**
-	 * hier kommt rein was die methode macht....
+	 * Auswahl eines Datums
+	 * -ohne Datum darf kein Schlüsselwort ausgewählt oder hinzugefügt werden
+	 * und eine Speicherung findet nicht statt
 	 * 
 	 * @author helge
 	 * @param event
@@ -265,99 +276,44 @@ public class ManualWindowController implements Initializable {
 
 	@FXML
 	void inputManualKeywordOne(ActionEvent event) {
-		int i = 1;
-		System.out.println("vor Prüfung auf nicht null" + i++);
+		// Prüfung, ob was ausgewählt ist
 		if (listKeywordOne.getValue() != null) {
-			System.out.println(" es ist nicht null" + i++);
-			// listKeywordOne.setDisable(false);
-
 			listKeywordTwo.setDisable(false);
-			System.out.println(i++);
 			save.setDisable(false);
-			System.out.println(i++);
 		} else {
-			// listKeywordTwo.setValue(null);
-			// listKeywordThree.setValue(null);
-			// listKeywordFour.setValue(null);
-			// listKeywordFive.setValue(null);
-			// listKeywordTwo.setDisable(true);
-			// listKeywordThree.setDisable(true);
-			// listKeywordFour.setDisable(true);
-			// listKeywordFive.setDisable(true);
-			System.out.println("ist null" + i++);
 			save.setDisable(true);
-			System.out.println("ist null" + i++);
 		}
-
 		try {
-			System.out.println("was ausgewählt" + i++);
 			selectedKeywordOne = listKeywordOne.getValue();
-			System.out.println("was ausgewählt" + i++);
 			if (selectedKeywordOne.getKeyword().equals("Neuer Eintrag..")) {
-				System.out.println("neuer Eintrag" + i++);
-				KeyWord newKeyWord = newKeywordDialog(1, 1);
-				System.out.println("neues keywort ist da" + i++);
-				listKeywordOne.getItems().add(newKeyWord);
-				System.out.println("neues Keywort zur liste hinzugefügt" + i++);
-				Collections.sort(listKeywordOne.getItems());
-				System.out.println("Liste ist wieder sortiert" + i++);
-				listKeywordOne.setValue(newKeyWord);
-				System.out.println("neues Keywort wird ausgewählt" + i++);
-
-				// listKeywordTwo.setDisable(true);
-				// listKeywordTwo.setItems(null);
-				// save.setDisable(true);
-
-				// Das sollte der Coder für Popup sein!!!!!!!!!
-				// try {
-				// FXMLLoader fxmlLoader = new
-				// FXMLLoader(getClass().getResource("../fxml/NewKeywordWindow.fxml"));
-				// Parent root1 = (Parent) fxmlLoader.load();
-				// Stage stage = new Stage();
-				// stage.setScene(new Scene(root1));
-				// stage.show();
-				// } catch (Exception e) {
-				// System.out.println("Popup kann leider nicht geöffnet
-				// werden");
-				// }
-
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						if (selectedKeywordOne.getId() == 1)
+						{
+							KeyWord newKeyWord = newKeywordDialog(1, 1);
+							listKeywordOne.getItems().add(newKeyWord);
+							Collections.sort(listKeywordOne.getItems());
+							listKeywordOne.setValue(newKeyWord);
+							selectedKeywordOne = listKeywordOne.getValue();
+						}
+					}
+				});
 			} else {
-				System.out.println("Die Kinder für die nächste Ebene müssen ermittelt werden" + i++);
 				listKeywordTwo.setItems(KeywordTable.getChildren(selectedKeywordOne.getId()));
 			}
-
-			System.out.println("level 1 " + selectedKeywordOne.getId() + " " + selectedKeywordOne.getKeyword());
-
 		} catch (Exception e) {
 			// da der geworfene Fehler völlig sinnlos ist,
 			// fangen wir ihn und ignorieren ihn
 
-			System.out.println("Fehlergrund: " + e.getCause());
-			System.out.println("Fehlermeldung: " + e.getMessage());
-			// System.out.println("Fehlerlokalisiertemeldung: " +
-			// e.getLocalizedMessage());
+			//System.out.println("Fehlergrund: " + e.getCause());
+			//System.out.println("Fehlermeldung: " + e.getMessage());
 		}
-
 	}
 
 	@FXML
 	void inputManualKeywordOneChanged(InputMethodEvent event) {
-		System.out.println("inputManualKeywordOneChanged");
-		// if (listKeywordOne.getValue() != null) {
-		// listKeywordOne.setDisable(false);
-		// listKeywordTwo.setDisable(false);
-		// save.setDisable(false);
-		// } else {
-		// listKeywordTwo.setValue(null);
-		// listKeywordThree.setValue(null);
-		// listKeywordFour.setValue(null);
-		// listKeywordFive.setValue(null);
-		// listKeywordTwo.setDisable(true);
-		// listKeywordThree.setDisable(true);
-		// listKeywordFour.setDisable(true);
-		// listKeywordFive.setDisable(true);
-		// save.setDisable(true);
-		// }
+
 	}
 
 	@FXML
@@ -370,24 +326,52 @@ public class ManualWindowController implements Initializable {
 			// listKeywordFive.setDisable(true);
 		}
 		try {
-			selectedKeyWordTwo = listKeywordTwo.getValue();
-			if (selectedKeyWordTwo.getKeyword().equals("Neuer Eintrag..")) {
-				System.out.println("jetzt muss der dialog auf");
+			selectedKeywordTwo = listKeywordTwo.getValue();
+			if (selectedKeywordTwo.getKeyword().equals("Neuer Eintrag..")) {
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						if (selectedKeywordTwo.getId() == 1)
+						{
+							KeyWord newKeyWord = newKeywordDialog(2, selectedKeywordOne.getId());
+							listKeywordTwo.getItems().add(newKeyWord);
+							Collections.sort(listKeywordTwo.getItems());
+							listKeywordTwo.setValue(newKeyWord);
+							selectedKeywordTwo = listKeywordTwo.getValue();
+						}
+					}
+				});
+				// Das sollte der Coder für Popup sein!!!!!!!!!
+				// try {
+				// FXMLLoader fxmlLoader = new
+				// FXMLLoader(getClass().getResource("../fxml/NewKeywordWindow.fxml"));
+				// Parent root1 = (Parent) fxmlLoader.load();
+				// Stage stage = new Stage();
+				// stage.setScene(new Scene(root1));
+				// stage.show();
+				// } catch (Exception e) {
+				// System.out.println("Popup kann leider nicht geöffnet
+				// werden");
+				// }
 			} else {
-				System.out.println("children vom gewählten Eintrag müssen ermittelt und zugewiesen werden");
-				listKeywordThree.setItems(KeywordTable.getChildren(selectedKeyWordTwo.getId()));
+				listKeywordThree.setItems(KeywordTable.getChildren(selectedKeywordTwo.getId()));
 			}
-			System.out.println("level 2 " + selectedKeyWordTwo.getId() + " " + selectedKeyWordTwo.getKeyword());
+
 		} catch (Exception e) {
 			// da der geworfene Fehler völlig sinnlos ist,
 			// fangen wir ihn und ignorieren ihn
 
-			// System.out.println("Fehlergrund: " + e.getCause());
-			// System.out.println("Fehlermeldung: " + e.getMessage());
-			// System.out.println("Fehlerlokalisiertemeldung: " +
-			// e.getLocalizedMessage());
+			//System.out.println("Fehlergrund: " + e.getCause());
+			//System.out.println("Fehlermeldung: " + e.getMessage());
 		}
 	}
+	/**
+	 * öffnet die Inputbox für ein neues Schlüsselwort
+	 * und speichert es mit seinen Beziehungen in der Datenbank
+	 * @author Kerstin
+	 * @param myLevel = das eigene Level des Schlüsselwortes
+	 * @param myParentID = die Id des ElternSchlüsselwortes (liefert die Combobox davor)
+	 */
 
 	@FXML
 	void inputManualKeywordThree(ActionEvent event) {
@@ -417,7 +401,6 @@ public class ManualWindowController implements Initializable {
 		// listKeywordFive.setDisable(true);
 		// }
 	}
-
 	KeyWord newKeywordDialog(int myLevel, Integer myParentID) {
 		KeyWord k = new KeyWord();
 		try {
@@ -434,7 +417,6 @@ public class ManualWindowController implements Initializable {
 				k.setLevel(myLevel);
 				k.setParent(myParentID);
 				KeywordTable.insertKeyword(k);
-
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -444,7 +426,10 @@ public class ManualWindowController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		listKeywordOne.setItems(KeywordTable.selectLevel(1));
+
+		// olLevel1.addAll(KeywordTable.selectLevel(1));
+		// listTest.setItems(listData);
+		listKeywordOne.setItems(olLevel1);
 
 	}
 }

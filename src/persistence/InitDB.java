@@ -18,28 +18,33 @@ public class InitDB {
 			Statement stmt=con.createStatement();	){
 			String sql;
 			//Anlegen der Tabelle config
-			sql = "DROP Table If EXISTS config"; //holger
-			stmt.executeUpdate(sql);             //holger
+			sql = "DROP Table If EXISTS config"; 
+			stmt.executeUpdate(sql);            
 			
-			sql = "CREATE TABLE config " + "( '_id' INTEGER PRIMARY_KEY  AUTO_INCREMENT   NOT NULL,"
+			sql = "CREATE TABLE config " + "( '_id' INTEGER PRIMARY KEY  AUTOINCREMENT,"
 					+ " sourceRoot           VARCHAR(255)    NOT NULL, " + " destinationRoot            VARCHAR(255)     NOT NULL, "
 					+ " manualStore        CHAR(5) DEFAULT true)";
 			stmt.executeUpdate(sql);
 			//Anlegen der Tabelle keywords
-			sql = "DROP Table If EXISTS keywords"; //holger
-			stmt.executeUpdate(sql);               //holger
+			sql = "DROP Table If EXISTS keywords"; 
+			stmt.executeUpdate(sql);               
 			
 			sql = "CREATE TABLE keywords " + "( 'id' INTEGER PRIMARY KEY  AUTOINCREMENT,"
-					+ " keyWord           VARCHAR(50)    NOT NULL, " + " pathName            VARCHAR(50)     NOT NULL, "
+					+ " keyWord           VARCHAR(50)    NOT NULL, " 
+					+ " pathName            VARCHAR(50)     NOT NULL, "
 					+ " level     INTEGER  NOT NULL)";
+					
 			stmt.executeUpdate(sql);
 			//Anlegen der Tabelle childParant
-			sql = "DROP Table If EXISTS childParent";  //holger
-			stmt.executeUpdate(sql);                   //holger
+			sql = "DROP Table If EXISTS childParent";  
+			stmt.executeUpdate(sql);                   
 			
 			sql = "CREATE TABLE childParent " + "( 'id' INTEGER PRIMARY KEY AUTOINCREMENT,"
-					+ " child    INTEGER  NOT NULL, " + " parent     INTEGER  NOT NULL, " + " FOREIGN KEY(child) REFERENCES keywords(id),"
-					+ " FOREIGN KEY(parent) REFERENCES keywords(id))";
+					+ " child    INTEGER  NOT NULL, " 
+					+ " parent     INTEGER  NOT NULL, " 
+					+ " FOREIGN KEY(child) REFERENCES keywords(id) ON DELETE CASCADE,"
+					+ " FOREIGN KEY(parent) REFERENCES keywords(id) ON DELETE CASCADE)";
+					
 			stmt.executeUpdate(sql);
 			//Startwert in Tabelle keywords eintragen
 			sql="INSERT INTO keywords (keyWord, pathName, level) "
