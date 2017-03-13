@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+
 import application.KeyWord;
 import application.Main;
 import javafx.application.Platform;
@@ -94,7 +96,7 @@ public class ManualWindowController implements Initializable {
 
 	@FXML
 	private ComboBox<KeyWord> listKeywordOne;
-	
+
 	@FXML
 	private ComboBox<KeyWord> listKeywordTwo;
 
@@ -115,6 +117,21 @@ public class ManualWindowController implements Initializable {
 
 	@FXML
 	private ScrollPane ImageScrollPane;
+
+	@FXML
+	private JFXButton changeKeywordOne;
+
+	@FXML
+	private JFXButton changeKeywordTwo;
+
+	@FXML
+	private JFXButton changeKeywordThree;
+
+	@FXML
+	private JFXButton changeKeywordFour;
+
+	@FXML
+	private JFXButton changeKeywordFive;
 
 	KeyWord selectedKeywordOne;
 	KeyWord selectedKeywordTwo;
@@ -142,6 +159,32 @@ public class ManualWindowController implements Initializable {
 	 * 
 	 * @author kerstin
 	 */
+
+	@FXML
+	void onChangeKeywordOne(ActionEvent event) {
+
+	}
+
+	@FXML
+	void onChangeKeywordTwo(ActionEvent event) {
+
+	}
+
+	@FXML
+	void onChangeKeywordThree(ActionEvent event) {
+
+	}
+
+	@FXML
+	void onChangeKeywordFour(ActionEvent event) {
+
+	}
+
+	@FXML
+	void onChangeKeywordFive(ActionEvent event) {
+
+	}
+
 	@FXML
 	public void handleSearchDoc() {
 
@@ -252,9 +295,8 @@ public class ManualWindowController implements Initializable {
 	}
 
 	/**
-	 * Auswahl eines Datums
-	 * -ohne Datum darf kein Schlüsselwort ausgewählt oder hinzugefügt werden
-	 * und eine Speicherung findet nicht statt
+	 * Auswahl eines Datums -ohne Datum darf kein Schlüsselwort ausgewählt oder
+	 * hinzugefügt werden und eine Speicherung findet nicht statt
 	 * 
 	 * @author helge
 	 * @param event
@@ -289,8 +331,7 @@ public class ManualWindowController implements Initializable {
 				Platform.runLater(new Runnable() {
 					@Override
 					public void run() {
-						if (selectedKeywordOne.getId() == 1)
-						{
+						if (selectedKeywordOne.getId() == 1) {
 							KeyWord newKeyWord = newKeywordDialog(1, 1);
 							listKeywordOne.getItems().add(newKeyWord);
 							Collections.sort(listKeywordOne.getItems());
@@ -306,8 +347,8 @@ public class ManualWindowController implements Initializable {
 			// da der geworfene Fehler völlig sinnlos ist,
 			// fangen wir ihn und ignorieren ihn
 
-			//System.out.println("Fehlergrund: " + e.getCause());
-			//System.out.println("Fehlermeldung: " + e.getMessage());
+			// System.out.println("Fehlergrund: " + e.getCause());
+			// System.out.println("Fehlermeldung: " + e.getMessage());
 		}
 	}
 
@@ -331,8 +372,7 @@ public class ManualWindowController implements Initializable {
 				Platform.runLater(new Runnable() {
 					@Override
 					public void run() {
-						if (selectedKeywordTwo.getId() == 1)
-						{
+						if (selectedKeywordTwo.getId() == 1) {
 							KeyWord newKeyWord = newKeywordDialog(2, selectedKeywordOne.getId());
 							listKeywordTwo.getItems().add(newKeyWord);
 							Collections.sort(listKeywordTwo.getItems());
@@ -361,16 +401,21 @@ public class ManualWindowController implements Initializable {
 			// da der geworfene Fehler völlig sinnlos ist,
 			// fangen wir ihn und ignorieren ihn
 
-			//System.out.println("Fehlergrund: " + e.getCause());
-			//System.out.println("Fehlermeldung: " + e.getMessage());
+			// System.out.println("Fehlergrund: " + e.getCause());
+			// System.out.println("Fehlermeldung: " + e.getMessage());
 		}
 	}
+
 	/**
-	 * öffnet die Inputbox für ein neues Schlüsselwort
-	 * und speichert es mit seinen Beziehungen in der Datenbank
+	 * öffnet die Inputbox für ein neues Schlüsselwort und speichert es mit
+	 * seinen Beziehungen in der Datenbank
+	 * 
 	 * @author Kerstin
-	 * @param myLevel = das eigene Level des Schlüsselwortes
-	 * @param myParentID = die Id des ElternSchlüsselwortes (liefert die Combobox davor)
+	 * @param myLevel
+	 *            = das eigene Level des Schlüsselwortes
+	 * @param myParentID
+	 *            = die Id des ElternSchlüsselwortes (liefert die Combobox
+	 *            davor)
 	 */
 
 	@FXML
@@ -401,6 +446,7 @@ public class ManualWindowController implements Initializable {
 		// listKeywordFive.setDisable(true);
 		// }
 	}
+
 	KeyWord newKeywordDialog(int myLevel, Integer myParentID) {
 		KeyWord k = new KeyWord();
 		try {
