@@ -1,6 +1,7 @@
 /bin/
 /.classpath
 /database/
+/database/archiv.db
 
 # von https://github.com/github/gitignore/blob/master/Java.gitignore CB
 # Compiled class file
