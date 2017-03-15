@@ -44,7 +44,7 @@
                      </viewport>
                   </ImageView>
                   <Button id="menuManualButton" fx:id="manualStore" layoutX="25.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleManualButtonAction" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuAutoButton" fx:id="autoStore" layoutX="25.0" layoutY="182.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE">
+                  <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="182.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE">
                      <font>
                         <Font size="11.0" />
                      </font>
