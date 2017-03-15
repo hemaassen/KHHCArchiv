@@ -45,7 +45,7 @@
                      </viewport>
                   </ImageView>
                   <JFXButton id="menuManualButton" fx:id="manualStore" buttonType="RAISED" disable="true" layoutX="25.0" layoutY="128.0" onAction="#handleManualButtonAction" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Manuelle Ablage" textFill="#023537" visible="false" />
-                  <Button id="menuManualButton" layoutX="25.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleManualButtonAction" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" text="Manuelle Ablage" textFill="WHITE" />
+                  <Button id="menuManualButton" layoutX="25.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleManualButtonAction" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
                   <JFXButton id="menuAutoButton" fx:id="autoStore" buttonType="RAISED" layoutX="25.0" layoutY="182.0" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Automatische Ablage" visible="false">
                      <font>
                         <Font size="11.0" />
