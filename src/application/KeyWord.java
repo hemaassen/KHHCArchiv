@@ -77,6 +77,7 @@ public class KeyWord implements Comparable<KeyWord> {
 	 * Attribut keywort geregelt. Hier wird dann die alphabetische 
 	 * Reihenfolge genutzt. Ausnahme ist "Neuer Eintrag.." der immer am Ende 
 	 * der Liste steht 
+	 * eine Unterscheidung nach Groß-und Kleinbuchstaben wird nicht gemacht
 	 * @author Kerstin
 	 */
 	@Override
@@ -87,7 +88,7 @@ public class KeyWord implements Comparable<KeyWord> {
 		} else if (k.getKeyword().equals("Neuer Eintrag..")) {
 			result = -1;
 		} else {
-			result = keyword.compareTo(k.getKeyword());
+			result = keyword.toLowerCase().compareTo(k.getKeyword().toLowerCase());
 		}
 		return result;
 	}

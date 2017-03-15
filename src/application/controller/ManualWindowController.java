@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
@@ -268,34 +269,99 @@ public class ManualWindowController implements Initializable {
 
 	@FXML
 	void inputManualKeywordOne(ActionEvent event) {
-		
-		
-		listKeywordOne.setValue(inputManualKeyword(listKeywordOne, listKeywordTwo, 1, 1));
-		
+		if (listKeywordOne.getValue() != null) {
+			listKeywordOne.setValue(inputManualKeyword(listKeywordOne, listKeywordTwo, 1, 1, changeKeywordOne));
+			deactivateGrandchild(1);
+		}
+	}
+
+	void deactivateGrandchild(int level) {
+		Platform.runLater(new Runnable() {
+
+			@Override
+			public void run() {
+				try {
+					switch (level) {
+					case 1:
+						if (listKeywordOne.getValue().getKeyword().length() == 0) {
+							changeKeywordOne.setDisable(true);
+							listKeywordTwo.setDisable(true);
+							save.setDisable(true);
+						}
+						listKeywordThree.setValue(null);
+						listKeywordThree.setDisable(true);
+						listKeywordFour.setDisable(true);
+						listKeywordFour.setValue(null);
+						listKeywordFive.setDisable(true);
+						listKeywordFive.setValue(null);
+						break;
+
+					case 2:
+						if (listKeywordTwo.getValue().getKeyword().length() == 0) {
+							listKeywordThree.setDisable(true);
+							changeKeywordTwo.setDisable(true);
+						}
+						listKeywordFour.setDisable(true);
+						listKeywordFour.setValue(null);
+						listKeywordFive.setDisable(true);
+						listKeywordFive.setValue(null);
+						break;
+					case 3:
+						if (listKeywordThree.getValue().getKeyword().length() == 0) {
+							listKeywordFour.setDisable(true);
+							changeKeywordThree.setDisable(true);
+						}
+						listKeywordFive.setDisable(true);
+						listKeywordFive.setValue(null);
+
+						break;
+
+					default:
+						break;
+					}
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+		});
+	}
+
+	@FXML
+	void onMouseClicked(MouseEvent event) {
+		System.out.println("onMouseClicked");
 	}
 
 	@FXML
 	void inputManualKeywordTwo(ActionEvent event) {
-		listKeywordTwo
-				.setValue(inputManualKeyword(listKeywordTwo, listKeywordThree, 2, listKeywordOne.getValue().getId()));
-
+		if (listKeywordTwo.getValue() != null) {
+			listKeywordTwo.setValue(
+					inputManualKeyword(listKeywordTwo, listKeywordThree, 2, listKeywordOne.getValue().getId(),changeKeywordTwo));
+			deactivateGrandchild(2);
+		}
 	}
 
 	@FXML
 	void inputManualKeywordThree(ActionEvent event) {
-		listKeywordThree
-				.setValue(inputManualKeyword(listKeywordThree, listKeywordFour, 3, listKeywordTwo.getValue().getId()));
+		if (listKeywordThree.getValue() != null) {
+			listKeywordThree.setValue(
+					inputManualKeyword(listKeywordThree, listKeywordFour, 3, listKeywordTwo.getValue().getId(),changeKeywordThree));
+			deactivateGrandchild(3);
+		}
 	}
 
 	@FXML
 	void inputManualKeywordFour(ActionEvent event) {
-		listKeywordFour
-				.setValue(inputManualKeyword(listKeywordFour, listKeywordFive, 4, listKeywordThree.getValue().getId()));
+		if (listKeywordFour.getValue() != null) {
+			listKeywordFour.setValue(
+					inputManualKeyword(listKeywordFour, listKeywordFive, 4, listKeywordThree.getValue().getId(),changeKeywordFour));
+		}
 	}
 
 	@FXML
 	void inputManualKeywordFive(ActionEvent event) {
-		listKeywordFive.setValue(inputManualKeyword(listKeywordFive, null, 5, listKeywordFour.getValue().getId()));
+		if (listKeywordFour.getValue() != null) {
+			listKeywordFive.setValue(inputManualKeyword(listKeywordFive, null, 5, listKeywordFour.getValue().getId(),changeKeywordFive));
+		}
 	}
 
 	/**
@@ -337,12 +403,16 @@ public class ManualWindowController implements Initializable {
 		return k;
 	}
 
-	KeyWord inputManualKeyword(ComboBox<KeyWord> myBox, ComboBox<KeyWord> myChild, int level, Integer myParentId) {
+	KeyWord inputManualKeyword(ComboBox<KeyWord> myBox, ComboBox<KeyWord> myChild, int level, Integer myParentId, JFXButton myChangeButton ) {
 		final KeyWord myWord = myBox.getValue();
-		
 		if (myBox.getValue() != null) {
+			// System.out.println(myChild.getValue() + " " +
+			// myChild.getValue().getKeyword().length());
 			// in der box ist ein Wert ausgewählt
 			// die darunterliegende Combobox wird aktiv geschalten
+			if(myBox.getValue().getKeyword().length()>0 & !myBox.getValue().getKeyword().equals("Neuer Eintrag..")){
+				myChangeButton.setDisable(false);
+			}
 			if (myChild != null) {
 				myChild.setDisable(false);
 			}
@@ -351,11 +421,12 @@ public class ManualWindowController implements Initializable {
 		} else {
 			// es ist nichts ausgewäht - der Speicherknopf wird deaktiviert
 			save.setDisable(true);
+
 		}
 		try {
 			// in myBox steht der gewählte Wert
 			if (myWord.getKeyword().equals("Neuer Eintrag..")) {
-				if(myWord.getId()!=1){
+				if (myWord.getId() != 1) {
 					myWord.setId(1);
 				}
 				// in der Box steht "Neuer Eintrag.."
@@ -363,8 +434,8 @@ public class ManualWindowController implements Initializable {
 					// wird nur ausgeführt wenn ein Neuer Eintrag gewählt wurde
 					@Override
 					public void run() {
-						System.out.println(myWord.getId());
-						//if (myWord.getKeyword().equals("Neuer Eintrag..")) {
+						
+						// if (myWord.getKeyword().equals("Neuer Eintrag..")) {
 						if (myWord.getId() == 1) {
 							// das neue Keyword wird geholt
 							KeyWord newKeyWord = newKeywordDialog(level, myParentId);
@@ -376,9 +447,9 @@ public class ManualWindowController implements Initializable {
 								Collections.sort(myBox.getItems());
 								// die ComboBox auf den neuen Wert setzen
 								myBox.setValue(newKeyWord);
-								//Id muss auf den neuen Wert "verbogen" werden, damit es keine Doppel gibt
+								// Id muss auf den neuen Wert "verbogen" werden,
+								// damit es keine Doppel gibt
 								myWord.setId(myBox.getValue().getId());
-								
 
 							}
 						}

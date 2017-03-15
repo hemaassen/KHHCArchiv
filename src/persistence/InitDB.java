@@ -51,9 +51,13 @@ public class InitDB {
 					+ "VALUES('Neuer Eintrag..', 'xxx', 0);";
 					
 			stmt.executeUpdate(sql);
+			sql="INSERT INTO keywords (keyWord, pathName, level) "
+					+ "VALUES('', 'xxx', 0);";
+			stmt.executeUpdate(sql);
 			
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.out.println(e.getMessage());
 			
 		}
 		
