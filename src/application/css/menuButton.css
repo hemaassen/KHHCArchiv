@@ -1,0 +1,32 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#menuManualButton{
+	-fx-background-image: url('../images/menu_button_back.png')
+}
+#menuManualButton:hover{
+	-fx-background-image: url('../images/menu_button_back_hover.png');
+	-fx-text-fill: black;
+}
+#menuAutoButton{
+	-fx-background-image: url('../images/menu_button_inactiv_back.png')
+}
+#menuSearchButton{
+	-fx-background-image: url('../images/menu_button_back.png')
+}
+#menuSearchButton:hover{
+	-fx-background-image: url('../images/menu_button_back_hover.png');
+	-fx-text-fill: black;
+}
+#menuConfigButton{
+	-fx-background-image: url('../images/menu_button_back.png')
+}
+#menuConfigButton:hover{
+	-fx-background-image: url('../images/menu_button_back_hover.png');
+	-fx-text-fill: black;
+}
+#menuCloseButton{
+	-fx-background-image: url('../images/menu_button_back.png')
+}
+#menuCloseButton:hover{
+	-fx-background-image: url('../images/menu_button_back_hover.png');
+	-fx-text-fill: black;
+}
