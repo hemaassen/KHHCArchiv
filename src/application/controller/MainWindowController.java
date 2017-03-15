@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -29,19 +30,19 @@ public final class MainWindowController {
   private AnchorPane anchorMainMain;
 
   @FXML
-  private JFXButton  manualStore;
+  private Button manualStore;
 
   @FXML
-  private JFXButton  autoStore;
+  private Button autoStore;
 
   @FXML
-  private JFXButton  search;
+  private Button search;
 
   @FXML
-  private JFXButton  config;
+  private Button config;
 
   @FXML
-  private JFXButton  stop;
+  private Button stop;
 
   @FXML
   private AnchorPane anchorDetails;
