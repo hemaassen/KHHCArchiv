@@ -1,15 +1,27 @@
 #menuManualButton{
 	-fx-background-image: url('../images/menu_button_manual.png')
 }
+#menuManualButton:pressed{
+	-fx-background-image: url('../images/menu_button_manual_pressed.png')
+}
 #menuAutoButton{
 	-fx-background-image: url('../images/menu_button_inactiv_auto.png')
 }
 #menuSearchButton{
 	-fx-background-image: url('../images/menu_button_search.png')
 }
+#menuSearchButton:pressed{
+	-fx-background-image: url('../images/menu_button_search_pressed.png')
+}
 #menuConfigButton{
 	-fx-background-image: url('../images/menu_button_config.png')
 }
+#menuConfigButton:pressed{
+	-fx-background-image: url('../images/menu_button_config_pressed.png')
+}
 #menuCloseButton{
 	-fx-background-image: url('../images/menu_button_close.png')
+}
+#menuCloseButton:pressed{
+	-fx-background-image: url('../images/menu_button_close_pressed.png')
 }
