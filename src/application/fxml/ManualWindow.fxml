@@ -24,7 +24,7 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="searchDoc" layoutX="191.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleSearchDoc" prefHeight="25.0" prefWidth="124.0" stylesheets="@../css/button.css" text="Durchsuchen..." />
+      <Button fx:id="searchDoc" layoutX="191.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleSearchDoc" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Durchsuchen..." />
       <Label fx:id="labelPath" layoutX="42.0" layoutY="59.0" prefHeight="25.0" prefWidth="273.0" style="-fx-border-color: black;" text="Pfad des aktuellen Dokuments" textFill="#00000057" />
       <Label fx:id="labelKeywords" layoutX="797.0" layoutY="33.0" prefHeight="25.0" prefWidth="124.0" text="Schlüsselworte:">
          <font>
