@@ -1,3 +1,7 @@
+/**
+ * MainWindow Button
+ */
+ 
 #menuManualButton{
 	-fx-background-image: url('../images/menu_button_manual.png')
 }
@@ -24,4 +28,103 @@
 }
 #menuCloseButton:pressed{
 	-fx-background-image: url('../images/menu_button_close_pressed.png')
+}
+
+/**
+ * ManualWindow Button
+ */
+ 
+#manualSearchButton{
+	-fx-background-image: url('../images/manual_button_search.png')
+}
+#manualSearchButton:pressed{
+	-fx-background-image: url('../images/manual_button_search_pressed.png')
+}
+#manualZoomIn{
+	-fx-background-image: url('../images/manual_zoom_in.png')
+}
+#manualZoomIn:pressed{
+	-fx-background-image: url('../images/manual_zoom_in_pressed.png')
+}
+#manualZoomOut{
+	-fx-background-image: url('../images/manual_zoom_out.png')
+}
+#manualZoomOut:pressed{
+	-fx-background-image: url('../images/manual_zoom_out_pressed.png')
+}
+#manualSave{
+	-fx-background-image: url('../images/manual_save.png')
+}
+#manualSave:pressed{
+	-fx-background-image: url('../images/manual_save_pressed.png')
+}
+
+/**
+ * SearchWindow Button
+ */
+ 
+#searchSearch{
+	-fx-background-image: url('../images/search_search.png')
+}
+#searchSearch:pressed{
+	-fx-background-image: url('../images/search_search_pressed.png')
+}
+#searchZoomIn{
+	-fx-background-image: url('../images/manual_zoom_in.png')
+}
+#searchZoomIn:pressed{
+	-fx-background-image: url('../images/manual_zoom_in_pressed.png')
+}
+#searchZoomOut{
+	-fx-background-image: url('../images/manual_zoom_out.png')
+}
+#searchZoomOut:pressed{
+	-fx-background-image: url('../images/manual_zoom_out_pressed.png')
+}
+#searchNewSort{
+	-fx-background-image: url('../images/search_new_sort.png')
+}
+#searchNewSort:pressed{
+	-fx-background-image: url('../images/search_new_sort_pressed.png')
+}
+#searchPrint{
+	-fx-background-image: url('../images/search_print.png')
+}
+#searchPrint:pressed{
+	-fx-background-image: url('../images/search_print_pressed.png')
+}
+#searchSend{
+	-fx-background-image: url('../images/search_send.png')
+}
+#searchSend:pressed{
+	-fx-background-image: url('../images/search_send_pressed.png')
+}
+
+/**
+ * ConfigWindow Button
+ */
+ 
+#configSearchLocation{
+	-fx-background-image: url('../images/manual_button_search.png')
+}
+#configSearchLocation:pressed{
+	-fx-background-image: url('../images/manual_button_search_pressed.png')
+}
+#configSearchDestination{
+	-fx-background-image: url('../images/manual_button_search.png')
+}
+#configSearchDestination:pressed{
+	-fx-background-image: url('../images/manual_button_search_pressed.png')
+}
+#configBreak{
+	-fx-background-image: url('../images/config_break.png')
+}
+#configBreak:pressed{
+	-fx-background-image: url('../images/config_break_pressed.png')
+}
+#configSave{
+	-fx-background-image: url('../images/config_save.png')
+}
+#configSave:pressed{
+	-fx-background-image: url('../images/config_save_pressed.png')
 }

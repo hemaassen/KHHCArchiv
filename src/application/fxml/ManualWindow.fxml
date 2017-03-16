@@ -24,7 +24,7 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="searchDoc" layoutX="191.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleSearchDoc" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Durchsuchen..." />
+      <Button id="manualSearchButton" fx:id="searchDoc" layoutX="191.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleSearchDoc" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
       <Label fx:id="labelPath" layoutX="42.0" layoutY="59.0" prefHeight="25.0" prefWidth="273.0" style="-fx-border-color: black;" text="Pfad des aktuellen Dokuments" textFill="#00000057" />
       <Label fx:id="labelKeywords" layoutX="797.0" layoutY="33.0" prefHeight="25.0" prefWidth="124.0" text="Schlüsselworte:">
          <font>
@@ -38,7 +38,7 @@
       <Label fx:id="labelKeywordtThree" layoutX="643.0" layoutY="328.0" text="Schlüsselwort 3" />
       <Label fx:id="labelKeywordFour" layoutX="643.0" layoutY="404.0" text="Schlüsselwort 4" />
       <Label fx:id="labelKeywordFive" layoutX="643.0" layoutY="476.0" text="Schlüsselwort 5" />
-      <Button fx:id="save" disable="true" layoutX="784.0" layoutY="569.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/button.css" text="Speichern" />
+      <Button id="manualSave" fx:id="save" disable="true" layoutX="784.0" layoutY="569.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" />
       <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onAction="#inputManualKeywordOne" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <JFXButton fx:id="changeKeywordOne" disable="true" layoutX="952.0" layoutY="172.0" onAction="#onChangeKeywordOne" prefHeight="25.0" prefWidth="100.0" stylesheets="@../css/button.css" text="Umbenennen.." />
       <JFXButton fx:id="changeKeywordTwo" disable="true" layoutX="952.0" layoutY="248.0" onAction="#onChangeKeywordTwo" prefHeight="25.0" prefWidth="100.0" stylesheets="@../css/button.css" text="Umbenennen.." />
@@ -49,8 +49,8 @@
       <ComboBox fx:id="listKeywordThree" disable="true" layoutX="737.0" layoutY="311.0" onAction="#inputManualKeywordThree" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <ComboBox fx:id="listKeywordFour" disable="true" layoutX="737.0" layoutY="395.0" onAction="#inputManualKeywordFour" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <ComboBox fx:id="listKeywordFive" disable="true" layoutX="737.0" layoutY="467.0" onAction="#inputManualKeywordFive" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <Button fx:id="zoomPlus" disable="true" layoutX="458.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#onClickZoomIn" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom +" />
-      <Button fx:id="zoomMinus" disable="true" layoutX="458.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#onClickZoomOut" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom -" />
+      <Button id="manualZoomIn" fx:id="zoomPlus" disable="true" layoutX="458.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#onClickZoomIn" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
+      <Button id="manualZoomOut" fx:id="zoomMinus" disable="true" layoutX="458.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#onClickZoomOut" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
       <ScrollPane fx:id="imageScrollPane" layoutX="42.0" layoutY="92.0" prefHeight="571.0" prefWidth="409.0">
          <content>
             <ImageView fx:id="imageActualDoc" accessibleRole="PARENT" fitHeight="558.0" fitWidth="394.0" pickOnBounds="true" preserveRatio="true">
