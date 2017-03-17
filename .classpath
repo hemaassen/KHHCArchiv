@@ -14,5 +14,12 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="lib" path="libs/org.eclipse.fx.ide.css.jfx8_2.3.0.201603030809.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="libs/fontbox-2.0.5.jar"/>
+	<classpathentry kind="lib" path="libs/pdfbox-2.0.4.jar"/>
+	<classpathentry kind="lib" path="libs/pdfbox-debugger-2.0.5.jar"/>
+	<classpathentry kind="lib" path="libs/pdfbox-tools-2.0.5.jar"/>
+	<classpathentry kind="lib" path="libs/preflight-2.0.5.jar"/>
+	<classpathentry kind="lib" path="libs/xmpbox-2.0.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
