@@ -378,56 +378,55 @@ public class ManualWindowController implements Initializable {
 	 * @param myParentID
 	 *            = die Id des ElternSchlüsselwortes (liefert die Combobox
 	 *            davor)
+	 *  @param myBox 
+	 *  		  = die ComboBox für die, die Methode gerufen wird 
 	 */
 	KeyWord newKeywordDialog(int myLevel, Integer myParentID,ComboBox<KeyWord> myBox) {
 		KeyWord k = new KeyWord();
 		try {
+			//Initialisieren des Dialogs
 			TextInputDialog dialog = new TextInputDialog();
-
 			dialog.setTitle("Neuer Eintrag");
 			dialog.setHeaderText("Bitte geben Sie das neue Schlüsselwort ein");
 			Optional<String> result = dialog.showAndWait();
 			String s=null; 
 			if (result.isPresent()) {
-				s = result.get();
+				//es wurde entweder ok oder abbrechen gedrückt
+				s = result.get(); //den String extrahieren
 				if (s != null & s.length()>0) {
+					//es wurde ok gedrückt und auch was eingegeben
+					//alle aktuellen Einträge der Box ermitteln
 					List<String> listMyChild = new ArrayList<String>();
 					for(KeyWord kw:myBox.getItems()){
 						listMyChild.add(kw.getPath());
 					}
 					if (!listMyChild.contains(s)){
+						//neuer Eintrag ist noch nicht enthalten
+						//neues Keyword wird zusammengebaut
 						k.setId(KeywordTable.getHighestID() + 1);
 						k.setKeyword(s);
 						k.setPath(s);
 						k.setLevel(myLevel);
 						k.setParent(myParentID);
+						//und in die Datenbank geschrieben
 						KeywordTable.insertKeyword(k);
 					} else {
-						k=null;
-						//myBox.setValue(arg0);
+						//diesen Eintrag gab es schon
+						k=null; //Rückgabewert auf null(Fehlerfall) setzen
+						//Nutzer über den Doppelten Eintrag informieren
 						Alert alert = new Alert(AlertType.ERROR);
-						alert.setTitle("Achtung");
+						alert.setTitle("Doppelter Eintrag");
 						//alert.setHeaderText("Look, an Information Dialog");
 						alert.setContentText(s + " ist schon enthalten");
-
 						alert.showAndWait();
 					}
-					
-					
 				}else {
-					k=null;
-					Alert alert = new Alert(AlertType.ERROR);
-					alert.setTitle("Achtung");
-					//alert.setHeaderText("Look, an Information Dialog");
-					alert.setContentText(s + " ist schon enthalten");
+					//es wurde kein Eintrag eingegeben, aber ok gedrückt
+					k=null;//Rückgabewert auf null(Fehlerfall) setzen
 				}
-
 			} else {
-				//hier wird abgebrochen
-				k = null;
-				System.out.println("wir brechen ab");
-				System.out.println("s ist: "+ s);
-				
+				//es wurde abgebrochen
+				k = null;//Rückgabewert auf null(Fehlerfall) setzen
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -464,13 +463,11 @@ public class ManualWindowController implements Initializable {
 					// wird nur ausgeführt wenn ein Neuer Eintrag gewählt wurde
 					@Override
 					public void run() {
-						
-						// if (myWord.getKeyword().equals("Neuer Eintrag..")) {
 						if (myWord.getId() == 1) {
 							// das neue Keyword wird geholt
 							KeyWord newKeyWord = newKeywordDialog(level, myParentId,myBox);
 							if (newKeyWord != null) {
-								// dialog wurde nicht abgebrochen
+								// dialog wurde nicht abgebrochen,nichts doppelt und kein leerstring
 								// neues Keyword an die Liste anfügen
 								myBox.getItems().add(newKeyWord);
 								// Liste sortieren
@@ -478,13 +475,25 @@ public class ManualWindowController implements Initializable {
 								// die ComboBox auf den neuen Wert setzen
 								myBox.setValue(newKeyWord);
 								// Id muss auf den neuen Wert "verbogen" werden,
-								// damit es keine Doppel gibt
+								// damit es keine Doppel in der Anzeige der Dialogbox gibt
 								myWord.setId(myBox.getValue().getId());
-
-							}
-						}
-					}
-				});
+							}else {
+								/* wenn kein Keyword zurückgegeben wird:
+								 * - bei leerstring und ok drücken
+								 * - bei abbrechen
+								 * - bei doppelten Eintrag
+								 */
+								for(KeyWord k:myBox.getItems()){
+									//auf das "leere" Keywort setzen und abbrechen
+									if(k.getKeyword().equals("")){
+										myBox.setValue(k);
+										break;
+									}
+								}//for-each-Schleife
+							}//else-Zweig Überprüfung ob Keyword zurückkam
+						}//Ende if wenn Neuereintrag gewählt wurde - kein else erforderlich
+					}//Ende run-methode
+				});//ende Run-later
 			} else {
 				if (myChild != null) {
 					myChild.setItems(KeywordTable.getChildren(myWord.getId()));
