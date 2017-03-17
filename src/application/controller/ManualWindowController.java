@@ -2,7 +2,9 @@ package application.controller;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -18,6 +20,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -375,7 +379,7 @@ public class ManualWindowController implements Initializable {
 	 *            = die Id des ElternSchlüsselwortes (liefert die Combobox
 	 *            davor)
 	 */
-	KeyWord newKeywordDialog(int myLevel, Integer myParentID) {
+	KeyWord newKeywordDialog(int myLevel, Integer myParentID,ComboBox<KeyWord> myBox) {
 		KeyWord k = new KeyWord();
 		try {
 			TextInputDialog dialog = new TextInputDialog();
@@ -383,19 +387,47 @@ public class ManualWindowController implements Initializable {
 			dialog.setTitle("Neuer Eintrag");
 			dialog.setHeaderText("Bitte geben Sie das neue Schlüsselwort ein");
 			Optional<String> result = dialog.showAndWait();
+			String s=null; 
 			if (result.isPresent()) {
-				String s = result.get();
-				if (s != null) {
-					k.setId(KeywordTable.getHighestID() + 1);
-					k.setKeyword(s);
-					k.setPath(s);
-					k.setLevel(myLevel);
-					k.setParent(myParentID);
-					KeywordTable.insertKeyword(k);
+				s = result.get();
+				if (s != null & s.length()>0) {
+					List<String> listMyChild = new ArrayList<String>();
+					for(KeyWord kw:myBox.getItems()){
+						listMyChild.add(kw.getPath());
+					}
+					if (!listMyChild.contains(s)){
+						k.setId(KeywordTable.getHighestID() + 1);
+						k.setKeyword(s);
+						k.setPath(s);
+						k.setLevel(myLevel);
+						k.setParent(myParentID);
+						KeywordTable.insertKeyword(k);
+					} else {
+						k=null;
+						//myBox.setValue(arg0);
+						Alert alert = new Alert(AlertType.ERROR);
+						alert.setTitle("Achtung");
+						//alert.setHeaderText("Look, an Information Dialog");
+						alert.setContentText(s + " ist schon enthalten");
+
+						alert.showAndWait();
+					}
+					
+					
+				}else {
+					k=null;
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setTitle("Achtung");
+					//alert.setHeaderText("Look, an Information Dialog");
+					alert.setContentText(s + " ist schon enthalten");
 				}
 
 			} else {
+				//hier wird abgebrochen
 				k = null;
+				System.out.println("wir brechen ab");
+				System.out.println("s ist: "+ s);
+				
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -406,8 +438,6 @@ public class ManualWindowController implements Initializable {
 	KeyWord inputManualKeyword(ComboBox<KeyWord> myBox, ComboBox<KeyWord> myChild, int level, Integer myParentId, JFXButton myChangeButton ) {
 		final KeyWord myWord = myBox.getValue();
 		if (myBox.getValue() != null) {
-			// System.out.println(myChild.getValue() + " " +
-			// myChild.getValue().getKeyword().length());
 			// in der box ist ein Wert ausgewählt
 			// die darunterliegende Combobox wird aktiv geschalten
 			if(myBox.getValue().getKeyword().length()>0 & !myBox.getValue().getKeyword().equals("Neuer Eintrag..")){
@@ -438,7 +468,7 @@ public class ManualWindowController implements Initializable {
 						// if (myWord.getKeyword().equals("Neuer Eintrag..")) {
 						if (myWord.getId() == 1) {
 							// das neue Keyword wird geholt
-							KeyWord newKeyWord = newKeywordDialog(level, myParentId);
+							KeyWord newKeyWord = newKeywordDialog(level, myParentId,myBox);
 							if (newKeyWord != null) {
 								// dialog wurde nicht abgebrochen
 								// neues Keyword an die Liste anfügen
