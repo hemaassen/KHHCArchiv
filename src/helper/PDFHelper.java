@@ -1,111 +1,88 @@
 package helper;
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
-
-import javax.imageio.ImageIO;
-
-import com.sun.pdfview.PDFFile;
-import com.sun.pdfview.PDFPage;
+import java.io.UncheckedIOException;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.rendering.PDFRenderer;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
 
 /**
- * Die PDFHelper-Klasse dient dazu PDF-Dateien intern in eine Image-Datei
+ * Die PDFHelper-Klasse dient dazu eine PDF-Datei intern in eine Image-Datei
  * umzuwandeln, damit diese dann im ImageView-Bereich der FXML-Datei angezeigt
  * werden kann. <br>
- * <br>
- * Dies geschieht, indem man in der rufenden Klasse erst die Methode
- * <ul>
- * <li>convertPdfToAwt()</li>
- * </ul>
- * und dann anschließend die Methode
- * <ul>
- * <li>convertAwtToFx()</li>
- * </ul>
- * aufruft.
  * 
- * @author holger, kerstin, helge
+ * @author holger
  *
  */
 public class PDFHelper {
 
-	/**
-	 * Konvertiert ein PDF in ein awt-Image
-	 * 
-	 * @param file
-	 *            Eingabeparameter muss eine PDF-Datei sein.
-	 * @return Rückgabewert ist ein awt-Image.
-	 * @throws IOException
-	 *             IOException
-	 */
-	public static java.awt.Image convertPdfToAwt(File file){
-		// load a pdf from a byte buffer
-		java.awt.Image img = null;
-		try (RandomAccessFile raf = new RandomAccessFile(file, "r");) {
+  private static PDDocument  document    = null;
+  private static PDFRenderer pdfRenderer = null;
+  // private static int pageNumber = 0; // funzt noch nicht
 
-			FileChannel channel = raf.getChannel();
-			ByteBuffer buf = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
-			PDFFile pdffile = new PDFFile(buf);
+  /*
+   * Hauptmethode welche aufgerufen wird um ein PDF in ein Image umzuwnadeln
+   */
+  /**
+   * Konvertiert ein PDF in ein JavaFX-Image
+   * 
+   * @param file
+   *          PDF Datei welche übergeben werden muss.
+   * @return Rückgabewert ist ein JavaFX-Image.
+   * @throws IOException
+   *           PDDocument in PDFHelper.convertPDFToImage() throws IOException
+   *           file
+   */
+  public static javafx.scene.image.Image convertPDFToImage(File file)
+      throws IOException {
+    File myFile = file;
+    try {
+      document = PDDocument.load(myFile);
+      pdfRenderer = new PDFRenderer(document);
+    } catch (IOException ex) {
+      throw new UncheckedIOException(
+          "PDDocument in PDFHelper.convertPDFToImage() throws IOException file="
+              + myFile,
+          ex);
+    }
+    // pageNumber = numPages(); // funzt noch nicht
+    return getImage(0);
+  }
 
-			// draw the first page to an image
-			PDFPage page = pdffile.getPage(0);
+  /*
+   * zusätzliche Methode um das in convertPDFToImage geladene PDDocument zu
+   * rendern
+   */
+  /**
+   * @param pageNumber
+   *          Nummer der Seite, damit diese angezeigt werden kann
+   * @return Gibt ein Javafx Image zurück
+   */
+  static Image getImage(int pageNumber) {
+    BufferedImage pageImage;
+    try {
+      pageImage = pdfRenderer.renderImage(pageNumber);
+    } catch (IOException ex) {
+      throw new UncheckedIOException(
+          "PDFRenderer in getImage() throws IOException", ex);
+    }
+    try {
+      document.close();
+    } catch (IOException e) {
+      throw new UncheckedIOException(
+          "close document in getImage() throws IOException", e);
+    }
+    return SwingFXUtils.toFXImage(pageImage, null);
+  }
 
-			// get the width and height for the doc at the default zoom
-			Rectangle rect = new Rectangle(0, 0, (int) page.getBBox().getWidth(), (int) page.getBBox().getHeight());
-
-			// generate the image
-			img = page.getImage(rect.width, rect.height, // width &
-															// height
-					rect, // clip rect
-					null, // null for the ImageObserver
-					true, // fill background with white
-					true // block until drawing is done
-			);
-		}catch (Exception e){
-			System.out.println("Fehler in convertPdfToAwt");
-			System.out.println(e.getMessage());
-		}
-		return img;
-	}
-
-	/**
-	 * Konvertiert ein awt-Image in ein javafx-Image.
-	 * 
-	 * @param awtImage
-	 *            Eingabeparameter muss ein awt-Image sein.
-	 * @return Rückgabewert ist ein javafx-Image.
-	 * @throws IOException
-	 *             IOException
-	 */
-	public static javafx.scene.image.Image convertAwtToFx(java.awt.Image awtImage){
-		if (!(awtImage instanceof RenderedImage)) {
-			BufferedImage bufferedImage = new BufferedImage(awtImage.getWidth(null), awtImage.getHeight(null),
-					BufferedImage.TYPE_INT_ARGB);
-			Graphics g = bufferedImage.createGraphics();
-			g.drawImage(awtImage, 0, 0, null);
-			g.dispose();
-
-			awtImage = bufferedImage;
-		}
-		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		try {
-			ImageIO.write((RenderedImage) awtImage, "png", out);
-			out.flush();
-		} catch (Exception e) {
-			System.out.println("Fehler in convertAwtToFx");
-			e.printStackTrace();
-		}
-		
-		ByteArrayInputStream sceneImage = new ByteArrayInputStream(out.toByteArray());
-		return new javafx.scene.image.Image(sceneImage);
-	}
-
+  /**
+   * @deprecated Ist als deprecated markiert, weil die Methode noch nicht funzt
+   * @return Anzahl der Seiten des Dokuments
+   */
+  static int numPages() {
+    return document.getPages().getCount();
+  }
 }

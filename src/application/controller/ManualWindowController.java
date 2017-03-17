@@ -212,7 +212,7 @@ public class ManualWindowController implements Initializable {
 			// ausgewählte Datei anzeigen mit Zoommöglichkeit über Mausrad
 			try {
 				if (isPdf) {
-					fxImage = PDFHelper.convertAwtToFx(PDFHelper.convertPdfToAwt(myFile));
+					fxImage = PDFHelper.convertPDFToImage(myFile);
 					zoomProperty.set(200);
 					imageActualDoc.setImage(
 							ZoomHelper.zoomMouse(fxImage, imageActualDoc, anchorMain, imageScrollPane, zoomProperty));
