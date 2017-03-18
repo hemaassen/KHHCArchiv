@@ -13,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -54,6 +56,21 @@ public final class MainWindowController {
 
   @FXML
   private Label      labelSite;
+  
+  @FXML
+  private MenuBar menuBar;
+  
+  @FXML
+  private MenuItem menuBarFileCloseAplication;
+
+  @FXML
+  private MenuItem menuBarHelpHelp;
+
+  @FXML
+  private MenuItem menuBarHelpFAQ;
+
+  @FXML
+  private MenuItem menuBarHelpAbaout;
 
   /**
    * @author kerstin
