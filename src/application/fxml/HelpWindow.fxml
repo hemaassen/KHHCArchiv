@@ -7,12 +7,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="helpAnchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="680.0" stylesheets="@../css/anchor.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="helpAnchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="680.0" stylesheets="@../css/anchor.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HelpWindowController">
    <children>
       <TabPane id="helpTabMain" prefHeight="488.0" prefWidth="680.0" style="-fx-background-color: #0e7477;" stylesheets="@../css/anchor.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab closable="false" text="Allgemein">
+          <Tab fx:id="helpGeneral" closable="false" text="Allgemein">
                <content>
                   <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
@@ -24,7 +23,7 @@
                   </ImageView>
                </content>
             </Tab>
-          <Tab closable="false" text="Manuelle Ablage">
+          <Tab fx:id="helpManual" closable="false" text="Manuelle Ablage">
                <content>
                   <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
@@ -36,7 +35,7 @@
                   </ImageView>
                </content>
             </Tab>
-            <Tab closable="false" text="Autom. Ablage">
+            <Tab fx:id="helpAutomatic" closable="false" text="Autom. Ablage">
                <content>
                   <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
@@ -48,7 +47,7 @@
                   </ImageView>
                </content>
             </Tab>
-            <Tab closable="false" text="Dokument suchen">
+            <Tab fx:id="helpSearch" closable="false" text="Dokument suchen">
                <content>
                   <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
@@ -60,7 +59,7 @@
                   </ImageView>
                </content>
             </Tab>
-            <Tab closable="false" text="Einstellungen">
+            <Tab fx:id="helbConfig" closable="false" text="Einstellungen">
                <content>
                   <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
