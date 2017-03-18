@@ -20,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -130,7 +131,7 @@ public class ManualWindowController implements Initializable {
 
 	@FXML
 	private Button changeKeywordFive;
-
+	
 	KeyWord selectedKeywordOne;
 	KeyWord selectedKeywordTwo;
 	KeyWord selectedKeywordThree;
@@ -157,6 +158,16 @@ public class ManualWindowController implements Initializable {
 	 * 
 	 * @author kerstin
 	 */
+	
+	@FXML
+    void setOnMouseEntered(MouseEvent event) {
+
+    }
+
+    @FXML
+    void setOnMouseExited(MouseEvent event) {
+
+    }
 
 	@FXML
 	void onChangeKeywordOne(ActionEvent event) {
