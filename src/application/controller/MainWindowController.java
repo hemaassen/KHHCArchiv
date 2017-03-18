@@ -52,9 +52,6 @@ public final class MainWindowController {
   private Label      labelHeadline;
 
   @FXML
-  private Label      labelBindestrich;
-
-  @FXML
   private Label      labelSite;
   
   @FXML
@@ -107,7 +104,6 @@ public final class MainWindowController {
         .load(getClass().getResource("../fxml/ManualWindow.fxml"));
     ManualWindowController.main=this.main;
     anchorDetails.getChildren().setAll(pane);
-    labelBindestrich.setVisible(true);
     labelSite.setText("Manuelle Ablage");
 
   }
@@ -135,7 +131,6 @@ public final class MainWindowController {
         .load(getClass().getResource("../fxml/SearchWindow.fxml"));
     SearchWindowController.main=this.main;
     anchorDetails.getChildren().setAll(pane);
-    labelBindestrich.setVisible(true);
     labelSite.setText("Dokument suchen");
 
   }
@@ -179,7 +174,6 @@ public final class MainWindowController {
         break;
       }
       anchorDetails.getChildren().setAll(configPane);
-      labelBindestrich.setVisible(true);
       labelSite.setText("Einstellungen");
     }
   }

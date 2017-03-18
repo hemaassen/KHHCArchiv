@@ -24,6 +24,9 @@
 #helpAnchorMain{
 	-fx-background-color: #0e7477
 }
-.TabPane{
+.tab-pane{
 	-fx-background-color: #0e7477
+}
+.tab-pane .tab-header-area .tab-header-background {
+	-fx-background-image: url('../images/header_back.png');
 }
