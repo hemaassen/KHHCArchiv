@@ -58,6 +58,13 @@
 #manualSave:pressed{
 	-fx-background-image: url('../images/manual_save_pressed.png')
 }
+#manualChangeKeyword{
+	-fx-background-image: url('../images/manual_change_keyword.png')
+}
+#manualChangeKeyword:pressed{
+	-fx-background-image: url('../images/manual_change_keyword_pressed.png')
+}
+
 
 /**
  * SearchWindow Button

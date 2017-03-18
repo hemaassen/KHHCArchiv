@@ -117,19 +117,19 @@ public class ManualWindowController implements Initializable {
     private Label manualLabelDestinationPath;
 
 	@FXML
-	private JFXButton changeKeywordOne;
+	private Button changeKeywordOne;
 
 	@FXML
-	private JFXButton changeKeywordTwo;
+	private Button changeKeywordTwo;
 
 	@FXML
-	private JFXButton changeKeywordThree;
+	private Button changeKeywordThree;
 
 	@FXML
-	private JFXButton changeKeywordFour;
+	private Button changeKeywordFour;
 
 	@FXML
-	private JFXButton changeKeywordFive;
+	private Button changeKeywordFive;
 
 	KeyWord selectedKeywordOne;
 	KeyWord selectedKeywordTwo;
@@ -436,7 +436,7 @@ public class ManualWindowController implements Initializable {
 		return k;
 	}
 
-	KeyWord inputManualKeyword(ComboBox<KeyWord> myBox, ComboBox<KeyWord> myChild, int level, Integer myParentId, JFXButton myChangeButton ) {
+	KeyWord inputManualKeyword(ComboBox<KeyWord> myBox, ComboBox<KeyWord> myChild, int level, Integer myParentId, Button myChangeButton ) {
 		final KeyWord myWord = myBox.getValue();
 		if (myBox.getValue() != null) {
 			// in der box ist ein Wert ausgewählt
