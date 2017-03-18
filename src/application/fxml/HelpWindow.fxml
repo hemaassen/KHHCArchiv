@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="helpAnchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="680.0" stylesheets="@../css/anchor.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane id="helpTabMain" prefHeight="488.0" prefWidth="680.0" style="-fx-background-color: #0e7477;" stylesheets="@../css/anchor.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab closable="false" text="Allgemein">
+               <content>
+                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
+                     <viewport>
+                        <Rectangle2D height="468.0" width="680.0" />
+                     </viewport>
+                     <image>
+                        <Image url="@../images/help_back.png" />
+                     </image>
+                  </ImageView>
+               </content>
+            </Tab>
+          <Tab closable="false" text="Manuelle Ablage">
+               <content>
+                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
+                     <viewport>
+                        <Rectangle2D height="468.0" width="680.0" />
+                     </viewport>
+                     <image>
+                        <Image url="@../images/help_back.png" />
+                     </image>
+                  </ImageView>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Autom. Ablage">
+               <content>
+                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
+                     <viewport>
+                        <Rectangle2D height="468.0" width="680.0" />
+                     </viewport>
+                     <image>
+                        <Image url="@../images/help_back.png" />
+                     </image>
+                  </ImageView>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Dokument suchen">
+               <content>
+                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
+                     <viewport>
+                        <Rectangle2D height="468.0" width="680.0" />
+                     </viewport>
+                     <image>
+                        <Image url="@../images/help_back.png" />
+                     </image>
+                  </ImageView>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Einstellungen">
+               <content>
+                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
+                     <viewport>
+                        <Rectangle2D height="468.0" width="680.0" />
+                     </viewport>
+                     <image>
+                        <Image url="@../images/help_back.png" />
+                     </image>
+                  </ImageView>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
