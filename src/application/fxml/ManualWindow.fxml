@@ -51,27 +51,27 @@
       <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onAction="#inputManualKeywordOne" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Button id="manualChangeKeyword" fx:id="changeKeywordOne" disable="true" layoutX="964.0" layoutY="167.0" mnemonicParsing="false" onAction="#onChangeKeywordOne" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
          <tooltip>
-            <Tooltip text="Das aktuelle Schlüsselwort ändern." />
+            <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
       <Button id="manualChangeKeyword" fx:id="changeKeywordTwo" disable="true" layoutX="964.0" layoutY="243.0" mnemonicParsing="false" onAction="#onChangeKeywordTwo" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
          <tooltip>
-            <Tooltip text="Das aktuelle Schlüsselwort ändern." />
+            <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
       <Button id="manualChangeKeyword" fx:id="changeKeywordThree" disable="true" layoutX="964.0" layoutY="311.0" mnemonicParsing="false" onAction="#onChangeKeywordThree" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
          <tooltip>
-            <Tooltip text="Das aktuelle Schlüsselwort ändern." />
+            <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
       <Button id="manualChangeKeyword" fx:id="changeKeywordFour" disable="true" layoutX="964.0" layoutY="395.0" mnemonicParsing="false" onAction="#onChangeKeywordFour" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
          <tooltip>
-            <Tooltip text="Das aktuelle Schlüsselwort ändern." />
+            <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
       <Button id="manualChangeKeyword" fx:id="changeKeywordFive" disable="true" layoutX="964.0" layoutY="467.0" mnemonicParsing="false" onAction="#onChangeKeywordFive" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
          <tooltip>
-            <Tooltip text="Das aktuelle Schlüsselwort ändern." />
+            <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
       <ComboBox fx:id="listKeywordTwo" disable="true" layoutX="737.0" layoutY="243.0" onAction="#inputManualKeywordTwo" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
