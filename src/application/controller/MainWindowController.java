@@ -68,6 +68,9 @@ public final class MainWindowController {
 
   @FXML
   private MenuItem menuBarHelpAbaout;
+  
+  @FXML
+  private Button mainFooterLogo;
 
   /**
    * @author kerstin

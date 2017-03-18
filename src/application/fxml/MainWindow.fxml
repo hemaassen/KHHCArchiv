@@ -18,14 +18,7 @@
         <content>
           <AnchorPane id="anchorChild" minHeight="0.0" minWidth="0.0" prefHeight="825.0" prefWidth="1280.0" stylesheets="@../css/anchor.css">
                <children>
-                  <ImageView fitHeight="35.0" fitWidth="157.0" layoutX="8.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true">
-                     <viewport>
-                        <Rectangle2D height="35.0" width="157.0" />
-                     </viewport>
-                     <image>
-                        <Image url="@../images/Misfits-Logo-Foot-klein.png" />
-                     </image>
-                  </ImageView>
+                  <Button id="mainFooterLogo" fx:id="mainFooterLogo" layoutX="8.0" layoutY="780.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="157.0" stylesheets="@../css/menuButton.css" />
                   <ImageView fitHeight="35.0" fitWidth="1108.0" layoutX="172.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D height="35.0" width="1108.0" />
