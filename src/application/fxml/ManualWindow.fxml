@@ -104,9 +104,9 @@
             <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="470.0" layoutY="552.0" text="-">
+      <Label layoutX="468.0" layoutY="544.0" text="-">
          <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Arial Black" size="24.0" />
          </font>
       </Label>
    </children>
