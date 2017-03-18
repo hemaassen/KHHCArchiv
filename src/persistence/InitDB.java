@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-import application.KeyWord;
 /**
  * Initialisierung der Datenbank muss mit in die Auslieferung
  * 
