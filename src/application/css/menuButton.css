@@ -135,3 +135,14 @@
 #configSave:pressed{
 	-fx-background-image: url('../images/config_save_pressed.png')
 }
+
+/**
+ * HelpWindow Button
+ */
+ 
+ #helpClose{
+	-fx-background-image: url('../images/help_close.png')
+}
+#helpClose:pressed{
+	-fx-background-image: url('../images/help_close_pressed.png')
+}
