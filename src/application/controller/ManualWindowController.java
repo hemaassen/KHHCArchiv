@@ -161,7 +161,7 @@ public class ManualWindowController implements Initializable {
 	
 	@FXML
     void setOnMouseEntered(MouseEvent event) {
-
+	
     }
 
     @FXML
