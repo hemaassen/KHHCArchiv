@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -74,6 +75,9 @@ public final class MainWindowController {
 
 	@FXML
 	private Button mainFooterLogo;
+	
+	 @FXML
+	 private Slider manualSliderZoom;
 
 	/**
 	 * @author kerstin
@@ -88,6 +92,21 @@ public final class MainWindowController {
 	}
 
 	/**
+	 * Mauszeiger geändert
+	 * @author kerstin, helge
+	 */
+	
+	@FXML
+	void setOnMouseEntered(MouseEvent event) {
+		main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
+	}
+
+	@FXML
+	void setOnMouseExited(MouseEvent event) {
+		main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
+	}
+
+	/**
 	 * Aufruf der manuellen Ablage
 	 * 
 	 * @author holger, helge
@@ -96,24 +115,7 @@ public final class MainWindowController {
 	 * @param event
 	 *            event
 	 */
-
-	@FXML
-	void setOnMouseEntered(MouseEvent event) {
-//		manualStore.setOnMouseEntered(new EventHandler() {
-//		    public void handle(MouseEvent me) {
-		  //    manualStore.setCursor(Cursor.HAND); //Change cursor to hand
-		      main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
-		    
-
-			
-//		});
-	}
 	
-	 @FXML
-	    void setOnMouseExited(MouseEvent event) {
-		 main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
-	    }
-
 	@FXML
 	private void handleManualButtonAction(ActionEvent event) throws IOException {
 		/*
