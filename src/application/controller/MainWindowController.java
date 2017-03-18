@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -93,6 +94,12 @@ public final class MainWindowController {
    * @param event
    *          event
    */
+  
+  @FXML
+  void setOnMouseEntered(MouseEvent event) {
+
+  }
+  
   @FXML
   private void handleManualButtonAction(ActionEvent event) throws IOException {
     /*
