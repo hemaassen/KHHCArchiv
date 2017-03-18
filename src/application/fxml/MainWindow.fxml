@@ -18,7 +18,7 @@
         <content>
           <AnchorPane id="anchorChild" minHeight="0.0" minWidth="0.0" prefHeight="825.0" prefWidth="1280.0" stylesheets="@../css/anchor.css">
                <children>
-                  <Button id="mainFooterLogo" fx:id="mainFooterLogo" layoutX="8.0" layoutY="780.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="157.0" stylesheets="@../css/menuButton.css" />
+                  <Button id="mainFooterLogo" fx:id="mainFooterLogo" layoutX="8.0" layoutY="780.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="157.0" stylesheets="@../css/menuButton.css" />
                   <ImageView fitHeight="35.0" fitWidth="1108.0" layoutX="172.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D height="35.0" width="1108.0" />
@@ -66,15 +66,15 @@
                         <Rectangle2D height="674.0" width="158.0" />
                      </viewport>
                   </ImageView>
-                  <Button id="menuManualButton" fx:id="manualStore" layoutX="25.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleManualButtonAction" onMouseEntered="#setOnMouseEntered" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="182.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE">
+                  <Button id="menuManualButton" fx:id="manualStore" layoutX="25.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleManualButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
+                  <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="182.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Button>
-                  <Button id="menuSearchButton" fx:id="search" layoutX="25.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuConfigButton" fx:id="config" layoutX="25.0" layoutY="647.0" mnemonicParsing="false" onAction="#handleConfigButtonAction" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuCloseButton" fx:id="stop" layoutX="25.0" layoutY="705.0" mnemonicParsing="false" onAction="#stopProgram" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
+                  <Button id="menuSearchButton" fx:id="search" layoutX="25.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleSearchButton" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
+                  <Button id="menuConfigButton" fx:id="config" layoutX="25.0" layoutY="647.0" mnemonicParsing="false" onAction="#handleConfigButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
+                  <Button id="menuCloseButton" fx:id="stop" layoutX="25.0" layoutY="705.0" mnemonicParsing="false" onAction="#stopProgram" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
                   <AnchorPane fx:id="anchorDetails" layoutX="172.0" layoutY="97.0" prefHeight="674.0" prefWidth="1108.0" stylesheets="@../css/anchor.css">
                      <children>
                         <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
