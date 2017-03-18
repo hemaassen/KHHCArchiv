@@ -38,7 +38,7 @@
       <Label fx:id="labelKeywordtThree" layoutX="643.0" layoutY="328.0" text="Schlüsselwort 3" />
       <Label fx:id="labelKeywordFour" layoutX="643.0" layoutY="404.0" text="Schlüsselwort 4" />
       <Label fx:id="labelKeywordFive" layoutX="643.0" layoutY="476.0" text="Schlüsselwort 5" />
-      <Button id="manualSave" fx:id="save" disable="true" layoutX="784.0" layoutY="569.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" />
+      <Button id="manualSave" fx:id="save" disable="true" layoutX="775.0" layoutY="607.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" />
       <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onAction="#inputManualKeywordOne" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <JFXButton fx:id="changeKeywordOne" disable="true" layoutX="952.0" layoutY="172.0" onAction="#onChangeKeywordOne" prefHeight="25.0" prefWidth="100.0" stylesheets="@../css/button.css" text="Umbenennen.." />
       <JFXButton fx:id="changeKeywordTwo" disable="true" layoutX="952.0" layoutY="248.0" onAction="#onChangeKeywordTwo" prefHeight="25.0" prefWidth="100.0" stylesheets="@../css/button.css" text="Umbenennen.." />
@@ -60,5 +60,7 @@
             </ImageView>
          </content>
       </ScrollPane>
+      <Label layoutX="762.0" layoutY="531.0" text="Speicherort des Dokuments:" />
+      <Label fx:id="manualLabelDestinationPath" disable="true" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" style="-fx-border-color: black;" text="Speicherort" />
    </children>
 </AnchorPane>

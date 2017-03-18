@@ -112,6 +112,9 @@ public class ManualWindowController implements Initializable {
 
 	@FXML
 	private ScrollPane imageScrollPane;
+	
+	@FXML
+    private Label manualLabelDestinationPath;
 
 	@FXML
 	private JFXButton changeKeywordOne;
