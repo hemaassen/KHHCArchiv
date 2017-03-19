@@ -15,7 +15,7 @@
 
 <AnchorPane fx:id="anchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ManualWindowController">
    <children>
-      <ImageView fitHeight="674.0" fitWidth="1108.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/details_back.png" />
          </image>

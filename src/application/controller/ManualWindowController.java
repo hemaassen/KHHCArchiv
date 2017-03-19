@@ -16,6 +16,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -146,12 +147,12 @@ public class ManualWindowController implements Initializable {
 	
 	@FXML
     void setOnMouseEntered(MouseEvent event) {
-	
+		main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
     }
 
     @FXML
     void setOnMouseExited(MouseEvent event) {
-
+    	main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
     }
 
 	@FXML
@@ -511,7 +512,8 @@ public class ManualWindowController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try{
 		listKeywordOne.setItems(KeywordTable.selectLevel(1));
-		labelPath.setText(main.getMyConfig().getDestinationDir());
+		manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir().toString());
+		System.out.println(main.getMyConfig().getDestinationDir());
 		} catch(Exception e){
 			//System.out.println("Fehler in ManualWindowController - initialize");
 			e.getStackTrace();
