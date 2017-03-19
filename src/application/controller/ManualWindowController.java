@@ -509,8 +509,12 @@ public class ManualWindowController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+		try{
 		listKeywordOne.setItems(KeywordTable.selectLevel(1));
-
+		labelPath.setText(main.getMyConfig().getDestinationDir());
+		} catch(Exception e){
+			//System.out.println("Fehler in ManualWindowController - initialize");
+			e.getStackTrace();
+		}
 	}
 }

@@ -74,9 +74,9 @@ public final class MainWindowController {
 
 	@FXML
 	private Button mainFooterLogo;
-	
-	 @FXML
-	 private Slider manualSliderZoom;
+
+	@FXML
+	private Slider manualSliderZoom;
 
 	/**
 	 * @author kerstin
@@ -92,9 +92,10 @@ public final class MainWindowController {
 
 	/**
 	 * Mauszeiger geändert
+	 * 
 	 * @author kerstin, helge
 	 */
-	
+
 	@FXML
 	void setOnMouseEntered(MouseEvent event) {
 		main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
@@ -113,32 +114,33 @@ public final class MainWindowController {
 	 * @param event
 	 *            event
 	 */
-	
+
 	@FXML
-	private void handleManualButtonAction(ActionEvent event){
+	private void handleManualButtonAction(ActionEvent event) {
 		/*
 		 * Auswählbare Buttons werden enabled, nicht auswählbare Buttons werden
 		 * disabled. Aufruf der Folgeseite über die Zuweisung an pane.
 		 * Ueberschrift wird auf den Wert "Manuelle Ablage" gesetzt
 		 */
-		
+
 		try {
-			if(main.getMyConfig().getDestinationDir().equals("")){
-			manualStore.setDisable(true);
-			search.setDisable(false);
-			config.setDisable(false);
-			AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
-			ManualWindowController.main = this.main;
-			anchorDetails.getChildren().setAll(pane);
-			labelSite.setText("Manuelle Ablage");
-			}else{
+			if (main.getMyConfig().getDestinationDir().equals("bitte Ziel-Verzeichnis auswählen")) {
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Fehlender Eintrag");
 				alert.setHeaderText("Fehlender Eintrag");
 				alert.setContentText("Bitte legen Sie vor der Ablage erst die Einstellungen fest");
 				alert.showAndWait();
-				handleConfigButtonAction( event);
+				handleConfigButtonAction(event);
+			} else {
+				manualStore.setDisable(true);
+				search.setDisable(false);
+				config.setDisable(false);
+				AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
+				ManualWindowController.main = this.main;
+				anchorDetails.getChildren().setAll(pane);
+				labelSite.setText("Manuelle Ablage");
 				
+
 			}
 		} catch (Exception e) {
 			System.out.println("Fehler in MainWindowController - handleManualButtonAction");
@@ -205,7 +207,8 @@ public final class MainWindowController {
 				if (PaneHelper.initializeLabel(n, "labelPathSourceLocation", main.getMyConfig().getSourceDir())) {
 					count++;
 				}
-				if (PaneHelper.initializeLabel(n, "labelPathDestinationLocation", main.getMyConfig().getDestinationDir())) {
+				if (PaneHelper.initializeLabel(n, "labelPathDestinationLocation",
+						main.getMyConfig().getDestinationDir())) {
 					count++;
 
 				}
