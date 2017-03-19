@@ -510,8 +510,6 @@ public class ManualWindowController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		// olLevel1.addAll(KeywordTable.selectLevel(1));
-		// listTest.setItems(listData);
 		listKeywordOne.setItems(KeywordTable.selectLevel(1));
 
 	}

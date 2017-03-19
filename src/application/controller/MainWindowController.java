@@ -1,6 +1,5 @@
 package application.controller;
 
-import java.io.IOException;
 import java.util.List;
 
 import application.Main;
@@ -11,11 +10,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -108,26 +109,41 @@ public final class MainWindowController {
 	 * Aufruf der manuellen Ablage
 	 * 
 	 * @author holger, helge
-	 * @throws IOException
-	 *             IOException
+	 * 
 	 * @param event
 	 *            event
 	 */
 	
 	@FXML
-	private void handleManualButtonAction(ActionEvent event) throws IOException {
+	private void handleManualButtonAction(ActionEvent event){
 		/*
 		 * Auswählbare Buttons werden enabled, nicht auswählbare Buttons werden
 		 * disabled. Aufruf der Folgeseite über die Zuweisung an pane.
 		 * Ueberschrift wird auf den Wert "Manuelle Ablage" gesetzt
 		 */
-		manualStore.setDisable(true);
-		search.setDisable(false);
-		config.setDisable(false);
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
-		ManualWindowController.main = this.main;
-		anchorDetails.getChildren().setAll(pane);
-		labelSite.setText("Manuelle Ablage");
+		
+		try {
+			if(main.getMyConfig().getDestinationDir().equals("")){
+			manualStore.setDisable(true);
+			search.setDisable(false);
+			config.setDisable(false);
+			AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
+			ManualWindowController.main = this.main;
+			anchorDetails.getChildren().setAll(pane);
+			labelSite.setText("Manuelle Ablage");
+			}else{
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Fehlender Eintrag");
+				alert.setHeaderText("Fehlender Eintrag");
+				alert.setContentText("Bitte legen Sie vor der Ablage erst die Einstellungen fest");
+				alert.showAndWait();
+				handleConfigButtonAction( event);
+				
+			}
+		} catch (Exception e) {
+			System.out.println("Fehler in MainWindowController - handleManualButtonAction");
+			e.printStackTrace();
+		}
 
 	}
 
@@ -135,25 +151,29 @@ public final class MainWindowController {
 	 * Aufruf der Dokumentensuche
 	 * 
 	 * @author holger, helge
-	 * @throws IOException
-	 *             IOException
+	 * 
 	 * @param event
 	 *            event
 	 */
 	@FXML
-	private void handleSearchButton(ActionEvent event) throws IOException {
+	private void handleSearchButton(ActionEvent event) {
 		/*
 		 * Auswählbare Buttons werden enabled, nicht auswählbare Buttons werden
 		 * disabled. Aufruf der Folgeseite über die Zuweisung an pane.
 		 * Ueberschrift wird auf den Wert "Dokument suchen" gesetzt
 		 */
-		manualStore.setDisable(false);
-		search.setDisable(true);
-		config.setDisable(false);
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/SearchWindow.fxml"));
-		SearchWindowController.main = this.main;
-		anchorDetails.getChildren().setAll(pane);
-		labelSite.setText("Dokument suchen");
+		try {
+			manualStore.setDisable(false);
+			search.setDisable(true);
+			config.setDisable(false);
+			AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/SearchWindow.fxml"));
+			SearchWindowController.main = this.main;
+			anchorDetails.getChildren().setAll(pane);
+			labelSite.setText("Dokument suchen");
+		} catch (Exception e) {
+			System.out.println("Fehler in MainWindowController - handleSearchButtonAction");
+			e.printStackTrace();
+		}
 
 	}
 
@@ -161,39 +181,43 @@ public final class MainWindowController {
 	 * Aufruf der Einstellungen
 	 * 
 	 * @author holger, helge
-	 * @throws IOException
-	 *             IOException
+	 * 
 	 * @param event
 	 *            event
 	 */
 	@FXML
-	private void handleConfigButtonAction(ActionEvent event) throws IOException {
+	private void handleConfigButtonAction(ActionEvent event) {
 		/*
 		 * Auswählbare Buttons werden enabled, nicht auswählbare Buttons werden
 		 * disabled. Aufruf der Folgeseite über die Zuweisung an pane.
 		 * Ueberschrift wird auf den Wert "Einstellungen" gesetzt
 		 */
 		// ConfigWindowController myController=new ConfigWindowController();
-		manualStore.setDisable(false);
-		search.setDisable(false);
-		config.setDisable(true);
-		AnchorPane configPane = FXMLLoader.load(getClass().getResource("../fxml/ConfigWindow.fxml"));
-		ConfigWindowController.main = this.main;
-		List<Node> activeNodes = PaneHelper.activeNodes(configPane);
-		int count = 0;
-		for (Node n : activeNodes) {
-			if (PaneHelper.initializeLabel(n, "labelPathSourceLocation", main.getMyConfig().getSourceDir())) {
-				count++;
-			}
-			if (PaneHelper.initializeLabel(n, "labelPathDestinationLocation", main.getMyConfig().getDestinationDir())) {
-				count++;
+		try {
+			manualStore.setDisable(false);
+			search.setDisable(false);
+			config.setDisable(true);
+			AnchorPane configPane = FXMLLoader.load(getClass().getResource("../fxml/ConfigWindow.fxml"));
+			ConfigWindowController.main = this.main;
+			List<Node> activeNodes = PaneHelper.activeNodes(configPane);
+			int count = 0;
+			for (Node n : activeNodes) {
+				if (PaneHelper.initializeLabel(n, "labelPathSourceLocation", main.getMyConfig().getSourceDir())) {
+					count++;
+				}
+				if (PaneHelper.initializeLabel(n, "labelPathDestinationLocation", main.getMyConfig().getDestinationDir())) {
+					count++;
 
+				}
+				if (count == 2) {
+					break;
+				}
+				anchorDetails.getChildren().setAll(configPane);
+				labelSite.setText("Einstellungen");
 			}
-			if (count == 2) {
-				break;
-			}
-			anchorDetails.getChildren().setAll(configPane);
-			labelSite.setText("Einstellungen");
+		} catch (Exception e) {
+			System.out.println("Fehler in MainWindowController - handleConfigButtonAction");
+			e.printStackTrace();
 		}
 	}
 
