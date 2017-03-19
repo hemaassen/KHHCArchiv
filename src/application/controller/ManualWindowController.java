@@ -7,20 +7,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-import com.jfoenix.controls.JFXButton;
-
 import application.KeyWord;
 import application.Main;
 import helper.ZoomHelper;
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -132,17 +127,7 @@ public class ManualWindowController implements Initializable {
 	@FXML
 	private Button changeKeywordFive;
 	
-	KeyWord selectedKeywordOne;
-	KeyWord selectedKeywordTwo;
-	KeyWord selectedKeywordThree;
-	KeyWord selectedKeywordFour;
-	KeyWord selectedKeywordFive;
-	ObservableList<KeyWord> olLevel1 = KeywordTable.selectLevel(1);
-	ObservableList<KeyWord> olLevel2 = KeywordTable.selectLevel(2);
-	ObservableList<KeyWord> olLevel3 = KeywordTable.selectLevel(3);
-	ObservableList<KeyWord> olLevel4 = KeywordTable.selectLevel(4);
-	ObservableList<KeyWord> olLevel5 = KeywordTable.selectLevel(5);
-
+	
 	final DoubleProperty zoomProperty = new SimpleDoubleProperty(200);
 
 	/**
@@ -527,7 +512,7 @@ public class ManualWindowController implements Initializable {
 
 		// olLevel1.addAll(KeywordTable.selectLevel(1));
 		// listTest.setItems(listData);
-		listKeywordOne.setItems(olLevel1);
+		listKeywordOne.setItems(KeywordTable.selectLevel(1));
 
 	}
 }
