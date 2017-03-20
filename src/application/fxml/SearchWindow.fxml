@@ -2,7 +2,7 @@
 
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -23,15 +23,15 @@
       <Label layoutX="291.0" layoutY="345.0" text="Datum bis:" />
       <DatePicker fx:id="dateTill" editable="false" layoutX="352.0" layoutY="341.0" onAction="#inputTillDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" />
       <Label layoutX="118.0" layoutY="57.0" text="Schlüsselwort 1:" />
-      <ChoiceBox fx:id="listSearchKeywordOne" layoutX="215.0" layoutY="48.0" onInputMethodTextChanged="#inputKeywordOneTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listSearchKeywordOne" layoutX="215.0" layoutY="48.0" onAction="#listSearchKeywordOne" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Label layoutX="118.0" layoutY="110.0" text="Schlüsselwort 2:" />
-      <ChoiceBox fx:id="listSearchKeywordTwo" layoutX="215.0" layoutY="101.0" onInputMethodTextChanged="#inputKeywordTwoTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listSearchKeywordTwo" layoutX="215.0" layoutY="101.0" onAction="#listSearchKeywordTwo" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Label layoutX="118.0" layoutY="163.0" text="Schlüsselwort 3:" />
-      <ChoiceBox fx:id="listSearchKeywordThree" layoutX="215.0" layoutY="154.0" onInputMethodTextChanged="#inputKeywordThreeTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listSearchKeywordThree" layoutX="215.0" layoutY="154.0" onAction="#listSearchKeywordThree" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Label layoutX="118.0" layoutY="216.0" text="Schlüsselwort 4:" />
-      <ChoiceBox fx:id="listSearchKeywordFour" layoutX="215.0" layoutY="207.0" onInputMethodTextChanged="#inputKeywordFourTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listSearchKeywordFour" layoutX="215.0" layoutY="207.0" onAction="#listSearchKeywordFour" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Label layoutX="118.0" layoutY="269.0" text="Schlüsselwort 5:" />
-      <ChoiceBox fx:id="listSearchKeywordFive" layoutX="215.0" layoutY="260.0" onInputMethodTextChanged="#inputKeywordFiveTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listSearchKeywordFive" layoutX="215.0" layoutY="260.0" onAction="#listSearchKeywordFive" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Button id="searchSearch" fx:id="buttonSearch" disable="true" layoutX="236.0" layoutY="401.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" />
       <Label layoutX="67.0" layoutY="470.0" text="Ergebnis:" />
       <ListView fx:id="listResult" layoutX="123.0" layoutY="470.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="185.0" prefWidth="372.0" />

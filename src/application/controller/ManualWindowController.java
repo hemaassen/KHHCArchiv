@@ -4,8 +4,6 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.sun.org.apache.bcel.internal.generic.NEWARRAY;
-
 import application.KeyWord;
 import application.Main;
 import helper.ZoomHelper;
@@ -151,31 +149,6 @@ public class ManualWindowController implements Initializable {
 	@FXML
 	void setOnMouseExited(MouseEvent event) {
 		main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
-	}
-
-	@FXML
-	void onChangeKeywordOne(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onChangeKeywordTwo(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onChangeKeywordThree(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onChangeKeywordFour(ActionEvent event) {
-
-	}
-
-	@FXML
-	void onChangeKeywordFive(ActionEvent event) {
-
 	}
 
 	@FXML

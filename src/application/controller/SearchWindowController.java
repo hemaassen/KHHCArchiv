@@ -5,11 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -28,19 +27,19 @@ public class SearchWindowController {
 	private DatePicker dateTill;
 
 	@FXML
-	private ChoiceBox<String> listSearchKeywordOne;
+	private ComboBox<?> listSearchKeywordOne;
 
 	@FXML
-	private ChoiceBox<String> listSearchKeywordTwo;
+	private ComboBox<?> listSearchKeywordTwo;
 
 	@FXML
-	private ChoiceBox<String> listSearchKeywordThree;
+	private ComboBox<?> listSearchKeywordThree;
 
 	@FXML
-	private ChoiceBox<String> listSearchKeywordFour;
+	private ComboBox<?> listSearchKeywordFour;
 
 	@FXML
-	private ChoiceBox<String> listSearchKeywordFive;
+	private ComboBox<?> listSearchKeywordFive;
 
 	@FXML
 	private Button buttonSearch;
@@ -100,48 +99,27 @@ public class SearchWindowController {
 	}
 
 	@FXML
-	void inputKeywordOneTextChange(InputMethodEvent event) {
-		if (listSearchKeywordOne.getValue().length() > 0) {
-			buttonSearch.setDisable(false);
-		} else {
-			buttonSearch.setDisable(true);
-		}
+	void listSearchKeywordOne(ActionEvent event) {
 
 	}
 
 	@FXML
-	void inputKeywordTwoTextChange(InputMethodEvent event) {
-		if (listSearchKeywordTwo.getValue().length() > 0) {
-			buttonSearch.setDisable(false);
-		} else {
-			buttonSearch.setDisable(true);
-		}
+	void listSearchKeywordTwo(ActionEvent event) {
+
 	}
 
 	@FXML
-	void inputKeywordThreeTextChange(InputMethodEvent event) {
-		if (listSearchKeywordThree.getValue().length() > 0) {
-			buttonSearch.setDisable(false);
-		} else {
-			buttonSearch.setDisable(true);
-		}
+	void listSearchKeywordThree(ActionEvent event) {
+
 	}
 
 	@FXML
-	void inputKeywordFourTextChange(InputMethodEvent event) {
-		if (listSearchKeywordFour.getValue().length() > 0) {
-			buttonSearch.setDisable(false);
-		} else {
-			buttonSearch.setDisable(true);
-		}
+	void listSearchKeywordFour(ActionEvent event) {
+
 	}
 
 	@FXML
-	void inputKeywordFiveTextChange(InputMethodEvent event) {
-		if (listSearchKeywordFive.getValue().length() > 0) {
-			buttonSearch.setDisable(false);
-		} else {
-			buttonSearch.setDisable(true);
-		}
+	void listSearchKeywordFive(ActionEvent event) {
+
 	}
 }
