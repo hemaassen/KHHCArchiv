@@ -14,7 +14,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert.AlertType;
 import persistence.KeywordTable;
 
-public class KeyWordHelper {
+public class ManualWindowHelper {
 
   /**
    * öffnet die Inputbox für ein neues Schlüsselwort und speichert es mit

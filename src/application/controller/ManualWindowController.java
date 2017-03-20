@@ -26,7 +26,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import persistence.KeywordTable;
 import helper.PDFHelper;
-import helper.KeyWordHelper;
+import helper.ManualWindowHelper;
 
 /**
  * Controller für das Fenster zur manuellen Ablage
@@ -267,7 +267,7 @@ public class ManualWindowController implements Initializable {
   @FXML
   void inputManualKeywordOne(ActionEvent event) {
     if (listKeywordOne.getValue() != null) {
-      listKeywordOne.setValue(KeyWordHelper.inputManualKeyword(listKeywordOne,
+      listKeywordOne.setValue(ManualWindowHelper.inputManualKeyword(listKeywordOne,
           listKeywordTwo, 1, 1, changeKeywordOne, save));
       deactivateGrandchild(1);
     }
@@ -333,7 +333,7 @@ public class ManualWindowController implements Initializable {
   void inputManualKeywordTwo(ActionEvent event) {
     if (listKeywordTwo.getValue() != null) {
       listKeywordTwo.setValue(
-          KeyWordHelper.inputManualKeyword(listKeywordTwo, listKeywordThree, 2,
+          ManualWindowHelper.inputManualKeyword(listKeywordTwo, listKeywordThree, 2,
               listKeywordOne.getValue().getId(), changeKeywordTwo, save));
       deactivateGrandchild(2);
     }
@@ -343,7 +343,7 @@ public class ManualWindowController implements Initializable {
   void inputManualKeywordThree(ActionEvent event) {
     if (listKeywordThree.getValue() != null) {
       listKeywordThree.setValue(
-          KeyWordHelper.inputManualKeyword(listKeywordThree, listKeywordFour, 3,
+          ManualWindowHelper.inputManualKeyword(listKeywordThree, listKeywordFour, 3,
               listKeywordTwo.getValue().getId(), changeKeywordThree, save));
       deactivateGrandchild(3);
     }
@@ -353,7 +353,7 @@ public class ManualWindowController implements Initializable {
   void inputManualKeywordFour(ActionEvent event) {
     if (listKeywordFour.getValue() != null) {
       listKeywordFour.setValue(
-          KeyWordHelper.inputManualKeyword(listKeywordFour, listKeywordFive, 4,
+          ManualWindowHelper.inputManualKeyword(listKeywordFour, listKeywordFive, 4,
               listKeywordThree.getValue().getId(), changeKeywordFour, save));
     }
   }
@@ -361,7 +361,7 @@ public class ManualWindowController implements Initializable {
   @FXML
   void inputManualKeywordFive(ActionEvent event) {
     if (listKeywordFour.getValue() != null) {
-      listKeywordFive.setValue(KeyWordHelper.inputManualKeyword(listKeywordFive,
+      listKeywordFive.setValue(ManualWindowHelper.inputManualKeyword(listKeywordFive,
           null, 5, listKeywordFour.getValue().getId(), changeKeywordFive, save));
     }
   }
