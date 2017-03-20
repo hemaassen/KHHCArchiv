@@ -370,7 +370,8 @@ public class ManualWindowController implements Initializable {
                     tmp = listKeywordFour.getValue().getPath();
                     break;
                 case 5:
-                    tmp = listKeywordFive.getValue().getPath();
+                    System.out.println("IstNull ?" + (listKeywordFive.getValue() == null));
+                    tmp = listKeywordFive.getValue().getKeyword();
                     break;
                 default:
                     throw new IllegalArgumentException(
@@ -431,10 +432,12 @@ public class ManualWindowController implements Initializable {
 
     @FXML
     void inputManualKeywordFive(ActionEvent event) {
-        if (listKeywordFour.getValue() != null) {
+        if (listKeywordFive.getValue() != null) {
             listKeywordFive.setValue(ManualWindowHelper.inputManualKeyword(listKeywordFive, null, 5,
                     listKeywordFour.getValue().getId(), changeKeywordFive, save));
-            setPathToDestination(5);
+            if (listKeywordFive.getValue().toString().length() > 0) {
+                setPathToDestination(5);
+            }
         }
     }
 
