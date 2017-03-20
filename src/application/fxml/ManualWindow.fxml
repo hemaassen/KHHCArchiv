@@ -46,7 +46,7 @@
       <Label fx:id="labelKeywordtThree" layoutX="643.0" layoutY="328.0" text="Schlüsselwort 3" />
       <Label fx:id="labelKeywordFour" layoutX="643.0" layoutY="404.0" text="Schlüsselwort 4" />
       <Label fx:id="labelKeywordFive" layoutX="643.0" layoutY="476.0" text="Schlüsselwort 5" />
-      <Button id="manualSave" fx:id="save" disable="true" layoutX="775.0" layoutY="607.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css">
+      <Button id="manualSave" fx:id="save" disable="true" layoutX="775.0" layoutY="607.0" mnemonicParsing="false" onAction="#onClickSaveButton" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css">
          <tooltip>
             <Tooltip text="Dokument archivieren." />
          </tooltip></Button>
@@ -75,7 +75,7 @@
             <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
-      <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onAction="#inputManualKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onAction="#inputManualKeywordOne" onMouseClicked="#clickedOnManualKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <ComboBox fx:id="listKeywordTwo" disable="true" layoutX="737.0" layoutY="243.0" onAction="#inputManualKeywordTwo" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <ComboBox fx:id="listKeywordThree" disable="true" layoutX="737.0" layoutY="320.0" onAction="#inputManualKeywordThree" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <ComboBox fx:id="listKeywordFour" disable="true" layoutX="737.0" layoutY="395.0" onAction="#inputManualKeywordFour" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />

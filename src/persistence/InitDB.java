@@ -51,7 +51,7 @@ public class InitDB {
 					
 			stmt.executeUpdate(sql);
 			sql="INSERT INTO keywords (keyWord, pathName, level) "
-					+ "VALUES('', 'xxx', 0);";
+					+ "VALUES('', '', 0);";
 			stmt.executeUpdate(sql);
 			
 		} catch (Exception e) {

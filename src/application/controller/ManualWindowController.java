@@ -2,6 +2,8 @@ package application.controller;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.util.ResourceBundle;
 
 import application.KeyWord;
@@ -29,6 +31,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import persistence.KeywordTable;
 import helper.PDFHelper;
+import helper.FilePusherHelper;
 import helper.ManualWindowHelper;
 
 /**
@@ -39,351 +42,435 @@ import helper.ManualWindowHelper;
  */
 public class ManualWindowController implements Initializable {
 
-	public static Main main;
+    public static Main main;
 
-	@FXML
-	private AnchorPane anchorMain;
+    // das wird unsere Datei
+    private File choosedSourceFile;
 
-	@FXML
-	private Label labelActualDoc;
+    private String pathToDestination = "";
 
-	@FXML
-	private Button searchDoc;
+    @FXML
+    private AnchorPane anchorMain;
 
-	@FXML
-	private Label labelPath;
+    @FXML
+    private Label labelActualDoc;
 
-	@FXML
-	private ImageView imageActualDoc;
+    @FXML
+    private Button searchDoc;
 
-	@FXML
-	private Label labelKeywords;
+    @FXML
+    private Label labelPath;
 
-	@FXML
-	private DatePicker datePicker;
+    @FXML
+    private ImageView imageActualDoc;
 
-	@FXML
-	private Label labelDate;
+    @FXML
+    private Label labelKeywords;
 
-	@FXML
-	private Label labelKeywordOne;
+    @FXML
+    private DatePicker datePicker;
 
-	@FXML
-	private Label labelKeywordTwo;
+    @FXML
+    private Label labelDate;
 
-	@FXML
-	private Label labelKeywordThree;
+    @FXML
+    private Label labelKeywordOne;
 
-	@FXML
-	private Label labelKeywordFour;
+    @FXML
+    private Label labelKeywordTwo;
 
-	@FXML
-	private Label labelKeywordFive;
+    @FXML
+    private Label labelKeywordThree;
 
-	@FXML
-	private Button save;
+    @FXML
+    private Label labelKeywordFour;
 
-	@FXML
-	private ComboBox<KeyWord> listKeywordOne;
+    @FXML
+    private Label labelKeywordFive;
 
-	@FXML
-	private ComboBox<KeyWord> listKeywordTwo;
+    @FXML
+    private Button save;
 
-	@FXML
-	private ComboBox<KeyWord> listKeywordThree;
+    @FXML
+    private ComboBox<KeyWord> listKeywordOne;
 
-	@FXML
-	private ComboBox<KeyWord> listKeywordFour;
+    @FXML
+    private ComboBox<KeyWord> listKeywordTwo;
 
-	@FXML
-	private ComboBox<KeyWord> listKeywordFive;
+    @FXML
+    private ComboBox<KeyWord> listKeywordThree;
 
-	@FXML
-	private Button zoomPlus;
+    @FXML
+    private ComboBox<KeyWord> listKeywordFour;
 
-	@FXML
-	private Button zoomMinus;
+    @FXML
+    private ComboBox<KeyWord> listKeywordFive;
 
-	@FXML
-	private ScrollPane imageScrollPane;
+    @FXML
+    private Button zoomPlus;
 
-	@FXML
-	private Label manualLabelDestinationPath;
+    @FXML
+    private Button zoomMinus;
 
-	@FXML
-	private Button changeKeywordOne;
+    @FXML
+    private ScrollPane imageScrollPane;
 
-	@FXML
-	private Button changeKeywordTwo;
+    @FXML
+    private Label manualLabelDestinationPath;
 
-	@FXML
-	private Button changeKeywordThree;
+    @FXML
+    private Button changeKeywordOne;
 
-	@FXML
-	private Button changeKeywordFour;
+    @FXML
+    private Button changeKeywordTwo;
 
-	@FXML
-	private Button changeKeywordFive;
-	
-	@FXML
-	  void onChangeKeywordOne(ActionEvent event) {
+    @FXML
+    private Button changeKeywordThree;
 
-	  }
+    @FXML
+    private Button changeKeywordFour;
 
-	  @FXML
-	  void onChangeKeywordTwo(ActionEvent event) {
+    @FXML
+    private Button changeKeywordFive;
 
-	  }
+    @FXML
+    void onChangeKeywordOne(ActionEvent event) {
 
-	  @FXML
-	  void onChangeKeywordThree(ActionEvent event) {
+    }
 
-	  }
+    @FXML
+    void onChangeKeywordTwo(ActionEvent event) {
 
-	  @FXML
-	  void onChangeKeywordFour(ActionEvent event) {
+    }
 
-	  }
+    @FXML
+    void onChangeKeywordThree(ActionEvent event) {
 
-	  @FXML
-	  void onChangeKeywordFive(ActionEvent event) {
+    }
 
-	}
+    @FXML
+    void onChangeKeywordFour(ActionEvent event) {
 
-	final DoubleProperty zoomProperty = new SimpleDoubleProperty(200);
+    }
 
-	/**
-	 * Suche des manuell abzulegenden Dokuments <br>
-	 * Folgende Formate können gelesen und verarbeitet werden:
-	 * <ul>
-	 * <li>PNG,
-	 * <li>JPG, JPEG,
-	 * <li>GIF,
-	 * <li>BMP,
-	 * <li>PDF</li>
-	 * </ul>
-	 * 
-	 * @author kerstin
-	 */
+    @FXML
+    void onChangeKeywordFive(ActionEvent event) {
 
-	@FXML
-	void setOnMouseEntered(MouseEvent event) {
-		main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
-	}
+    }
 
-	@FXML
-	void setOnMouseExited(MouseEvent event) {
-		main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
-	}
+    final DoubleProperty zoomProperty = new SimpleDoubleProperty(200);
 
-	@FXML
-	public void handleSearchDoc() {
+    @FXML
+    void clickedOnManualKeywordOne(MouseEvent event) {
+        // prüft ob schon ein Dokument gesetzt wurde
+        System.out.println(event.getTarget().getClass().getCanonicalName());
+        if (event.getSource().equals(listKeywordOne)) {
+            isThereAnOpenDocument(event);
+        }
 
-		File sourceDir = new File(main.getMyConfig().getSourceDir());
-		// vordefinierte Klasse zur Dateiauswahl
-		FileChooser fileChooser = new FileChooser();
-		// grundkonfiguration
-		fileChooser.setTitle("Bitte gewünschte Datei auswählen");
-		fileChooser.setInitialDirectory(sourceDir);
-		fileChooser.getExtensionFilters().addAll(
-				new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp"),
-				new ExtensionFilter("PDF Files", "*.pdf"));
+    }
 
-		// das wird unsere Datei
-		File myFile;
-		Image fxImage = null;
-		Boolean isPdf;
-		// file wird gelesen
-		myFile = fileChooser.showOpenDialog(labelPath.getScene().getWindow());
-		if (myFile != null) {
-			// Path-angaben ausgeben
-			labelPath.setText(myFile.getPath());
-			labelPath.setVisible(true);
+    @FXML
+    void setOnMouseEntered(MouseEvent event) {
+        // ändert den Cursor in eine Hand
+        main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
+    }
 
-			// überprüfung ob die Datei ein Pdf ist
-			isPdf = myFile.getName().toString().endsWith(".pdf");
+    @FXML
+    void setOnMouseExited(MouseEvent event) {
+        main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
+    }
 
-			// ausgewählte Datei anzeigen mit Zoommöglichkeit über Mausrad
-			try {
-				if (isPdf) {
-					fxImage = PDFHelper.convertPDFToImage(myFile);
-					zoomProperty.set(200);
-					imageActualDoc.setImage(
-							ZoomHelper.zoomMouse(fxImage, imageActualDoc, anchorMain, imageScrollPane, zoomProperty));
-				} else {
-					Image myImage = new Image(myFile.toURI().toURL().toExternalForm(), 595.0, 842.0, false, true);
-					zoomProperty.set(200);
-					imageActualDoc.setImage(
-							ZoomHelper.zoomMouse(myImage, imageActualDoc, anchorMain, imageScrollPane, zoomProperty));
-				}
-			} catch (Exception e) {
-				System.out.println("Fehler in handleSearchDoc");
-				System.out.println(e.getMessage());
+    /**
+     * Suche des manuell abzulegenden Dokuments <br>
+     * Folgende Formate können gelesen und verarbeitet werden:
+     * <ul>
+     * <li>PNG,
+     * <li>JPG, JPEG,
+     * <li>GIF,
+     * <li>BMP,
+     * <li>PDF</li>
+     * </ul>
+     * 
+     * @author kerstin
+     */
 
-			}
-		}
-		zoomPlus.setDisable(false);
-		zoomMinus.setDisable(false);
-	}
+    @FXML
+    public void handleSearchDoc() {
 
-	/**
-	 * Zwei Methoden für Zoom In und Zoom Out per Mausklick auf die
-	 * entsprechenden Buttons
-	 * 
-	 * @author kerstin, helge, chris, holger
-	 * @param event
-	 * @throws Exception
-	 */
-	@FXML
-	void onClickZoomIn(MouseEvent event) throws Exception {
-		ZoomHelper.zoomIn(event, zoomProperty);
-	}
+        File sourceDir = new File(main.getMyConfig().getSourceDir());
+        // vordefinierte Klasse zur Dateiauswahl
+        FileChooser fileChooser = new FileChooser();
+        // grundkonfiguration
+        fileChooser.setTitle("Bitte gewünschte Datei auswählen");
+        fileChooser.setInitialDirectory(sourceDir);
+        fileChooser.getExtensionFilters().addAll(
+                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp"),
+                new ExtensionFilter("PDF Files", "*.pdf"));
 
-	@FXML
-	void onClickZoomOut(MouseEvent event) throws Exception {
-		ZoomHelper.zoomOut(event, zoomProperty);
-	}
+        Image fxImage = null;
+        Boolean isPdf;
+        // file wird gelesen
+        choosedSourceFile = fileChooser.showOpenDialog(labelPath.getScene().getWindow());
+        if (choosedSourceFile != null) {
+            // Path-angaben ausgeben
+            labelPath.setText(choosedSourceFile.getPath());
+            labelPath.setVisible(true);
 
-	/**
-	 * Auswahl eines Datums -ohne Datum darf kein Schlüsselwort ausgewählt oder
-	 * hinzugefügt werden und eine Speicherung findet nicht statt
-	 * 
-	 * @author helge
-	 * @param event
-	 */
-	@FXML
-	void inputManualDate(ActionEvent event) {
+            // überprüfung ob die Datei ein Pdf ist
+            isPdf = choosedSourceFile.getName().toString().endsWith(".pdf");
 
-		if (datePicker.getValue() != null) {
-			listKeywordOne.setDisable(false);
-			manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir());
-		} else {
-			listKeywordOne.setDisable(true);
-			listKeywordTwo.setDisable(true);
-			listKeywordThree.setDisable(true);
-			listKeywordFour.setDisable(true);
-			listKeywordFive.setDisable(true);
-			save.setDisable(true);
-		}
-	}
+            // ausgewählte Datei anzeigen mit Zoommöglichkeit über Mausrad
+            try {
+                if (isPdf) {
+                    fxImage = PDFHelper.convertPDFToImage(choosedSourceFile);
+                    zoomProperty.set(200);
+                    imageActualDoc.setImage(ZoomHelper.zoomMouse(fxImage, imageActualDoc,
+                            anchorMain, imageScrollPane, zoomProperty));
+                } else {
+                    Image myImage = new Image(choosedSourceFile.toURI().toURL().toExternalForm(),
+                            595.0, 842.0, false, true);
+                    zoomProperty.set(200);
+                    imageActualDoc.setImage(ZoomHelper.zoomMouse(myImage, imageActualDoc,
+                            anchorMain, imageScrollPane, zoomProperty));
+                }
+            } catch (Exception e) {
+                System.out.println("Fehler in handleSearchDoc");
+                System.out.println(e.getMessage());
 
-	@FXML
-	void inputManualKeywordOne(ActionEvent event) {
-		if (listKeywordOne.getValue() != null) {
-			listKeywordOne.setValue(ManualWindowHelper.inputManualKeyword(listKeywordOne, listKeywordTwo, 1, 1,
-					changeKeywordOne, save));
-			deactivateGrandchild(1);
-		}
-	}
+            }
+        }
+        zoomPlus.setDisable(false);
+        zoomMinus.setDisable(false);
+    }
 
-	void deactivateGrandchild(int level) {
-		Platform.runLater(new Runnable() {
+    /**
+     * Zwei Methoden für Zoom In und Zoom Out per Mausklick auf die entsprechenden Buttons.
+     * 
+     * @author kerstin, helge, chris, holger
+     * @param event
+     *            MouseEvent
+     * @throws Exception
+     */
+    @FXML
+    void onClickZoomIn(MouseEvent event) throws Exception {
+        ZoomHelper.zoomIn(event, zoomProperty);
+    }
 
-			@Override
-			public void run() {
-				try {
-					switch (level) {
-					case 1:
-						if (listKeywordOne.getValue().getKeyword().length() == 0) {
-							changeKeywordOne.setDisable(true);
-							listKeywordTwo.setDisable(true);
-							save.setDisable(true);
-						}
-						listKeywordThree.setValue(null);
-						listKeywordThree.setDisable(true);
-						listKeywordFour.setDisable(true);
-						listKeywordFour.setValue(null);
-						listKeywordFive.setDisable(true);
-						listKeywordFive.setValue(null);
-						break;
+    @FXML
+    void onClickZoomOut(MouseEvent event) throws Exception {
+        ZoomHelper.zoomOut(event, zoomProperty);
+    }
 
-					case 2:
-						if (listKeywordTwo.getValue().getKeyword().length() == 0) {
-							listKeywordThree.setDisable(true);
-							changeKeywordTwo.setDisable(true);
-						}
-						listKeywordFour.setDisable(true);
-						listKeywordFour.setValue(null);
-						listKeywordFive.setDisable(true);
-						listKeywordFive.setValue(null);
-						break;
-					case 3:
-						if (listKeywordThree.getValue().getKeyword().length() == 0) {
-							listKeywordFour.setDisable(true);
-							changeKeywordThree.setDisable(true);
-						}
-						listKeywordFive.setDisable(true);
-						listKeywordFive.setValue(null);
+    /**
+     * Auswahl eines Datums -ohne Datum darf kein Schlüsselwort ausgewählt oder hinzugefügt werden
+     * und eine Speicherung findet nicht statt.
+     * 
+     * @author helge
+     * @param event
+     *            ActionEvent
+     */
+    @FXML
+    void inputManualDate(ActionEvent event) {
+        if (datePicker.getValue() != null) {
+            listKeywordOne.setDisable(false);
+            manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir());
+        } else {
+            listKeywordOne.setDisable(true);
+            listKeywordTwo.setDisable(true);
+            listKeywordThree.setDisable(true);
+            listKeywordFour.setDisable(true);
+            listKeywordFive.setDisable(true);
+            save.setDisable(true);
+        }
+    }
 
-						break;
+    boolean isThereAnOpenDocument(MouseEvent event) {
+        event.consume();
+        if (choosedSourceFile != null && choosedSourceFile.length() > 0) {
+            return true;
+        } else {
+            // es wurde noch kein Dokument ausgewählt
+            // das gibt ERROR Terror!!!
+            Alert dialog = new Alert(AlertType.ERROR);
+            dialog.setTitle("Kein Dokument Ausgewählt");
+            dialog.setContentText(
+                    "Bitte suchen Sie zunächst ein Dokument aus das Sie ablegen wollen!");
+            dialog.showAndWait();
+        }
+        return false;
+    }
 
-					default:
-						break;
-					}
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
-				}
-			}
-		});
-	}
+    void deactivateGrandchild(int level) {
+        Platform.runLater(new Runnable() {
 
-	@FXML
-	void onMouseClicked(MouseEvent event) {
-		System.out.println("onMouseClicked");
-	}
+            @Override
+            public void run() {
+                try {
+                    switch (level) {
+                        case 1:
+                            if (listKeywordOne.getValue().getKeyword().length() == 0) {
+                                changeKeywordOne.setDisable(true);
+                                listKeywordTwo.setDisable(true);
+                                save.setDisable(true);
+                            }
+                            listKeywordThree.setValue(null);
+                            listKeywordThree.setDisable(true);
+                            listKeywordFour.setDisable(true);
+                            listKeywordFour.setValue(null);
+                            listKeywordFive.setDisable(true);
+                            listKeywordFive.setValue(null);
+                            break;
 
-	@FXML
-	void inputManualKeywordTwo(ActionEvent event) {
-		if (listKeywordTwo.getValue() != null) {
-			listKeywordTwo.setValue(ManualWindowHelper.inputManualKeyword(listKeywordTwo, listKeywordThree, 2,
-					listKeywordOne.getValue().getId(), changeKeywordTwo, save));
-			deactivateGrandchild(2);
-		}
-	}
+                        case 2:
+                            if (listKeywordTwo.getValue().getKeyword().length() == 0) {
+                                listKeywordThree.setDisable(true);
+                                changeKeywordTwo.setDisable(true);
+                            }
+                            listKeywordFour.setDisable(true);
+                            listKeywordFour.setValue(null);
+                            listKeywordFive.setDisable(true);
+                            listKeywordFive.setValue(null);
+                            break;
+                        case 3:
+                            if (listKeywordThree.getValue().getKeyword().length() == 0) {
+                                listKeywordFour.setDisable(true);
+                                changeKeywordThree.setDisable(true);
+                            }
+                            listKeywordFive.setDisable(true);
+                            listKeywordFive.setValue(null);
 
-	@FXML
-	void inputManualKeywordThree(ActionEvent event) {
-		if (listKeywordThree.getValue() != null) {
-			listKeywordThree.setValue(ManualWindowHelper.inputManualKeyword(listKeywordThree, listKeywordFour, 3,
-					listKeywordTwo.getValue().getId(), changeKeywordThree, save));
-			deactivateGrandchild(3);
-		}
-	}
+                            break;
 
-	@FXML
-	void inputManualKeywordFour(ActionEvent event) {
-		if (listKeywordFour.getValue() != null) {
-			listKeywordFour.setValue(ManualWindowHelper.inputManualKeyword(listKeywordFour, listKeywordFive, 4,
-					listKeywordThree.getValue().getId(), changeKeywordFour, save));
-		}
-	}
+                        default:
+                            break;
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        });
+    }
 
-	@FXML
-	void inputManualKeywordFive(ActionEvent event) {
-		if (listKeywordFour.getValue() != null) {
-			listKeywordFive.setValue(ManualWindowHelper.inputManualKeyword(listKeywordFive, null, 5,
-					listKeywordFour.getValue().getId(), changeKeywordFive, save));
-		}
-	}
+    private void setPathToDestination(int level) {
+        String tmp = "";
+        pathToDestination = "";
+        for (int i = 1; i <= level; i++) {
+            switch (i) {
+                case 1:
+                    tmp = listKeywordOne.getValue().getPath();
+                    break;
+                case 2:
+                    tmp = listKeywordTwo.getValue().getPath();
+                    break;
+                case 3:
+                    tmp = listKeywordThree.getValue().getPath();
+                    break;
+                case 4:
+                    tmp = listKeywordFour.getValue().getPath();
+                    break;
+                case 5:
+                    tmp = listKeywordFive.getValue().getPath();
+                    break;
+                default:
+                    throw new IllegalArgumentException(
+                            "setPathToDestination mit falschen Paramter aufgerufen");
+            }
+            // wenn tmp leer ist kein Seperator anhängen
+            pathToDestination += tmp.length() > 0 ? tmp + File.separator : "";
+        }
+        System.out.println(pathToDestination);
+    }
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		try {
-			listKeywordOne.setItems(KeywordTable.selectLevel(1));
-			File myFile = new File(main.getMyConfig().getDestinationDir());
-			if (!myFile.exists()) {
-				Alert dialog = new Alert(AlertType.ERROR);
-				dialog.setTitle("Ziellaufwerk nicht erreichbar");
-				// alert.setHeaderText("Look, an Information Dialog");
-				dialog.setContentText(main.getMyConfig().getDestinationDir() + " kann nicht erreicht werden");
-				dialog.showAndWait();
-			}
-			manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir().toString());
-			System.out.println(main.getMyConfig().getDestinationDir());
-		} catch (Exception e) {
-			// System.out.println("Fehler in ManualWindowController -
-			// initialize");
-			e.getStackTrace();
-		}
-	}
+    @FXML
+    void onMouseClicked(MouseEvent event) {
+        System.out.println("onMouseClicked");
+    }
+
+    @FXML
+    void inputManualKeywordOne(ActionEvent event) {
+        if (listKeywordOne.getValue() != null) {
+            listKeywordOne.setValue(ManualWindowHelper.inputManualKeyword(listKeywordOne,
+                    listKeywordTwo, 1, 1, changeKeywordOne, save));
+            setPathToDestination(1);
+            deactivateGrandchild(1);
+        }
+    }
+
+    @FXML
+    void inputManualKeywordTwo(ActionEvent event) {
+        if (listKeywordTwo.getValue() != null) {
+            listKeywordTwo.setValue(
+                    ManualWindowHelper.inputManualKeyword(listKeywordTwo, listKeywordThree, 2,
+                            listKeywordOne.getValue().getId(), changeKeywordTwo, save));
+            setPathToDestination(2);
+            deactivateGrandchild(2);
+        }
+    }
+
+    @FXML
+    void inputManualKeywordThree(ActionEvent event) {
+        if (listKeywordThree.getValue() != null) {
+            listKeywordThree.setValue(
+                    ManualWindowHelper.inputManualKeyword(listKeywordThree, listKeywordFour, 3,
+                            listKeywordTwo.getValue().getId(), changeKeywordThree, save));
+            setPathToDestination(3);
+            deactivateGrandchild(3);
+        }
+    }
+
+    @FXML
+    void inputManualKeywordFour(ActionEvent event) {
+        if (listKeywordFour.getValue() != null) {
+            listKeywordFour.setValue(
+                    ManualWindowHelper.inputManualKeyword(listKeywordFour, listKeywordFive, 4,
+                            listKeywordThree.getValue().getId(), changeKeywordFour, save));
+            setPathToDestination(4);
+        }
+    }
+
+    @FXML
+    void inputManualKeywordFive(ActionEvent event) {
+        if (listKeywordFour.getValue() != null) {
+            listKeywordFive.setValue(ManualWindowHelper.inputManualKeyword(listKeywordFive, null, 5,
+                    listKeywordFour.getValue().getId(), changeKeywordFive, save));
+            setPathToDestination(5);
+        }
+    }
+
+    /**
+     * Löst alle Aktionen aus die zum Speichern der Datei erforderlich sind.
+     * 
+     * @param event
+     *            Action Event vom Click
+     * @author christian
+     */
+    @FXML
+    void onClickSaveButton(ActionEvent event) {
+
+        System.out.println(pathToDestination);
+        // FilePusherHelper.moveFile("quelldatei", "zieldatei", event);
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        try {
+            listKeywordOne.setItems(KeywordTable.selectLevel(1));
+            File myFile = new File(main.getMyConfig().getDestinationDir());
+            if (!myFile.exists()) {
+                Alert dialog = new Alert(AlertType.ERROR);
+                dialog.setTitle("Ziellaufwerk nicht erreichbar");
+                // alert.setHeaderText("Look, an Information Dialog");
+                dialog.setContentText(
+                        main.getMyConfig().getDestinationDir() + " kann nicht erreicht werden");
+                dialog.showAndWait();
+            }
+            manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir().toString());
+            System.out.println(main.getMyConfig().getDestinationDir());
+        } catch (Exception e) {
+            // System.out.println("Fehler in ManualWindowController -
+            // initialize");
+            e.getStackTrace();
+        }
+    }
 }
