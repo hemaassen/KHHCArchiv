@@ -1,5 +1,6 @@
 package application.controller;
 
+import java.io.File;
 import java.util.List;
 
 import application.Main;
@@ -107,9 +108,12 @@ public final class MainWindowController {
 	}
 
 	/**
-	 * Aufruf der manuellen Ablage
+	 * Überprüfung ob die Einstellungen schon vorgenommen wurden und
+	 * Überprüfung ob das gewählte Zielverzeichnis erreichbar ist
+	 * wenn beides ok - Aufruf der manuellen Ablage
+	 * sonst der Configurationsseite
 	 * 
-	 * @author holger, helge
+	 * @author holger, helge, kerstin
 	 * 
 	 * @param event
 	 *            event
@@ -125,21 +129,33 @@ public final class MainWindowController {
 
 		try {
 			if (main.getMyConfig().getDestinationDir().equals("bitte Ziel-Verzeichnis auswählen")) {
+				//noch keine Einstellungen vorgenommen
 				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Fehlender Eintrag");
-				alert.setHeaderText("Fehlender Eintrag");
-				alert.setContentText("Bitte legen Sie vor der Ablage erst die Einstellungen fest");
+				alert.setTitle("Konfigurationsfehler");
+				alert.setHeaderText("Quell- und/oder Zielverzeichnis nicht festgelegt");
+				alert.setContentText("Bitte legen Sie das Quell- und Zielverzeichnis fest");
 				alert.showAndWait();
 				handleConfigButtonAction(event);
 			} else {
-				manualStore.setDisable(true);
-				search.setDisable(false);
-				config.setDisable(false);
-				AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
-				ManualWindowController.main = this.main;
-				anchorDetails.getChildren().setAll(pane);
-				labelSite.setText("Manuelle Ablage");
-				
+				File myFile = new File(main.getMyConfig().getDestinationDir());
+				if (!myFile.exists()) {
+					//Zielverzeichnis ist nicht erreichbar
+					Alert dialog = new Alert(AlertType.ERROR);
+					dialog.setTitle("Ziellaufwerk nicht erreichbar");
+					dialog.setHeaderText(main.getMyConfig().getDestinationDir() + " kann nicht erreicht werden");
+					dialog.setContentText(
+							"Bitte wählen Sie ein neues Zielverzeichnis oder stellen Sie die Verbindung wieder her");
+					dialog.showAndWait();
+					handleConfigButtonAction(event);
+				} else {
+					manualStore.setDisable(true);
+					search.setDisable(false);
+					config.setDisable(false);
+					AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
+					ManualWindowController.main = this.main;
+					anchorDetails.getChildren().setAll(pane);
+					labelSite.setText("Manuelle Ablage");
+				}
 
 			}
 		} catch (Exception e) {

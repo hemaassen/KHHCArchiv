@@ -259,6 +259,7 @@ public class ManualWindowController implements Initializable {
 
     if (datePicker.getValue() != null) {
       listKeywordOne.setDisable(false);
+      manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir());
     } else {
       listKeywordOne.setDisable(true);
       listKeywordTwo.setDisable(true);
