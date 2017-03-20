@@ -3,6 +3,9 @@ package application.controller;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.sun.org.apache.bcel.internal.generic.NEWARRAY;
+
 import application.KeyWord;
 import application.Main;
 import helper.ZoomHelper;
@@ -13,6 +16,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -370,6 +375,14 @@ public class ManualWindowController implements Initializable {
   public void initialize(URL arg0, ResourceBundle arg1) {
     try {
       listKeywordOne.setItems(KeywordTable.selectLevel(1));
+      File myFile=new File(main.getMyConfig().getDestinationDir());
+      if(!myFile.exists()){
+    	  Alert dialog= new Alert(AlertType.ERROR);
+          dialog.setTitle("Ziellaufwerk nicht erreichbar");
+          // alert.setHeaderText("Look, an Information Dialog");
+          dialog.setContentText(main.getMyConfig().getDestinationDir() + " kann nicht erreicht werden");
+          dialog.showAndWait();
+      }
       manualLabelDestinationPath
           .setText(main.getMyConfig().getDestinationDir().toString());
       System.out.println(main.getMyConfig().getDestinationDir());
