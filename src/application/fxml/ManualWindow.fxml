@@ -75,11 +75,11 @@
             <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
-      <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <ComboBox fx:id="listKeywordTwo" disable="true" layoutX="737.0" layoutY="243.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <ComboBox fx:id="listKeywordThree" disable="true" layoutX="737.0" layoutY="320.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <ComboBox fx:id="listKeywordFour" disable="true" layoutX="737.0" layoutY="395.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <ComboBox fx:id="listKeywordFive" disable="true" layoutX="737.0" layoutY="467.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onAction="#onChangeKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listKeywordTwo" disable="true" layoutX="737.0" layoutY="243.0" onAction="#onChangeKeywordTwo" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listKeywordThree" disable="true" layoutX="737.0" layoutY="320.0" onAction="#onChangeKeywordThree" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listKeywordFour" disable="true" layoutX="737.0" layoutY="395.0" onAction="#onChangeKeywordFour" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listKeywordFive" disable="true" layoutX="737.0" layoutY="467.0" onAction="#onChangeKeywordFive" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Button id="manualZoomIn" fx:id="zoomPlus" disable="true" layoutX="458.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#onClickZoomIn" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css">
          <tooltip>
             <Tooltip text="Dokument vergrößern." />
