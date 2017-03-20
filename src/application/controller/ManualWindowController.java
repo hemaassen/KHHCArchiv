@@ -124,31 +124,6 @@ public class ManualWindowController implements Initializable {
 
 	@FXML
 	private Button changeKeywordFive;
-	
-	@FXML
-	  void onChangeKeywordOne(ActionEvent event) {
-
-	  }
-
-	  @FXML
-	  void onChangeKeywordTwo(ActionEvent event) {
-
-	  }
-
-	  @FXML
-	  void onChangeKeywordThree(ActionEvent event) {
-
-	  }
-
-	  @FXML
-	  void onChangeKeywordFour(ActionEvent event) {
-
-	  }
-
-	  @FXML
-	  void onChangeKeywordFive(ActionEvent event) {
-
-	}
 
 	final DoubleProperty zoomProperty = new SimpleDoubleProperty(200);
 
