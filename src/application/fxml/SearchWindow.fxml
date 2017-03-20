@@ -19,31 +19,31 @@
          </image>
       </ImageView>
       <Label layoutX="23.0" layoutY="345.0" text="Datum von:" />
-      <DatePicker fx:id="dateFrom" layoutX="90.0" layoutY="341.0" onAction="#inputFromDate" prefWidth="180.0" promptText="tt.mm.jj" />
+      <DatePicker fx:id="dateFrom" layoutX="90.0" layoutY="341.0" onAction="#inputFromDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" />
       <Label layoutX="291.0" layoutY="345.0" text="Datum bis:" />
-      <DatePicker fx:id="dateTill" editable="false" layoutX="352.0" layoutY="341.0" onAction="#inputTillDate" prefWidth="180.0" promptText="tt.mm.jj" />
+      <DatePicker fx:id="dateTill" editable="false" layoutX="352.0" layoutY="341.0" onAction="#inputTillDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" />
       <Label layoutX="118.0" layoutY="57.0" text="Schlüsselwort 1:" />
-      <ChoiceBox fx:id="listSearchKeywordOne" layoutX="215.0" layoutY="48.0" onInputMethodTextChanged="#inputKeywordOneTextChange" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ChoiceBox fx:id="listSearchKeywordOne" layoutX="215.0" layoutY="48.0" onInputMethodTextChanged="#inputKeywordOneTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Label layoutX="118.0" layoutY="110.0" text="Schlüsselwort 2:" />
-      <ChoiceBox fx:id="listSearchKeywordTwo" layoutX="215.0" layoutY="101.0" onInputMethodTextChanged="#inputKeywordTwoTextChange" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ChoiceBox fx:id="listSearchKeywordTwo" layoutX="215.0" layoutY="101.0" onInputMethodTextChanged="#inputKeywordTwoTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Label layoutX="118.0" layoutY="163.0" text="Schlüsselwort 3:" />
-      <ChoiceBox fx:id="listSearchKeywordThree" layoutX="215.0" layoutY="154.0" onInputMethodTextChanged="#inputKeywordThreeTextChange" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ChoiceBox fx:id="listSearchKeywordThree" layoutX="215.0" layoutY="154.0" onInputMethodTextChanged="#inputKeywordThreeTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Label layoutX="118.0" layoutY="216.0" text="Schlüsselwort 4:" />
-      <ChoiceBox fx:id="listSearchKeywordFour" layoutX="215.0" layoutY="207.0" onInputMethodTextChanged="#inputKeywordFourTextChange" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ChoiceBox fx:id="listSearchKeywordFour" layoutX="215.0" layoutY="207.0" onInputMethodTextChanged="#inputKeywordFourTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <Label layoutX="118.0" layoutY="269.0" text="Schlüsselwort 5:" />
-      <ChoiceBox fx:id="listSearchKeywordFive" layoutX="215.0" layoutY="260.0" onInputMethodTextChanged="#inputKeywordFiveTextChange" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <Button id="searchSearch" fx:id="buttonSearch" disable="true" layoutX="236.0" layoutY="401.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" />
+      <ChoiceBox fx:id="listSearchKeywordFive" layoutX="215.0" layoutY="260.0" onInputMethodTextChanged="#inputKeywordFiveTextChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <Button id="searchSearch" fx:id="buttonSearch" disable="true" layoutX="236.0" layoutY="401.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" />
       <Label layoutX="67.0" layoutY="470.0" text="Ergebnis:" />
-      <ListView fx:id="listResult" layoutX="123.0" layoutY="470.0" prefHeight="185.0" prefWidth="372.0" />
-      <Button id="searchZoomIn" fx:id="zoomPlus" disable="true" layoutX="644.0" layoutY="630.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
-      <Button id="searchZoomOut" fx:id="zoomMinus" disable="true" layoutX="714.0" layoutY="630.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
-      <Button id="searchPrint" fx:id="print" disable="true" layoutX="916.0" layoutY="630.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
-      <Button id="searchSend" fx:id="send" disable="true" layoutX="987.0" layoutY="630.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
+      <ListView fx:id="listResult" layoutX="123.0" layoutY="470.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="185.0" prefWidth="372.0" />
+      <Button id="searchZoomIn" fx:id="zoomPlus" disable="true" layoutX="644.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
+      <Button id="searchZoomOut" fx:id="zoomMinus" disable="true" layoutX="714.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
+      <Button id="searchPrint" fx:id="print" disable="true" layoutX="916.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
+      <Button id="searchSend" fx:id="send" disable="true" layoutX="987.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
       <ImageView fx:id="choosenDoc" fitHeight="570.0" fitWidth="402.0" layoutX="645.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D height="842.0" width="595.0" />
          </viewport></ImageView>
-      <Button id="searchNewSort" fx:id="newStore" disable="true" layoutX="843.0" layoutY="630.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
+      <Button id="searchNewSort" fx:id="newStore" disable="true" layoutX="843.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css" />
       <Separator layoutX="23.0" layoutY="43.0" prefHeight="4.0" prefWidth="510.0" visible="false" />
    </children>
 </AnchorPane>

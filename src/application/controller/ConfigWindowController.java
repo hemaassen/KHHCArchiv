@@ -8,10 +8,12 @@ import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import persistence.ConfigTable;
 
@@ -62,6 +64,16 @@ public class ConfigWindowController implements Initializable {
 
 	@FXML
 	private Button takeChange;
+
+	@FXML
+	void setOnMouseEntered(MouseEvent event) {
+		main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
+	}
+
+	@FXML
+	void setOnMouseExited(MouseEvent event) {
+		main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
+	}
 
 	@FXML
 	void handleSearchDestinationLocation(ActionEvent event) {

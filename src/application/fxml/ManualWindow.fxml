@@ -98,7 +98,7 @@
          </content>
       </ScrollPane>
       <Label layoutX="762.0" layoutY="531.0" text="Speicherort des Dokuments:" />
-      <Label fx:id="manualLabelDestinationPath" disable="true" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" style="-fx-border-color: black;" text="Speicherort" />
+      <Label fx:id="manualLabelDestinationPath" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" style="-fx-border-color: black;" text="Speicherort" />
       <Label layoutX="466.0" layoutY="192.0" text="+">
          <font>
             <Font name="Arial Black" size="18.0" />

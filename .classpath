@@ -21,5 +21,6 @@
 	<classpathentry kind="lib" path="libs/pdfbox-tools-2.0.5.jar"/>
 	<classpathentry kind="lib" path="libs/preflight-2.0.5.jar"/>
 	<classpathentry kind="lib" path="libs/xmpbox-2.0.5.jar"/>
+	<classpathentry kind="lib" path="libs/controlsfx-8.40.12.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
