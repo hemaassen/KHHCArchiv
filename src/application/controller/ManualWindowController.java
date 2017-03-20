@@ -189,7 +189,7 @@ public class ManualWindowController implements Initializable {
      * <li>JPG, JPEG,
      * <li>GIF,
      * <li>BMP,
-     * <li>PDF</li>
+     * <li>PDF.</li>
      * </ul>
      * 
      * @author kerstin
@@ -452,7 +452,6 @@ public class ManualWindowController implements Initializable {
     void onClickSaveButton(ActionEvent event) {
 
         System.out.println(pathToDestination);
-        // FilePusherHelper.moveFile("quelldatei", "zieldatei", event);
     }
 
     @Override
