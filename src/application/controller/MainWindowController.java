@@ -88,7 +88,7 @@ public final class MainWindowController {
 		this.main = main;
 
 		// Ueberschrift wird auf den Wert Archivierung (Version 1.0) gesetzt
-		labelHeadline.setText("Archivierung (Version 1.0)");
+		//labelHeadline.setText("Archivierung (Version 1.0)");
 	}
 
 	/**
@@ -154,7 +154,7 @@ public final class MainWindowController {
 					AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
 					ManualWindowController.main = this.main;
 					anchorDetails.getChildren().setAll(pane);
-					labelSite.setText("Manuelle Ablage");
+					//labelSite.setText("Manuelle Ablage");
 				}
 
 			}
@@ -187,7 +187,7 @@ public final class MainWindowController {
 			AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/SearchWindow.fxml"));
 			SearchWindowController.main = this.main;
 			anchorDetails.getChildren().setAll(pane);
-			labelSite.setText("Dokument suchen");
+			//labelSite.setText("Dokument suchen");
 		} catch (Exception e) {
 			System.out.println("Fehler in MainWindowController - handleSearchButtonAction");
 			e.printStackTrace();
@@ -232,7 +232,7 @@ public final class MainWindowController {
 					break;
 				}
 				anchorDetails.getChildren().setAll(configPane);
-				labelSite.setText("Einstellungen");
+				//labelSite.setText("Einstellungen");
 			}
 		} catch (Exception e) {
 			System.out.println("Fehler in MainWindowController - handleConfigButtonAction");

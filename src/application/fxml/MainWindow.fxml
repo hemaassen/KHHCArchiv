@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -12,14 +11,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchorParent" fx:id="anchorMainMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="827.0" prefWidth="1282.0" stylesheets="@../css/anchor.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainWindowController">
+<AnchorPane id="anchorParent" fx:id="anchorMainMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="782.0" prefWidth="1285.0" stylesheets="@../css/anchor.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainWindowController">
    <children>
-      <ScrollPane id="scrollPainMain" prefHeight="840.0" prefViewportHeight="825.0" prefViewportWidth="1280.0" prefWidth="1280.0" stylesheets="@../css/anchor.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane id="scrollPainMain" prefHeight="790.0" prefViewportHeight="790.0" prefViewportWidth="1282.0" prefWidth="1285.0" stylesheets="@../css/anchor.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
-          <AnchorPane id="anchorChild" minHeight="0.0" minWidth="0.0" prefHeight="825.0" prefWidth="1280.0" stylesheets="@../css/anchor.css">
+          <AnchorPane id="anchorChild" minHeight="0.0" minWidth="0.0" prefHeight="780.0" prefWidth="1283.0" stylesheets="@../css/anchor.css">
                <children>
-                  <Button id="mainFooterLogo" fx:id="mainFooterLogo" layoutX="8.0" layoutY="780.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="157.0" stylesheets="@../css/menuButton.css" />
-                  <ImageView fitHeight="35.0" fitWidth="1108.0" layoutX="172.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true">
+                  <Button id="mainFooterLogo" fx:id="mainFooterLogo" layoutX="8.0" layoutY="737.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="157.0" stylesheets="@../css/menuButton.css" />
+                  <ImageView fitHeight="35.0" fitWidth="1108.0" layoutX="172.0" layoutY="737.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D height="35.0" width="1108.0" />
                      </viewport>
@@ -27,7 +26,7 @@
                         <Image url="@../images/foot_back.png" />
                      </image>
                   </ImageView>
-                  <MenuBar id="menuBar" fx:id="menuBar" layoutY="53.0" prefHeight="35.0" prefWidth="1280.0" stylesheets="@../css/anchor.css">
+                  <MenuBar id="menuBar" fx:id="menuBar" layoutY="9.0" prefHeight="35.0" prefWidth="1280.0" stylesheets="@../css/anchor.css">
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
@@ -43,22 +42,7 @@
                       </Menu>
                     </menus>
                   </MenuBar>
-                  <Label fx:id="labelHeadline" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="3.0" prefHeight="43.0" prefWidth="352.0" text="Archivierung V 1.0" textAlignment="CENTER" textFill="#023537">
-                     <font>
-                        <Font name="Arial Black" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelSite" disable="true" layoutX="376.0" layoutY="4.0" prefHeight="45.0" prefWidth="265.0">
-                     <font>
-                        <Font name="Arial Black" size="24.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="imageViewAdvertise" fitHeight="60.0" fitWidth="468.0" layoutX="781.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <viewport>
-                        <Rectangle2D height="60.0" width="468.0" />
-                     </viewport>
-                  </ImageView>
-                  <ImageView fitHeight="674.0" fitWidth="158.0" layoutX="8.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="674.0" fitWidth="158.0" layoutX="8.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/menu_back_1.png" />
                      </image>
@@ -66,16 +50,16 @@
                         <Rectangle2D height="674.0" width="158.0" />
                      </viewport>
                   </ImageView>
-                  <Button id="menuManualButton" fx:id="manualStore" layoutX="25.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleManualButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="182.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE">
+                  <Button id="menuManualButton" fx:id="manualStore" layoutX="25.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManualButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
+                  <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="137.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Button>
-                  <Button id="menuSearchButton" fx:id="search" layoutX="25.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleSearchButton" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuConfigButton" fx:id="config" layoutX="25.0" layoutY="647.0" mnemonicParsing="false" onAction="#handleConfigButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuCloseButton" fx:id="stop" layoutX="25.0" layoutY="705.0" mnemonicParsing="false" onAction="#stopProgram" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <AnchorPane fx:id="anchorDetails" layoutX="172.0" layoutY="97.0" prefHeight="674.0" prefWidth="1108.0" stylesheets="@../css/anchor.css">
+                  <Button id="menuSearchButton" fx:id="search" layoutX="25.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleSearchButton" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
+                  <Button id="menuConfigButton" fx:id="config" layoutX="25.0" layoutY="602.0" mnemonicParsing="false" onAction="#handleConfigButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
+                  <Button id="menuCloseButton" fx:id="stop" layoutX="25.0" layoutY="660.0" mnemonicParsing="false" onAction="#stopProgram" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
+                  <AnchorPane fx:id="anchorDetails" layoutX="172.0" layoutY="53.0" prefHeight="674.0" prefWidth="1108.0" stylesheets="@../css/anchor.css">
                      <children>
                         <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -83,7 +67,7 @@
                            </image>
                         </ImageView>
                      </children></AnchorPane>
-                  <ImageView fitHeight="35.0" fitWidth="191.0" layoutX="173.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="191.0" layoutX="173.0" layoutY="737.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D height="35.0" width="191.0" />
                      </viewport>
