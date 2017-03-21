@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchorParent" fx:id="anchorMainMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="830.0" prefWidth="1285.0" stylesheets="@../css/anchor.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainWindowController">
+<AnchorPane id="anchorParent" fx:id="anchorMainMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="827.0" prefWidth="1282.0" stylesheets="@../css/anchor.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainWindowController">
    <children>
       <ScrollPane id="scrollPainMain" prefHeight="840.0" prefViewportHeight="825.0" prefViewportWidth="1280.0" prefWidth="1280.0" stylesheets="@../css/anchor.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
