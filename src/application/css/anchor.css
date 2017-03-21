@@ -7,7 +7,7 @@
 #anchorNewKeyword{
 	-fx-background-color: #0e7477
 }
-.scrollPainMain{
+#scrollPainMain{
 	-fx-background-color: #0e7477
 }
 .scroll-bar:horizontal, .scroll-bar:vertical{
@@ -28,5 +28,8 @@
 	-fx-background-color: #0e7477
 }
 .tab-pane .tab-header-area .tab-header-background {
+	-fx-background-image: url('../images/header_back.png');
+}
+.menu-bar{
 	-fx-background-image: url('../images/header_back.png');
 }
