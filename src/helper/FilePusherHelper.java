@@ -23,7 +23,7 @@ public class FilePusherHelper {
 
     public static boolean doFileMove(File srcFile, String destination, String destFileName,
             Main main) {
-
+        
         String destinationRoot = main.getMyConfig().getDestinationDir();
         String ext = getFileExtension(srcFile);
         File destinationFile = new File(
