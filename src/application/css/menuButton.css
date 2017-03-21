@@ -143,9 +143,26 @@
  * HelpWindow Button
  */
  
- #helpClose{
+#helpClose{
 	-fx-background-image: url('../images/help_close.png')
 }
 #helpClose:pressed{
 	-fx-background-image: url('../images/help_close_pressed.png')
+}
+
+/**
+ * NewKeywordWindow Button
+ */
+ 
+#newKeywordSave{
+	-fx-background-image: url('../images/new_keyword_save.png')
+}
+#newKeywordSave:pressed{
+	-fx-background-image: url('../images/new_keyword_save_pressed.png')
+}
+#newKeywordStop{
+	-fx-background-image: url('../images/new_keyword_cancel.png')
+}
+#newKeywordStop:pressed{
+	-fx-background-image: url('../images/new_keyword_cancel_pressed.png')
 }
