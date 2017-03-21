@@ -397,7 +397,8 @@ public class ManualWindowController implements Initializable {
             // wenn tmp leer ist kein Seperator anhängen
             pathToDestination += tmp.length() > 0 ? tmp + File.separator : "";
         }
-        System.out.println(pathToDestination); // remove
+        manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir().toString()
+                + File.separator + pathToDestination);
     }
 
     @FXML
