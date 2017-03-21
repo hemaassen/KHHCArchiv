@@ -2,6 +2,10 @@ package helper;
 
 import application.Main;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 public class FilePusherHelper {
 
@@ -11,28 +15,28 @@ public class FilePusherHelper {
      * 
      * @param srcFile
      *            File mit Pfad und Dateiname
-     * @param destination
-     *            String mit Pfad und Seperator ( / oder \) 
-     * @param destFileName 
+     * @param createdPath
+     *            String mit Pfad und Seperator ( / oder \)
+     * @param destFileName
      *            String : Grundlage für den Dateinamen
      * @param main
-     *           
+     * 
      * @return boolean true bei Erfolg
      * @author Christian
      */
 
-    public static boolean doFileMove(File srcFile, String destination, String destFileName,
+    public static boolean doFileMove(File srcFile, String createdPath, String destFileName,
             Main main) {
-        
+
         String destinationRoot = main.getMyConfig().getDestinationDir();
         String ext = getFileExtension(srcFile);
         File destinationFile = new File(
-                destinationRoot + File.separator + destination + destFileName + "." + ext);
+                destinationRoot + File.separator + createdPath + destFileName + "." + ext);
         int i = 0;
         String plus = "";
         while (destinationFile.exists()) { // wenn datei nicht existiert passiert hier nix
             plus = makeMyPlus(i);
-            destinationFile = new File(destinationRoot + File.separator + destination + destFileName
+            destinationFile = new File(destinationRoot + File.separator + createdPath + destFileName
                     + plus + "." + ext);
             i++;
         }
@@ -40,7 +44,29 @@ public class FilePusherHelper {
         System.out.println("Filename: " + destFileName + "  Ext: " + ext + "\nQuelle: "
                 + srcFile.toString() + "\nZiel: " + destinationFile); // remove
 
-        return false;
+        Path checkPath = null;
+        try {
+            checkPath = Files.createDirectories(
+                    new File(destinationRoot + File.separator + createdPath).toPath());
+        } catch (IOException e1) {
+            System.out.println("IO-Exception von createDirectories");
+            e1.printStackTrace();
+            return false;
+        }
+        if (checkPath != null) {
+            // Verzeichnis sollte Existieren -> los gehts
+            try {
+                Files.move(srcFile.toPath(), destinationFile.toPath(),
+                        StandardCopyOption.ATOMIC_MOVE);
+            } catch (IOException e) {
+                System.out.println("IO-Exception von Move");
+                e.printStackTrace();
+                return false;
+            }
+        } else {
+            System.out.println("Konnte die Verzeichnisse nicht anlegen!!!");
+        }
+        return true;
     }
 
     /**
@@ -48,8 +74,8 @@ public class FilePusherHelper {
      * an den Dateinamen gehängt werden können.
      * 
      * @param i
-     *            Der Zähler aus dem der String erzeugt wird wenn der Bereich nicht
-     *            überschritten wird.
+     *            Der Zähler aus dem der String erzeugt wird wenn der Bereich nicht überschritten
+     *            wird.
      * @return String der angehängt werden kann
      * @author Christian
      */

@@ -469,8 +469,11 @@ public class ManualWindowController implements Initializable {
      */
     @FXML
     void onClickSaveButton(ActionEvent event) {
-        FilePusherHelper.doFileMove(sourceFileName, pathToDestination,
+        boolean result = FilePusherHelper.doFileMove(sourceFileName, pathToDestination,
                 destFileName + datePicker.getValue().toString(), main);
+        if (result) {
+            imageActualDoc.setVisible(false);
+        }
     }
 
     @Override
