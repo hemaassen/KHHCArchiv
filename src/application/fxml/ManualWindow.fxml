@@ -26,11 +26,11 @@
          </font>
       </Label>
       <Slider fx:id="manualSliderZoom" layoutX="480.0" layoutY="212.0" majorTickUnit="50.0" min="-100.0" minorTickCount="5" orientation="VERTICAL" prefHeight="349.0" prefWidth="14.0" showTickLabels="true" showTickMarks="true" />
-      <Button id="manualSearchButton" fx:id="searchDoc" layoutX="191.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleSearchDoc" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE">
+      <Button id="manualSearchButton" fx:id="searchDoc" layoutX="191.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleSearchDoc" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE">
          <tooltip>
             <Tooltip text="Dokument suchen." />
          </tooltip></Button>
-      <Label fx:id="labelPath" layoutX="42.0" layoutY="59.0" prefHeight="25.0" prefWidth="273.0" style="-fx-border-color: black;" text="Pfad des aktuellen Dokuments" textFill="#00000057" />
+      <Label fx:id="labelPath" disable="true" layoutX="42.0" layoutY="59.0" prefHeight="25.0" prefWidth="273.0" style="-fx-border-color: black;" stylesheets="@../css/combobox.css" text="Pfad des aktuellen Dokuments" />
       <Label fx:id="labelKeywords" layoutX="797.0" layoutY="33.0" prefHeight="25.0" prefWidth="124.0" text="Schlüsselworte:">
          <font>
             <Font name="Arial Black" size="12.0" />
@@ -46,31 +46,31 @@
       <Label fx:id="labelKeywordtThree" layoutX="643.0" layoutY="328.0" text="Schlüsselwort 3" />
       <Label fx:id="labelKeywordFour" layoutX="643.0" layoutY="404.0" text="Schlüsselwort 4" />
       <Label fx:id="labelKeywordFive" layoutX="643.0" layoutY="476.0" text="Schlüsselwort 5" />
-      <Button id="manualSave" fx:id="save" disable="true" layoutX="775.0" layoutY="607.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css">
+      <Button id="manualSave" fx:id="save" disable="true" layoutX="775.0" layoutY="607.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css">
          <tooltip>
             <Tooltip text="Dokument archivieren." />
          </tooltip></Button>
-      <Button id="manualChangeKeyword" fx:id="changeKeywordOne" disable="true" layoutX="964.0" layoutY="167.0" mnemonicParsing="false" onAction="#onChangeKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
+      <Button id="manualChangeKeyword" fx:id="changeKeywordOne" disable="true" layoutX="964.0" layoutY="167.0" mnemonicParsing="false" onAction="#onChangeKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/button.css">
          <tooltip>
             <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
-      <Button id="manualChangeKeyword" fx:id="changeKeywordTwo" disable="true" layoutX="964.0" layoutY="243.0" mnemonicParsing="false" onAction="#onChangeKeywordTwo" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
+      <Button id="manualChangeKeyword" fx:id="changeKeywordTwo" disable="true" layoutX="964.0" layoutY="243.0" mnemonicParsing="false" onAction="#onChangeKeywordTwo" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/button.css">
          <tooltip>
             <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
-      <Button id="manualChangeKeyword" fx:id="changeKeywordThree" disable="true" layoutX="964.0" layoutY="319.0" mnemonicParsing="false" onAction="#onChangeKeywordThree" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
+      <Button id="manualChangeKeyword" fx:id="changeKeywordThree" disable="true" layoutX="964.0" layoutY="319.0" mnemonicParsing="false" onAction="#onChangeKeywordThree" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/button.css">
          <tooltip>
             <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
-      <Button id="manualChangeKeyword" fx:id="changeKeywordFour" disable="true" layoutX="964.0" layoutY="395.0" mnemonicParsing="false" onAction="#onChangeKeywordFour" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
+      <Button id="manualChangeKeyword" fx:id="changeKeywordFour" disable="true" layoutX="964.0" layoutY="395.0" mnemonicParsing="false" onAction="#onChangeKeywordFour" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/button.css">
          <tooltip>
             <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
-      <Button id="manualChangeKeyword" fx:id="changeKeywordFive" disable="true" layoutX="964.0" layoutY="467.0" mnemonicParsing="false" onAction="#onChangeKeywordFive" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/menuButton.css">
+      <Button id="manualChangeKeyword" fx:id="changeKeywordFive" disable="true" layoutX="964.0" layoutY="467.0" mnemonicParsing="false" onAction="#onChangeKeywordFive" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/button.css">
          <tooltip>
             <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
@@ -80,11 +80,11 @@
       <ComboBox fx:id="listKeywordThree" disable="true" layoutX="737.0" layoutY="320.0" onAction="#inputManualKeywordThree" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <ComboBox fx:id="listKeywordFour" disable="true" layoutX="737.0" layoutY="395.0" onAction="#inputManualKeywordFour" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
       <ComboBox fx:id="listKeywordFive" disable="true" layoutX="737.0" layoutY="467.0" onAction="#inputManualKeywordFive" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <Button id="manualZoomIn" fx:id="zoomPlus" disable="true" layoutX="458.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#onClickZoomIn" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css">
+      <Button id="manualZoomIn" fx:id="zoomPlus" disable="true" layoutX="458.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#onClickZoomIn" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css">
          <tooltip>
             <Tooltip text="Dokument vergrößern." />
          </tooltip></Button>
-      <Button id="manualZoomOut" fx:id="zoomMinus" disable="true" layoutX="458.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#onClickZoomOut" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/menuButton.css">
+      <Button id="manualZoomOut" fx:id="zoomMinus" disable="true" layoutX="458.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#onClickZoomOut" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css">
          <tooltip>
             <Tooltip text="Dokument verkleinern." />
          </tooltip></Button>
@@ -98,7 +98,7 @@
          </content>
       </ScrollPane>
       <Label layoutX="762.0" layoutY="531.0" text="Speicherort des Dokuments:" />
-      <Label fx:id="manualLabelDestinationPath" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" style="-fx-border-color: black;" text="Speicherort" />
+      <Label fx:id="manualLabelDestinationPath" disable="true" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" style="-fx-border-color: black;" stylesheets="@../css/combobox.css" text="Speicherort" />
       <Label layoutX="466.0" layoutY="192.0" text="+">
          <font>
             <Font name="Arial Black" size="18.0" />

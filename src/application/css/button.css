@@ -1,7 +1,168 @@
-.button {
-	-fx-background-color: #bcd9da;
+/**
+ * MainWindow Button
+ */
+ 
+#menuManualButton{
+	-fx-background-image: url('../images/menu_button_manual.png')
 }
-.button:hover{
-	-fx-background-color: #0e7477;
-	-fx-text-fill: white;
+#menuManualButton:pressed{
+	-fx-background-image: url('../images/menu_button_manual_pressed.png')
+}
+#menuAutoButton{
+	-fx-background-image: url('../images/menu_button_auto.png')
+}
+#menuSearchButton{
+	-fx-background-image: url('../images/menu_button_search.png')
+}
+#menuSearchButton:pressed{
+	-fx-background-image: url('../images/menu_button_search_pressed.png')
+}
+#menuConfigButton{
+	-fx-background-image: url('../images/menu_button_config.png')
+}
+#menuConfigButton:pressed{
+	-fx-background-image: url('../images/menu_button_config_pressed.png')
+}
+#menuCloseButton{
+	-fx-background-image: url('../images/menu_button_close.png')
+}
+#menuCloseButton:pressed{
+	-fx-background-image: url('../images/menu_button_close_pressed.png')
+}
+#mainFooterLogo{
+	-fx-background-image: url('../images/misfits_footer_logo.png')
+}
+
+/**
+ * ManualWindow Button
+ */
+ 
+#manualSearchButton{
+	-fx-background-image: url('../images/manual_button_search.png')
+}
+#manualSearchButton:pressed{
+	-fx-background-image: url('../images/manual_button_search_pressed.png')
+}
+#manualZoomIn{
+	-fx-background-image: url('../images/manual_zoom_in.png')
+}
+#manualZoomIn:pressed{
+	-fx-background-image: url('../images/manual_zoom_in_pressed.png')
+}
+#manualZoomOut{
+	-fx-background-image: url('../images/manual_zoom_out.png')
+}
+#manualZoomOut:pressed{
+	-fx-background-image: url('../images/manual_zoom_out_pressed.png')
+}
+#manualSave{
+	-fx-background-image: url('../images/manual_save.png')
+}
+#manualSave:pressed{
+	-fx-background-image: url('../images/manual_save_pressed.png')
+}
+#manualChangeKeyword{
+	-fx-background-image: url('../images/manual_change_keyword.png')
+}
+#manualChangeKeyword:pressed{
+	-fx-background-image: url('../images/manual_change_keyword_pressed.png')
+}
+
+
+/**
+ * SearchWindow Button
+ */
+ 
+#searchSearch{
+	-fx-background-image: url('../images/search_search.png')
+}
+#searchSearch:pressed{
+	-fx-background-image: url('../images/search_search_pressed.png')
+}
+#searchZoomIn{
+	-fx-background-image: url('../images/manual_zoom_in.png')
+}
+#searchZoomIn:pressed{
+	-fx-background-image: url('../images/manual_zoom_in_pressed.png')
+}
+#searchZoomOut{
+	-fx-background-image: url('../images/manual_zoom_out.png')
+}
+#searchZoomOut:pressed{
+	-fx-background-image: url('../images/manual_zoom_out_pressed.png')
+}
+#searchNewSort{
+	-fx-background-image: url('../images/search_new_sort.png')
+}
+#searchNewSort:pressed{
+	-fx-background-image: url('../images/search_new_sort_pressed.png')
+}
+#searchPrint{
+	-fx-background-image: url('../images/search_print.png')
+}
+#searchPrint:pressed{
+	-fx-background-image: url('../images/search_print_pressed.png')
+}
+#searchSend{
+	-fx-background-image: url('../images/search_send.png')
+}
+#searchSend:pressed{
+	-fx-background-image: url('../images/search_send_pressed.png')
+}
+
+/**
+ * ConfigWindow Button
+ */
+ 
+#configSearchLocation{
+	-fx-background-image: url('../images/manual_button_search.png')
+}
+#configSearchLocation:pressed{
+	-fx-background-image: url('../images/manual_button_search_pressed.png')
+}
+#configSearchDestination{
+	-fx-background-image: url('../images/manual_button_search.png')
+}
+#configSearchDestination:pressed{
+	-fx-background-image: url('../images/manual_button_search_pressed.png')
+}
+#configBreak{
+	-fx-background-image: url('../images/config_break.png')
+}
+#configBreak:pressed{
+	-fx-background-image: url('../images/config_break_pressed.png')
+}
+#configSave{
+	-fx-background-image: url('../images/config_save.png')
+}
+#configSave:pressed{
+	-fx-background-image: url('../images/config_save_pressed.png')
+}
+
+/**
+ * HelpWindow Button
+ */
+ 
+#helpClose{
+	-fx-background-image: url('../images/help_close.png')
+}
+#helpClose:pressed{
+	-fx-background-image: url('../images/help_close_pressed.png')
+}
+
+/**
+ * NewKeywordWindow Button
+ */
+ 
+#newKeywordSave{
+	-fx-background-image: url('../images/new_keyword_save.png')
+}
+#newKeywordSave:pressed{
+	-fx-background-image: url('../images/new_keyword_save_pressed.png')
+}
+#newKeywordStop{
+	-fx-background-image: url('../images/new_keyword_cancel.png')
+}
+#newKeywordStop:pressed{
+	-fx-background-image: url('../images/new_keyword_cancel_pressed.png')
 }

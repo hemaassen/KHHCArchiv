@@ -20,8 +20,8 @@
             </ImageView>
             <AnchorPane layoutX="9.0" layoutY="231.0" minHeight="0.0" minWidth="0.0" prefHeight="85.0" prefWidth="400.0">
                <children>
-                  <Button id="newKeywordStop" fx:id="newKeywordCancel" layoutX="299.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" stylesheets="@../css/menuButton.css" />
-                  <Button id="newKeywordSave" fx:id="newKeywordSave" layoutX="208.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" stylesheets="@../css/menuButton.css" />
+                  <Button id="newKeywordStop" fx:id="newKeywordCancel" layoutX="299.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" stylesheets="@../css/button.css" />
+                  <Button id="newKeywordSave" fx:id="newKeywordSave" layoutX="208.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" stylesheets="@../css/button.css" />
                </children>
             </AnchorPane>
             <TextField fx:id="newKeywordTextField" layoutX="134.0" layoutY="102.0" prefHeight="25.0" prefWidth="252.0" stylesheets="@../css/combobox.css" />

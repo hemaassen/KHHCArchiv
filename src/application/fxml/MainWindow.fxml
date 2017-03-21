@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -17,7 +18,7 @@
         <content>
           <AnchorPane id="anchorChild" minHeight="0.0" minWidth="0.0" prefHeight="780.0" prefWidth="1283.0" stylesheets="@../css/anchor.css">
                <children>
-                  <Button id="mainFooterLogo" fx:id="mainFooterLogo" layoutX="8.0" layoutY="737.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="157.0" stylesheets="@../css/menuButton.css" />
+                  <Button id="mainFooterLogo" fx:id="mainFooterLogo" layoutX="8.0" layoutY="737.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="157.0" stylesheets="@../css/button.css" />
                   <ImageView fitHeight="35.0" fitWidth="1108.0" layoutX="172.0" layoutY="737.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D height="35.0" width="1108.0" />
@@ -41,6 +42,9 @@
                         </items>
                       </Menu>
                     </menus>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuBar>
                   <ImageView fitHeight="674.0" fitWidth="158.0" layoutX="8.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,15 +54,15 @@
                         <Rectangle2D height="674.0" width="158.0" />
                      </viewport>
                   </ImageView>
-                  <Button id="menuManualButton" fx:id="manualStore" layoutX="25.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManualButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="137.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE">
+                  <Button id="menuManualButton" fx:id="manualStore" layoutX="25.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManualButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE" />
+                  <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="137.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Button>
-                  <Button id="menuSearchButton" fx:id="search" layoutX="25.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleSearchButton" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuConfigButton" fx:id="config" layoutX="25.0" layoutY="602.0" mnemonicParsing="false" onAction="#handleConfigButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
-                  <Button id="menuCloseButton" fx:id="stop" layoutX="25.0" layoutY="660.0" mnemonicParsing="false" onAction="#stopProgram" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/menuButton.css" textFill="WHITE" />
+                  <Button id="menuSearchButton" fx:id="search" layoutX="25.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleSearchButton" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE" />
+                  <Button id="menuConfigButton" fx:id="config" layoutX="25.0" layoutY="602.0" mnemonicParsing="false" onAction="#handleConfigButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE" />
+                  <Button id="menuCloseButton" fx:id="stop" layoutX="25.0" layoutY="660.0" mnemonicParsing="false" onAction="#stopProgram" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE" />
                   <AnchorPane fx:id="anchorDetails" layoutX="172.0" layoutY="53.0" prefHeight="674.0" prefWidth="1108.0" stylesheets="@../css/anchor.css">
                      <children>
                         <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
