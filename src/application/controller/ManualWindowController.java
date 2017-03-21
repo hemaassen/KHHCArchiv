@@ -228,6 +228,7 @@ public class ManualWindowController implements Initializable {
 
         if (sourceFileName != null) {
             // Path-angaben ausgeben
+            imageActualDoc.setVisible(true); // ? cb
             labelPath.setText(sourceFileName.getPath());
             labelPath.setVisible(true);
 

@@ -88,7 +88,11 @@ public class FilePusherHelper {
                             + " in einer Kategorie hast.");
             return null;
         } else {
-            return "" + i;
+            String result = "" + i;
+            while (result.length() < maxChars) {
+                result = "0" + result; 
+            }
+            return "_" + result;
         }
     }
 
