@@ -6,6 +6,7 @@ import application.controller.MainWindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import persistence.ConfigTable;
@@ -44,6 +45,7 @@ public class Main extends Application {
 		myConfig = new ConfigTable();
 		this.primarayStage = primaryStage;
 		primarayStage.setTitle("Archivierung V 1.0");
+		primarayStage.getIcons().add(new Image("file:resources/images/archiv_icon.png"));
 		mainWindow();
 	}
 
