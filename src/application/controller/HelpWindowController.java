@@ -27,12 +27,12 @@ public class HelpWindowController {
 
 	@FXML
 	void setOnMouseEntered(MouseEvent event) {
-		main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
+		main.getPrimaryStage().getScene().setCursor(Cursor.HAND);
 	}
 
 	@FXML
 	void setOnMouseExited(MouseEvent event) {
-		main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
+		main.getPrimaryStage().getScene().setCursor(Cursor.DEFAULT);
 	}
 
 }
