@@ -30,7 +30,7 @@
          <tooltip>
             <Tooltip text="Dokument suchen." />
          </tooltip></Button>
-      <Label fx:id="labelPath" disable="true" layoutX="42.0" layoutY="59.0" prefHeight="25.0" prefWidth="273.0" style="-fx-border-color: black;" stylesheets="@../css/combobox.css" text="Pfad des aktuellen Dokuments" />
+      <Label fx:id="labelPath" disable="true" layoutX="42.0" layoutY="59.0" prefHeight="25.0" prefWidth="273.0" stylesheets="@../css/application.css" text="Pfad des aktuellen Dokuments" />
       <Label fx:id="labelKeywords" layoutX="797.0" layoutY="33.0" prefHeight="25.0" prefWidth="124.0" text="Schlüsselworte:">
          <font>
             <Font name="Arial Black" size="12.0" />
@@ -76,10 +76,10 @@
          </tooltip>
       </Button>
       <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onAction="#inputManualKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <ComboBox fx:id="listKeywordTwo" disable="true" layoutX="737.0" layoutY="243.0" onAction="#inputManualKeywordTwo" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <ComboBox fx:id="listKeywordThree" disable="true" layoutX="737.0" layoutY="320.0" onAction="#inputManualKeywordThree" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <ComboBox fx:id="listKeywordFour" disable="true" layoutX="737.0" layoutY="395.0" onAction="#inputManualKeywordFour" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
-      <ComboBox fx:id="listKeywordFive" disable="true" layoutX="737.0" layoutY="467.0" onAction="#inputManualKeywordFive" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listKeywordTwo" disable="true" layoutX="737.0" layoutY="243.0" onAction="#inputManualKeywordTwo" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <ComboBox fx:id="listKeywordThree" disable="true" layoutX="737.0" layoutY="320.0" onAction="#inputManualKeywordThree" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <ComboBox fx:id="listKeywordFour" disable="true" layoutX="737.0" layoutY="395.0" onAction="#inputManualKeywordFour" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <ComboBox fx:id="listKeywordFive" disable="true" layoutX="737.0" layoutY="467.0" onAction="#inputManualKeywordFive" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <Button id="manualZoomIn" fx:id="zoomPlus" disable="true" layoutX="458.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#onClickZoomIn" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css">
          <tooltip>
             <Tooltip text="Dokument vergrößern." />
@@ -98,7 +98,7 @@
          </content>
       </ScrollPane>
       <Label layoutX="762.0" layoutY="531.0" text="Speicherort des Dokuments:" />
-      <Label fx:id="manualLabelDestinationPath" disable="true" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" style="-fx-border-color: black;" stylesheets="@../css/combobox.css" text="Speicherort" />
+      <Label fx:id="manualLabelDestinationPath" disable="true" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" stylesheets="@../css/application.css" text="Speicherort" />
       <Label layoutX="466.0" layoutY="192.0" text="+">
          <font>
             <Font name="Arial Black" size="18.0" />

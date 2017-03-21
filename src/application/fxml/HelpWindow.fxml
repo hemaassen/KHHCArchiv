@@ -8,9 +8,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="helpAnchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="680.0" stylesheets="@../css/anchor.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HelpWindowController">
+<AnchorPane id="helpAnchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="680.0" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HelpWindowController">
    <children>
-      <TabPane id="helpTabMain" prefHeight="488.0" prefWidth="680.0" stylesheets="@../css/anchor.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane id="helpTabMain" prefHeight="488.0" prefWidth="680.0" stylesheets="@../css/application.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="helpGeneral" closable="false" text="Allgemein">
                <content>

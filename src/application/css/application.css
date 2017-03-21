@@ -1,3 +1,7 @@
+/**
+ * Anchor
+ */
+ 
 #anchorDetails{
 	-fx-background-color: #effafa
 }
@@ -7,6 +11,17 @@
 #anchorNewKeyword{
 	-fx-background-color: #0e7477
 }
+#anchorParent{
+	-fx-background-color: #0e7477
+}
+#helpAnchorMain{
+	-fx-background-color: #0e7477
+}
+
+/**
+ * ScrollPane
+ */
+ 
 #scrollPainMain{
 	-fx-background-color: #0e7477
 }
@@ -18,18 +33,22 @@
 .scroll-bar:vertical .thumb {
 	-fx-background-color: #0e7477
 }
-#anchorParent{
-	-fx-background-color: #0e7477
-}
-#helpAnchorMain{
-	-fx-background-color: #0e7477
-}
+
+/**
+ * TabPane
+ */
+
 .tab-pane{
 	-fx-background-color: #0e7477
 }
 .tab-pane .tab-header-area .tab-header-background {
-	-fx-background-image: url('../images/header_back.png');
+	-fx-background-color: #0e7477;
 }
+
+/**
+ * MenuBar
+ */
+ 
 .menu-bar{
 	-fx-background-image: url('../images/header_back.png');
 }
@@ -38,8 +57,31 @@
 }
 .menu-bar > .container > .menu-button > .label {
     -fx-padding: 5;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
-/**.menu-item:hover{
-	-fx-background-color: transparent;
-	-fx-text-fill: black;
-}*/
+
+/**
+ * Label
+ */
+
+.label{
+	-fx-background-color: #bcd9da;
+	-fx-border-color: black;
+}
+
+/**
+ * ComboBox
+ */
+
+.combo-box-base{
+	-fx-background-color: #bcd9da;
+}
+
+/**
+ * ChoiceBox
+ */
+
+.choice-box{
+	-fx-background-color: #bcd9da;
+}
