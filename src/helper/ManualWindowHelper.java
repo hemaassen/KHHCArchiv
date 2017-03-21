@@ -150,7 +150,7 @@ public class ManualWindowHelper {
         });// ende Run-later
       } else {
         if (myChild != null) {
-          myChild.setItems(KeywordTable.getChildren(myWord.getId()));
+          myChild.setItems(KeywordTable.getChildren(myWord.getId(), false));
         }
       }
     } catch (Exception e) {

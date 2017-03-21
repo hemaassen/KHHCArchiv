@@ -20,7 +20,7 @@ public class TestDB {
 		//Reihenfolge: id, keyword,pfad,parent,level
 		KeyWord keyword= new KeyWord(newID, "Versicherung", "Versicherung", 3, 2);
 		KeywordTable.insertKeyword(keyword);
-		ObservableList<KeyWord> l=KeywordTable.selectLevel(1);
+		ObservableList<KeyWord> l=KeywordTable.selectLevel(1, false);
 		for(KeyWord k:l){
 			System.out.println(k);
 		}
@@ -37,7 +37,7 @@ public class TestDB {
 					e.printStackTrace();
 				}
 
-		ObservableList<KeyWord>ol=KeywordTable.getChildren(2);
+		ObservableList<KeyWord>ol=KeywordTable.getChildren(2, false);
 		for(KeyWord k:ol){
 			System.out.println(k);
 		}

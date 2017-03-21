@@ -369,7 +369,7 @@ public class ManualWindowController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
-			listKeywordOne.setItems(KeywordTable.selectLevel(1));
+			listKeywordOne.setItems(KeywordTable.selectLevel(1, false));
 			File myFile = new File(main.getMyConfig().getDestinationDir());
 			if (!myFile.exists()) {
 				Alert dialog = new Alert(AlertType.ERROR);
