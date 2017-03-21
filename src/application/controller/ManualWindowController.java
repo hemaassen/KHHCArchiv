@@ -1,14 +1,15 @@
 package application.controller;
 
-import java.io.File;
-import java.net.URL;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.util.ResourceBundle;
-
 import application.KeyWord;
 import application.Main;
+import helper.FilePusherHelper;
+import helper.ManualWindowHelper;
+import helper.PDFHelper;
 import helper.ZoomHelper;
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -30,12 +31,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import persistence.KeywordTable;
-import helper.PDFHelper;
-import helper.FilePusherHelper;
-import helper.ManualWindowHelper;
 
 /**
- * Controller für das Fenster zur manuellen Ablage
+ * Controller für das Fenster zur manuellen Ablage.
  * 
  * @author kerstin, helge, chris, holger
  *
@@ -45,9 +43,11 @@ public class ManualWindowController implements Initializable {
     public static Main main;
 
     // das wird unsere Datei
-    private File choosedSourceFile;
+    private File sourceFileName;
 
     private String pathToDestination = "";
+
+    private String destFileName = "";
 
     @FXML
     private AnchorPane anchorMain;
@@ -211,24 +211,38 @@ public class ManualWindowController implements Initializable {
         Image fxImage = null;
         Boolean isPdf;
         // file wird gelesen
-        choosedSourceFile = fileChooser.showOpenDialog(labelPath.getScene().getWindow());
-        if (choosedSourceFile != null) {
+        sourceFileName = fileChooser.showOpenDialog(labelPath.getScene().getWindow());
+        // wer schreiben darf sollte auch löschen dürfen (kann es leider nicht prüfen)
+        // (ich bekomme keine Datei hin die ich nicht löschen kann ???)
+        // eine Datei auf die ich nicht schreibend zugreifen kann erkennt der Code aber
+        if (!sourceFileName.canWrite()) {
+            Alert dialog = new Alert(AlertType.ERROR);
+            dialog.setTitle("Rechteproblem");
+            dialog.setContentText(
+                    "Bitte wählen Sie nur Dukumente aus für die Sie auch Schriebrechte haben! "
+                            + "Sinn dieser Maßnahme ist es das gewählte Dokument zu verschieben.");
+            dialog.showAndWait();
+            // was dann? Ersteinmal beende ich den Programmfluss bis mir jemand was besseres sagt
+            return;
+        }
+
+        if (sourceFileName != null) {
             // Path-angaben ausgeben
-            labelPath.setText(choosedSourceFile.getPath());
+            labelPath.setText(sourceFileName.getPath());
             labelPath.setVisible(true);
 
             // überprüfung ob die Datei ein Pdf ist
-            isPdf = choosedSourceFile.getName().toString().endsWith(".pdf");
+            isPdf = sourceFileName.getName().toString().endsWith(".pdf");
 
             // ausgewählte Datei anzeigen mit Zoommöglichkeit über Mausrad
             try {
                 if (isPdf) {
-                    fxImage = PDFHelper.convertPDFToImage(choosedSourceFile);
+                    fxImage = PDFHelper.convertPDFToImage(sourceFileName);
                     zoomProperty.set(200);
                     imageActualDoc.setImage(ZoomHelper.zoomMouse(fxImage, imageActualDoc,
                             anchorMain, imageScrollPane, zoomProperty));
                 } else {
-                    Image myImage = new Image(choosedSourceFile.toURI().toURL().toExternalForm(),
+                    Image myImage = new Image(sourceFileName.toURI().toURL().toExternalForm(),
                             595.0, 842.0, false, true);
                     zoomProperty.set(200);
                     imageActualDoc.setImage(ZoomHelper.zoomMouse(myImage, imageActualDoc,
@@ -250,7 +264,6 @@ public class ManualWindowController implements Initializable {
      * @author kerstin, helge, chris, holger
      * @param event
      *            MouseEvent
-     * @throws Exception
      */
     @FXML
     void onClickZoomIn(MouseEvent event) throws Exception {
@@ -287,7 +300,7 @@ public class ManualWindowController implements Initializable {
 
     boolean isThereAnOpenDocument(MouseEvent event) {
         event.consume();
-        if (choosedSourceFile != null && choosedSourceFile.length() > 0) {
+        if (sourceFileName != null && sourceFileName.length() > 0) {
             return true;
         } else {
             // es wurde noch kein Dokument ausgewählt
@@ -359,19 +372,23 @@ public class ManualWindowController implements Initializable {
             switch (i) {
                 case 1:
                     tmp = listKeywordOne.getValue().getPath();
+                    destFileName = listKeywordOne.getValue().getKeyword();
                     break;
                 case 2:
                     tmp = listKeywordTwo.getValue().getPath();
+                    destFileName = listKeywordTwo.getValue().getKeyword();
                     break;
                 case 3:
                     tmp = listKeywordThree.getValue().getPath();
+                    destFileName = listKeywordThree.getValue().getKeyword();
                     break;
                 case 4:
                     tmp = listKeywordFour.getValue().getPath();
+                    destFileName = listKeywordFour.getValue().getKeyword();
                     break;
                 case 5:
-                    System.out.println("IstNull ?" + (listKeywordFive.getValue() == null));
                     tmp = listKeywordFive.getValue().getKeyword();
+                    destFileName = listKeywordFive.getValue().getKeyword();
                     break;
                 default:
                     throw new IllegalArgumentException(
@@ -380,12 +397,12 @@ public class ManualWindowController implements Initializable {
             // wenn tmp leer ist kein Seperator anhängen
             pathToDestination += tmp.length() > 0 ? tmp + File.separator : "";
         }
-        System.out.println(pathToDestination);
+        System.out.println(pathToDestination); // remove
     }
 
     @FXML
     void onMouseClicked(MouseEvent event) {
-        System.out.println("onMouseClicked");
+        System.out.println("onMouseClicked"); // remove ?
     }
 
     @FXML
@@ -435,9 +452,10 @@ public class ManualWindowController implements Initializable {
         if (listKeywordFive.getValue() != null) {
             listKeywordFive.setValue(ManualWindowHelper.inputManualKeyword(listKeywordFive, null, 5,
                     listKeywordFour.getValue().getId(), changeKeywordFive, save));
-            if (listKeywordFive.getValue().toString().length() > 0) {
-                setPathToDestination(5);
-            }
+            // unnötig ? wird oben auch nicht verwendet
+            // if (listKeywordFive.getValue().toString().length() > 0) {
+            setPathToDestination(5);
+            // } remove
         }
     }
 
@@ -445,13 +463,13 @@ public class ManualWindowController implements Initializable {
      * Löst alle Aktionen aus die zum Speichern der Datei erforderlich sind.
      * 
      * @param event
-     *            Action Event vom Click
+     *            ActionEvent vom Click
      * @author christian
      */
     @FXML
     void onClickSaveButton(ActionEvent event) {
-
-        System.out.println(pathToDestination);
+        FilePusherHelper.doFileMove(sourceFileName, pathToDestination,
+                destFileName + datePicker.getValue().toString(), main);
     }
 
     @Override
