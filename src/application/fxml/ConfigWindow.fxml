@@ -30,9 +30,9 @@
       <ChoiceBox fx:id="listScanner" disable="true" layoutX="164.0" layoutY="429.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="253.0" stylesheets="@../css/application.css" />
       <Button id="configBreak" fx:id="abort" cancelButton="true" layoutX="804.0" layoutY="607.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" />
       <Button id="configSave" fx:id="takeChange" disable="true" layoutX="957.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleTakeChange" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" />
-      <Label layoutX="723.0" layoutY="213.0" text="Dateiname wird automatisch vergeben:" />
+      <Label layoutX="723.0" layoutY="213.0" stylesheets="@../css/label.css" text="Dateiname wird automatisch vergeben:" />
       <RadioButton fx:id="fileNameAuto" layoutX="698.0" layoutY="250.0" mnemonicParsing="false" selected="true" text="Ja" />
       <RadioButton fx:id="fileNameManual" disable="true" layoutX="698.0" layoutY="282.0" mnemonicParsing="false" text="Nein (Dateiname kann verändert werden) **" />
-      <Label layoutX="736.0" layoutY="558.0" text="** Nicht in der Freeware verfügbar" />
+      <Label layoutX="736.0" layoutY="558.0" stylesheets="@../css/label.css" text="** Nicht in der Freeware verfügbar" />
    </children>
 </AnchorPane>

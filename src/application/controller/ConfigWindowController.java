@@ -65,11 +65,11 @@ public class ConfigWindowController implements Initializable {
 	@FXML
 	private Button takeChange;
 	
-	@FXML
-    private RadioButton fileNameAuto;
+	 @FXML
+	    private RadioButton fileNameAuto;
 
-    @FXML
-    private RadioButton fileNameManual;
+	    @FXML
+	    private RadioButton fileNameManual;
 
 	@FXML
 	void setOnMouseEntered(MouseEvent event) {
