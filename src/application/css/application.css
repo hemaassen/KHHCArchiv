@@ -95,7 +95,8 @@
 
 .tool-tip{
 	-fx-background-color: #bcd9da;
-	-fx-text-fill: black;
 	-fx-font-family: "Comic Sans MS";
+	-fx-font-weight: bold;
+	-fx-text-fill: black;
 	-fx-font-size: 12px;
 }
