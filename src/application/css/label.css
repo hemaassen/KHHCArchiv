@@ -1,0 +1,8 @@
+/**
+ * Label (Beschriftung)
+ */
+
+.label{
+	-fx-background-color: transparent;
+	-fx-border-width: 0px;
+}

@@ -18,7 +18,7 @@
         <content>
           <AnchorPane id="anchorChild" minHeight="0.0" minWidth="0.0" prefHeight="780.0" prefWidth="1283.0" stylesheets="@../css/application.css">
                <children>
-                  <Button id="mainFooterLogo" fx:id="mainFooterLogo" layoutX="8.0" layoutY="737.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="157.0" stylesheets="@../css/button.css" />
+                  <Button id="mainFooterLogo" fx:id="mainFooterLogo" layoutX="8.0" layoutY="737.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="157.0" style="-fx-background-color: #0e7477;" stylesheets="@../css/button.css" />
                   <ImageView fitHeight="35.0" fitWidth="1108.0" layoutX="172.0" layoutY="737.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D height="35.0" width="1108.0" />
