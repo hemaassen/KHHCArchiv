@@ -57,7 +57,7 @@ public class FilePusherHelper {
             // Verzeichnis sollte Existieren -> los gehts
             try {
                 Files.move(srcFile.toPath(), destinationFile.toPath(),
-                        StandardCopyOption.ATOMIC_MOVE);
+                        StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
                 System.out.println("IO-Exception von Move");
                 e.printStackTrace();
