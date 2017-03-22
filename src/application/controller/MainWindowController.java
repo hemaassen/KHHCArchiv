@@ -153,8 +153,8 @@ public final class MainWindowController {
 					config.setDisable(false);
 					AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
 					ManualWindowController.main = this.main;
+					main.getPrimaryStage().setTitle(main.getTitle() + " - " + "Manuelle Ablage");
 					anchorDetails.getChildren().setAll(pane);
-					//labelSite.setText("Manuelle Ablage");
 				}
 
 			}
@@ -186,8 +186,8 @@ public final class MainWindowController {
 			config.setDisable(false);
 			AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/SearchWindow.fxml"));
 			SearchWindowController.main = this.main;
+			main.getPrimaryStage().setTitle(main.getTitle() + " - " + "Dokument suchen...");
 			anchorDetails.getChildren().setAll(pane);
-			//labelSite.setText("Dokument suchen");
 		} catch (Exception e) {
 			System.out.println("Fehler in MainWindowController - handleSearchButtonAction");
 			e.printStackTrace();
@@ -217,6 +217,7 @@ public final class MainWindowController {
 			config.setDisable(true);
 			AnchorPane configPane = FXMLLoader.load(getClass().getResource("../fxml/ConfigWindow.fxml"));
 			ConfigWindowController.main = this.main;
+			main.getPrimaryStage().setTitle(main.getTitle() + " - " + "Einstellungen");
 			List<Node> activeNodes = PaneHelper.activeNodes(configPane);
 			int count = 0;
 			for (Node n : activeNodes) {
@@ -232,7 +233,6 @@ public final class MainWindowController {
 					break;
 				}
 				anchorDetails.getChildren().setAll(configPane);
-				//labelSite.setText("Einstellungen");
 			}
 		} catch (Exception e) {
 			System.out.println("Fehler in MainWindowController - handleConfigButtonAction");

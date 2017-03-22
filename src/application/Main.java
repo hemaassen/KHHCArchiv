@@ -27,6 +27,11 @@ public class Main extends Application {
 
 	private Stage primaryStage; // ist das klassische "Fenster" unsere Bühne
 	private ConfigTable myConfig;
+	private String title="Archivierung V 1.0";
+	
+	public String getTitle() {
+		return title;
+	}
 
 	public Stage getPrimaryStage() {
 		return primaryStage;
@@ -44,7 +49,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		myConfig = new ConfigTable();
 		this.primaryStage = primaryStage;
-		primaryStage.setTitle("Archivierung V 1.0");
+		primaryStage.setTitle(getTitle());
 		primaryStage.getIcons().add(new Image("file:resources/images/archiv_icon.png"));
 		mainWindow();
 	}
