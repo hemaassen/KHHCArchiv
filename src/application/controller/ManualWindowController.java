@@ -474,7 +474,7 @@ public class ManualWindowController implements Initializable {
                 destFileName + datePicker.getValue().toString(), main);
         if (result) {
             imageActualDoc.setVisible(false);
-        }
+        } // else ?
     }
 
     @Override
