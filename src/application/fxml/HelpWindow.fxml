@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="helpAnchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="680.0" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HelpWindowController">
    <children>
@@ -74,6 +75,9 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Button id="helpClose" layoutX="278.0" layoutY="499.0" mnemonicParsing="false" onDragEntered="#setOnMouseEntered" onDragExited="#setOnMouseExited" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" />
+      <Button id="helpClose" layoutX="278.0" layoutY="499.0" mnemonicParsing="false" onDragEntered="#setOnMouseEntered" onDragExited="#setOnMouseExited" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Schließen">
+         <font>
+            <Font name="Comic Sans MS Bold" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

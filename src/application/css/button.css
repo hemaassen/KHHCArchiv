@@ -3,31 +3,31 @@
  */
  
 #menuManualButton{
-	-fx-background-image: url('../images/menu_button_manual.png')
+	-fx-background-image: url('../images/button_back_125x40.png')
 }
 #menuManualButton:pressed{
-	-fx-background-image: url('../images/menu_button_manual_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x40.png')
 }
 #menuAutoButton{
-	-fx-background-image: url('../images/menu_button_auto.png')
+	-fx-background-image: url('../images/button_back_125x40.png')
 }
 #menuSearchButton{
-	-fx-background-image: url('../images/menu_button_search.png')
+	-fx-background-image: url('../images/button_back_125x40.png')
 }
 #menuSearchButton:pressed{
-	-fx-background-image: url('../images/menu_button_search_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x40.png')
 }
 #menuConfigButton{
-	-fx-background-image: url('../images/menu_button_config.png')
+	-fx-background-image: url('../images/button_back_125x40.png')
 }
 #menuConfigButton:pressed{
-	-fx-background-image: url('../images/menu_button_config_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x40.png')
 }
 #menuCloseButton{
-	-fx-background-image: url('../images/menu_button_close.png')
+	-fx-background-image: url('../images/button_back_125x40.png')
 }
 #menuCloseButton:pressed{
-	-fx-background-image: url('../images/menu_button_close_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x40.png')
 }
 #mainFooterLogo{
 	-fx-background-image: url('../images/misfits_footer_logo.png')
@@ -38,28 +38,28 @@
  */
  
 #manualSearchButton{
-	-fx-background-image: url('../images/manual_button_search.png')
+	-fx-background-image: url('../images/button_back_125x25.png')
 }
 #manualSearchButton:pressed{
-	-fx-background-image: url('../images/manual_button_search_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x25.png')
 }
 #manualZoomIn{
-	-fx-background-image: url('../images/manual_zoom_in.png')
+	-fx-background-image: url('../images/button_back_60x25.png')
 }
 #manualZoomIn:pressed{
-	-fx-background-image: url('../images/manual_zoom_in_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_60x25.png')
 }
 #manualZoomOut{
-	-fx-background-image: url('../images/manual_zoom_out.png')
+	-fx-background-image: url('../images/button_back_60x25.png')
 }
 #manualZoomOut:pressed{
-	-fx-background-image: url('../images/manual_zoom_out_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_60x25.png')
 }
 #manualSave{
-	-fx-background-image: url('../images/manual_save.png')
+	-fx-background-image: url('../images/button_back_125x40.png')
 }
 #manualSave:pressed{
-	-fx-background-image: url('../images/manual_save_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x40.png')
 }
 #manualChangeKeyword{
 	-fx-background-image: url('../images/manual_change_keyword.png')
@@ -74,40 +74,40 @@
  */
  
 #searchSearch{
-	-fx-background-image: url('../images/search_search.png')
+	-fx-background-image: url('../images/button_back_125x40.png')
 }
 #searchSearch:pressed{
-	-fx-background-image: url('../images/search_search_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x40.png')
 }
 #searchZoomIn{
-	-fx-background-image: url('../images/manual_zoom_in.png')
+	-fx-background-image: url('../images/button_back_60x25.png')
 }
 #searchZoomIn:pressed{
-	-fx-background-image: url('../images/manual_zoom_in_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_60x25.png')
 }
 #searchZoomOut{
-	-fx-background-image: url('../images/manual_zoom_out.png')
+	-fx-background-image: url('../images/button_back_60x25.png')
 }
 #searchZoomOut:pressed{
-	-fx-background-image: url('../images/manual_zoom_out_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_60x25.png')
 }
 #searchNewSort{
-	-fx-background-image: url('../images/search_new_sort.png')
+	-fx-background-image: url('../images/button_back_125x25.png')
 }
 #searchNewSort:pressed{
-	-fx-background-image: url('../images/search_new_sort_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x25.png')
 }
 #searchPrint{
-	-fx-background-image: url('../images/search_print.png')
+	-fx-background-image: url('../images/button_back_60x25.png')
 }
 #searchPrint:pressed{
-	-fx-background-image: url('../images/search_print_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_60x25.png')
 }
 #searchSend{
-	-fx-background-image: url('../images/search_send.png')
+	-fx-background-image: url('../images/button_back_60x25.png')
 }
 #searchSend:pressed{
-	-fx-background-image: url('../images/search_send_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_60x25.png')
 }
 
 /**
@@ -115,28 +115,28 @@
  */
  
 #configSearchLocation{
-	-fx-background-image: url('../images/manual_button_search.png')
+	-fx-background-image: url('../images/button_back_125x25.png')
 }
 #configSearchLocation:pressed{
-	-fx-background-image: url('../images/manual_button_search_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x25.png')
 }
 #configSearchDestination{
-	-fx-background-image: url('../images/manual_button_search.png')
+	-fx-background-image: url('../images/button_back_125x25.png')
 }
 #configSearchDestination:pressed{
-	-fx-background-image: url('../images/manual_button_search_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x25.png')
 }
 #configBreak{
-	-fx-background-image: url('../images/config_break.png')
+	-fx-background-image: url('../images/button_back_125x40.png')
 }
 #configBreak:pressed{
-	-fx-background-image: url('../images/config_break_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x40.png')
 }
 #configSave{
-	-fx-background-image: url('../images/config_save.png')
+	-fx-background-image: url('../images/button_back_125x40.png')
 }
 #configSave:pressed{
-	-fx-background-image: url('../images/config_save_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x40.png')
 }
 
 /**
@@ -144,10 +144,10 @@
  */
  
 #helpClose{
-	-fx-background-image: url('../images/help_close.png')
+	-fx-background-image: url('../images/button_back_125x25.png')
 }
 #helpClose:pressed{
-	-fx-background-image: url('../images/help_close_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_125x25.png')
 }
 
 /**
@@ -155,14 +155,14 @@
  */
  
 #newKeywordSave{
-	-fx-background-image: url('../images/new_keyword_save.png')
+	-fx-background-image: url('../images/button_back_78x25.png')
 }
 #newKeywordSave:pressed{
-	-fx-background-image: url('../images/new_keyword_save_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_78x25.png')
 }
 #newKeywordStop{
-	-fx-background-image: url('../images/new_keyword_cancel.png')
+	-fx-background-image: url('../images/button_back_78x25.png')
 }
 #newKeywordStop:pressed{
-	-fx-background-image: url('../images/new_keyword_cancel_pressed.png')
+	-fx-background-image: url('../images/button_back_pressed_78x25.png')
 }

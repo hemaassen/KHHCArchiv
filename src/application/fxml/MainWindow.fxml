@@ -49,21 +49,33 @@
                   </MenuBar>
                   <ImageView fitHeight="674.0" fitWidth="158.0" layoutX="8.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/menu_back_1.png" />
+                        <Image url="@../images/menu_back.png" />
                      </image>
                      <viewport>
                         <Rectangle2D height="674.0" width="158.0" />
                      </viewport>
                   </ImageView>
-                  <Button id="menuManualButton" fx:id="manualStore" layoutX="25.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManualButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE" />
-                  <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="137.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE">
+                  <Button id="menuManualButton" fx:id="manualStore" layoutX="25.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManualButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Manuelle Ablage">
                      <font>
-                        <Font size="11.0" />
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font></Button>
+                  <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="137.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Automatische Ablage">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="11.0" />
                      </font>
                   </Button>
-                  <Button id="menuSearchButton" fx:id="search" layoutX="25.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleSearchButton" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE" />
-                  <Button id="menuConfigButton" fx:id="config" layoutX="25.0" layoutY="602.0" mnemonicParsing="false" onAction="#handleConfigButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE" />
-                  <Button id="menuCloseButton" fx:id="stop" layoutX="25.0" layoutY="660.0" mnemonicParsing="false" onAction="#stopProgram" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" textFill="WHITE" />
+                  <Button id="menuSearchButton" fx:id="search" layoutX="25.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleSearchButton" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Dokument suchen..">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font></Button>
+                  <Button id="menuConfigButton" fx:id="config" layoutX="25.0" layoutY="602.0" mnemonicParsing="false" onAction="#handleConfigButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Einstellungen">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font></Button>
+                  <Button id="menuCloseButton" fx:id="stop" layoutX="25.0" layoutY="660.0" mnemonicParsing="false" onAction="#stopProgram" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Beenden">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font></Button>
                   <AnchorPane fx:id="anchorDetails" layoutX="172.0" layoutY="53.0" prefHeight="674.0" prefWidth="1108.0" stylesheets="@../css/application.css">
                      <children>
                         <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
