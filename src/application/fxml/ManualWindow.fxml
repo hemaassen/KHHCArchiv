@@ -75,7 +75,7 @@
             <Tooltip text="Das aktuelle Schlüsselwort bearbeiten" />
          </tooltip>
       </Button>
-      <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onAction="#inputManualKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/combobox.css" />
+      <ComboBox fx:id="listKeywordOne" disable="true" layoutX="737.0" layoutY="167.0" onAction="#inputManualKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <ComboBox fx:id="listKeywordTwo" disable="true" layoutX="737.0" layoutY="243.0" onAction="#inputManualKeywordTwo" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <ComboBox fx:id="listKeywordThree" disable="true" layoutX="737.0" layoutY="320.0" onAction="#inputManualKeywordThree" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <ComboBox fx:id="listKeywordFour" disable="true" layoutX="737.0" layoutY="395.0" onAction="#inputManualKeywordFour" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
