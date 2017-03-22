@@ -52,6 +52,9 @@
 .menu-bar{
 	-fx-background-image: url('../images/header_back.png');
 }
+.menu-button{
+	-fx-font-family: "Comic Sans MS";
+}
 .menu-button:hover{
 	-fx-background-color: transparent;
 }
@@ -84,4 +87,15 @@
 
 .choice-box{
 	-fx-background-color: #bcd9da;
+}
+
+/**
+ * ToolTip
+ */
+
+.tool-tip{
+	-fx-background-color: #bcd9da;
+	-fx-text-fill: black;
+	-fx-font-family: "Comic Sans MS";
+	-fx-font-size: 12px;
 }
