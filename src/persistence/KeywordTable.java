@@ -134,7 +134,14 @@ public class KeywordTable {
     ObservableList<KeyWord> result = FXCollections.observableArrayList(list);
     return result;
   }
-
+  /**
+   * liefert alle direkten Kinder zu einer gegebenen Id.
+   * @param id - die Id des Elternelements
+   * @param forSearch - zeigt an ob für die Suche oder für die Auswahl aufgerufen wird
+   * 	true = für die Suche
+   * 	false = für die Auswahl
+   * @return
+   */
   public static ObservableList<KeyWord> getChildren(Integer id,
       Boolean forSearch) {
     List<KeyWord> list = new ArrayList<>();
@@ -175,5 +182,31 @@ public class KeywordTable {
     }
     ObservableList<KeyWord> result = FXCollections.observableArrayList(list);
     return result;
+  }
+  
+  /**
+   * Ändert ein Keyword (wenn Schreibfehler drin oder einfach unpassender Eintrag)
+   * @author Kerstin
+   * @param newValue: String = der neue Wert auf den geupdatet werden soll
+   * @param id: Integer = die Id für den die Änderung vorgenommen werden soll
+   * 
+   */
+  public static boolean updateKeyword(String newValue, Integer id){
+	  boolean result=false;
+	  try (
+		        Connection con = DriverManager
+		            .getConnection("jdbc:sqlite:database/archiv.db");
+		        Statement stmt = con.createStatement();) {
+		      String sql;
+		      sql = "UPDATE keywords SET keyword = '" + newValue+ "' WHERE id= "+ id +";";
+		      int count = stmt.executeUpdate(sql);
+		      if(count >0){
+		    	  result=true;
+		      }
+		    } catch (SQLException e) {
+		      // TODO Auto-generated catch block
+		      e.printStackTrace();
+		    }
+	  return result;
   }
 }
