@@ -30,7 +30,7 @@
                      </font></Button>
                </children>
             </AnchorPane>
-            <TextField fx:id="newKeywordTextField" layoutX="134.0" layoutY="102.0" prefHeight="25.0" prefWidth="252.0" stylesheets="@../css/combobox.css" />
+            <TextField fx:id="newKeywordTextField" layoutX="134.0" layoutY="102.0" prefHeight="25.0" prefWidth="252.0" stylesheets="@../css/label.css" />
             <Label layoutX="10.0" layoutY="106.0" text="Neues Schlüsselwort:">
                <font>
                   <Font name="Arial Black" size="10.0" />
