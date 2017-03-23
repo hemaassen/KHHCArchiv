@@ -2,15 +2,13 @@ package application.controller;
 
 import application.KeyWord;
 import application.Main;
+import helper.EditKeywordHelper;
 import helper.FilePusherHelper;
-import helper.ManualWindowHelper;
 import helper.PDFHelper;
 import helper.ZoomHelper;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
@@ -132,6 +130,12 @@ public class ManualWindowController implements Initializable {
 
     @FXML
     private Button changeKeywordFive;
+    
+    EditKeywordHelper editKeyword5;
+    EditKeywordHelper editKeyword4;
+    EditKeywordHelper editKeyword3;
+    EditKeywordHelper editKeyword2;
+    EditKeywordHelper editKeyword1;
 
     @FXML
     void onChangeKeywordOne(ActionEvent event) {
@@ -159,26 +163,41 @@ public class ManualWindowController implements Initializable {
     }
 
     final DoubleProperty zoomProperty = new SimpleDoubleProperty(200);
-
-    @FXML
-    void clickedOnManualKeywordOne(MouseEvent event) {
-        // prüft ob schon ein Dokument gesetzt wurde
-        System.out.println(event.getTarget().getClass().getCanonicalName());
-        if (event.getSource().equals(listKeywordOne)) {
-            isThereAnOpenDocument(event);
-        }
-
-    }
-
+    
     @FXML
     void setOnMouseEntered(MouseEvent event) {
-        // ändert den Cursor in eine Hand
         main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
     }
 
     @FXML
     void setOnMouseExited(MouseEvent event) {
         main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
+    }
+    
+    @FXML
+    void clickedOnManualKeywordOne(MouseEvent event) {
+        // prüft ob schon ein Dokument gesetzt wurde
+        //System.out.println(event.getTarget().getClass().getCanonicalName());
+        if (event.getSource().equals(listKeywordOne)) {
+            isThereAnOpenDocument(event);
+        }
+
+    }
+    
+    boolean isThereAnOpenDocument(MouseEvent event) {
+        event.consume();
+        if (sourceFileName != null && sourceFileName.length() > 0) {
+            return true;
+        } else {
+            // es wurde noch kein Dokument ausgewählt
+            // das gibt ERROR Terror!!!
+            Alert dialog = new Alert(AlertType.ERROR);
+            dialog.setTitle("Kein Dokument ausgewählt");
+            dialog.setContentText(
+                    "Bitte suchen Sie zunächst ein Dokument zum Ablegen aus!");
+            dialog.showAndWait();
+        }
+        return false;
     }
 
     /**
@@ -215,12 +234,13 @@ public class ManualWindowController implements Initializable {
         // wer schreiben darf sollte auch löschen dürfen (kann es leider nicht prüfen)
         // (ich bekomme keine Datei hin die ich nicht löschen kann ???)
         // eine Datei auf die ich nicht schreibend zugreifen kann erkennt der Code aber
-        if (!sourceFileName.canWrite()) {
+      
+        if (sourceFileName!=null && !sourceFileName.canWrite()) {
             Alert dialog = new Alert(AlertType.ERROR);
             dialog.setTitle("Rechteproblem");
             dialog.setContentText(
-                    "Bitte wählen Sie nur Dukumente aus für die Sie auch Schriebrechte haben! "
-                            + "Sinn dieser Maßnahme ist es das gewählte Dokument zu verschieben.");
+                    "Bitte wählen Sie nur Dokumente aus für die Sie auch Schreibrechte haben! "
+                            + "Sinn dieser Maßnahme ist es, das gewählte Dokument zu verschieben.");
             dialog.showAndWait();
             // was dann? Ersteinmal beende ich den Programmfluss bis mir jemand was besseres sagt
             return;
@@ -287,83 +307,12 @@ public class ManualWindowController implements Initializable {
     @FXML
     void inputManualDate(ActionEvent event) {
         if (datePicker.getValue() != null) {
-            listKeywordOne.setDisable(false);
+            editKeyword1.switchON();
             manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir());
         } else {
-            listKeywordOne.setDisable(true);
-            listKeywordTwo.setDisable(true);
-            listKeywordThree.setDisable(true);
-            listKeywordFour.setDisable(true);
-            listKeywordFive.setDisable(true);
+            editKeyword1.switchOff();
             save.setDisable(true);
         }
-    }
-
-    boolean isThereAnOpenDocument(MouseEvent event) {
-        event.consume();
-        if (sourceFileName != null && sourceFileName.length() > 0) {
-            return true;
-        } else {
-            // es wurde noch kein Dokument ausgewählt
-            // das gibt ERROR Terror!!!
-            Alert dialog = new Alert(AlertType.ERROR);
-            dialog.setTitle("Kein Dokument Ausgewählt");
-            dialog.setContentText(
-                    "Bitte suchen Sie zunächst ein Dokument aus das Sie ablegen wollen!");
-            dialog.showAndWait();
-        }
-        return false;
-    }
-
-    void deactivateGrandchild(int level) {
-        Platform.runLater(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    switch (level) {
-                        case 1:
-                            if (listKeywordOne.getValue().getKeyword().length() == 0) {
-                                changeKeywordOne.setDisable(true);
-                                listKeywordTwo.setDisable(true);
-                                save.setDisable(true);
-                            }
-                            listKeywordThree.setValue(null);
-                            listKeywordThree.setDisable(true);
-                            listKeywordFour.setDisable(true);
-                            listKeywordFour.setValue(null);
-                            listKeywordFive.setDisable(true);
-                            listKeywordFive.setValue(null);
-                            break;
-
-                        case 2:
-                            if (listKeywordTwo.getValue().getKeyword().length() == 0) {
-                                listKeywordThree.setDisable(true);
-                                changeKeywordTwo.setDisable(true);
-                            }
-                            listKeywordFour.setDisable(true);
-                            listKeywordFour.setValue(null);
-                            listKeywordFive.setDisable(true);
-                            listKeywordFive.setValue(null);
-                            break;
-                        case 3:
-                            if (listKeywordThree.getValue().getKeyword().length() == 0) {
-                                listKeywordFour.setDisable(true);
-                                changeKeywordThree.setDisable(true);
-                            }
-                            listKeywordFive.setDisable(true);
-                            listKeywordFive.setValue(null);
-
-                            break;
-
-                        default:
-                            break;
-                    }
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-        });
     }
 
     private void setPathToDestination(int level) {
@@ -402,49 +351,35 @@ public class ManualWindowController implements Initializable {
                 + File.separator + pathToDestination);
     }
 
-    @FXML
-    void onMouseClicked(MouseEvent event) {
-        System.out.println("onMouseClicked"); // remove ?
-    }
-
+   
     @FXML
     void inputManualKeywordOne(ActionEvent event) {
-        if (listKeywordOne.getValue() != null) {
-            listKeywordOne.setValue(ManualWindowHelper.inputManualKeyword(listKeywordOne,
-                    listKeywordTwo, 1, 1, changeKeywordOne, save));
+        if (listKeywordOne.getValue() != null && listKeywordOne.getValue().getKeyword().length()>0) {
             setPathToDestination(1);
-            deactivateGrandchild(1);
+            save.setDisable(false);
+        }
+        else{
+            save.setDisable(true);
         }
     }
 
     @FXML
     void inputManualKeywordTwo(ActionEvent event) {
         if (listKeywordTwo.getValue() != null) {
-            listKeywordTwo.setValue(
-                    ManualWindowHelper.inputManualKeyword(listKeywordTwo, listKeywordThree, 2,
-                            listKeywordOne.getValue().getId(), changeKeywordTwo, save));
             setPathToDestination(2);
-            deactivateGrandchild(2);
         }
     }
 
     @FXML
     void inputManualKeywordThree(ActionEvent event) {
         if (listKeywordThree.getValue() != null) {
-            listKeywordThree.setValue(
-                    ManualWindowHelper.inputManualKeyword(listKeywordThree, listKeywordFour, 3,
-                            listKeywordTwo.getValue().getId(), changeKeywordThree, save));
             setPathToDestination(3);
-            deactivateGrandchild(3);
         }
     }
 
     @FXML
     void inputManualKeywordFour(ActionEvent event) {
         if (listKeywordFour.getValue() != null) {
-            listKeywordFour.setValue(
-                    ManualWindowHelper.inputManualKeyword(listKeywordFour, listKeywordFive, 4,
-                            listKeywordThree.getValue().getId(), changeKeywordFour, save));
             setPathToDestination(4);
         }
     }
@@ -452,13 +387,9 @@ public class ManualWindowController implements Initializable {
     @FXML
     void inputManualKeywordFive(ActionEvent event) {
         if (listKeywordFive.getValue() != null) {
-            listKeywordFive.setValue(ManualWindowHelper.inputManualKeyword(listKeywordFive, null, 5,
-                    listKeywordFour.getValue().getId(), changeKeywordFive, save));
-            // unnötig ? wird oben auch nicht verwendet
-            // if (listKeywordFive.getValue().toString().length() > 0) {
+            
             setPathToDestination(5);
-            // } remove
-        }
+                    }
     }
 
     /**
@@ -474,13 +405,27 @@ public class ManualWindowController implements Initializable {
                 destFileName + datePicker.getValue().toString(), main);
         if (result) {
             imageActualDoc.setVisible(false);
-        } // else ?
+            labelPath.setText(null);
+            datePicker.setValue(null);
+            save.setDisable(true);
+        }  else {
+            Alert dialog = new Alert(AlertType.ERROR);
+            dialog.setTitle("Speicherfehler");
+            dialog.setHeaderText("Beim Speichern der Datei ist ein Fehler aufgetreten");
+            dialog.setContentText("Bitte überprüfen Sie Ihre Rechte");
+            dialog.showAndWait();
+        }
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         try {
-            listKeywordOne.setItems(KeywordTable.selectLevel(1));
+            listKeywordOne.setItems(KeywordTable.selectLevel(1,false));
+            editKeyword5 = new EditKeywordHelper(listKeywordFive, changeKeywordFive, listKeywordFour, null, 5);
+            editKeyword4 = new EditKeywordHelper(listKeywordFour, changeKeywordFour, listKeywordThree, editKeyword5, 4);
+            editKeyword3 = new EditKeywordHelper(listKeywordThree, changeKeywordThree, listKeywordTwo, editKeyword4, 3);
+            editKeyword2 = new EditKeywordHelper(listKeywordTwo, changeKeywordTwo, listKeywordOne, editKeyword3, 2);
+            editKeyword1 = new EditKeywordHelper(listKeywordOne, changeKeywordOne, null, editKeyword2, 1);
             File myFile = new File(main.getMyConfig().getDestinationDir());
             if (!myFile.exists()) {
                 Alert dialog = new Alert(AlertType.ERROR);
