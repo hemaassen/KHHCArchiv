@@ -1,0 +1,38 @@
+.label{
+	-fx-background-color: transparent;
+	-fx-border-width: 0px;
+	-fx-font-family: "Comic Sans MS";
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-font-size: 12px;
+}
+.date-picker {
+    -fx-background-color: #bcd9da;
+}
+.date-picker > .text-field{
+	-fx-background-color: #bcd9da;
+}
+.date-picker-popup {
+    -fx-background-color: #0e7477;
+}
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #0e7477
+}
+.date-picker-popup > * > .spinner > .button {
+    -fx-background-color: #0e7477;
+	-fx-border-color: transparent;
+}
+.date-picker-popup > * > .spinner {
+    -fx-background-color: #0e7477
+}
+.date-picker-popup > * > .day-cell {
+
+    -fx-border-color: white;
+    -fx-background: #bcd9da
+}
+.date-picker-popup > * > .week-number-cell{
+	-fx-background-color: #0e7477
+}
+.date-picker-popup > * > .day-cell:hover {
+    -fx-background-color: #0e7477
+}

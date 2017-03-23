@@ -59,7 +59,7 @@
 	-fx-background-color: transparent;
 }
 .menu-bar > .container > .menu-button > .label {
-    -fx-padding: 7;
+    -fx-padding: 7.0;
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
@@ -82,7 +82,7 @@
 	-fx-font-family: "Comic Sans MS";
 	-fx-font-weight: bold;
 	-fx-text-fill: black;
-	-fx-font-size: 12px;
+	-fx-font-size: 12.0px;
 }
 
 /**
@@ -102,5 +102,18 @@
 	-fx-font-family: "Comic Sans MS";
 	-fx-font-weight: bold;
 	-fx-text-fill: black;
-	-fx-font-size: 12px;
+	-fx-font-size: 12.0px;
+}
+
+/**
+ * ListView
+ */
+
+.list-view{
+	-fx-background-color: #bcd9da;
+}.list-cell{
+	-fx-font-family: "Comic Sans MS";
+	-fx-font-weight: bold;
+	-fx-text-fill: black;
+	-fx-font-size: 12.0px;
 }

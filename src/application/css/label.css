@@ -5,4 +5,8 @@
 .label{
 	-fx-background-color: transparent;
 	-fx-border-width: 0px;
+	-fx-font-family: "Comic Sans MS";
+	-fx-font-weight: bold;
+	-fx-text-fill: black;
+	-fx-font-size: 12px;
 }

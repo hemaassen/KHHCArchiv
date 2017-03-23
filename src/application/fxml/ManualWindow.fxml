@@ -25,7 +25,7 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Label>
-      <Slider fx:id="manualSliderZoom" layoutX="480.0" layoutY="212.0" majorTickUnit="50.0" min="-100.0" minorTickCount="5" orientation="VERTICAL" prefHeight="349.0" prefWidth="14.0" showTickLabels="true" showTickMarks="true" />
+      <Slider fx:id="manualSliderZoom" layoutX="480.0" layoutY="212.0" majorTickUnit="50.0" min="-100.0" minorTickCount="5" orientation="VERTICAL" prefHeight="349.0" prefWidth="14.0" showTickLabels="true" showTickMarks="true" visible="false" />
       <Button id="manualSearchButton" fx:id="searchDoc" layoutX="191.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleSearchDoc" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Durchsuchen...">
          <tooltip>
             <Tooltip styleClass="tool-tip" text="Dokument suchen" />
@@ -39,7 +39,7 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Label>
-      <DatePicker fx:id="datePicker" layoutX="764.0" layoutY="102.0" onAction="#inputManualDate" prefWidth="200.0" showWeekNumbers="true">
+      <DatePicker fx:id="datePicker" layoutX="764.0" layoutY="102.0" onAction="#inputManualDate" prefWidth="200.0" promptText="tt.mm.jj" showWeekNumbers="true" stylesheets="@../css/datePicker.css">
          <tooltip>
             <Tooltip styleClass="tool-tip" text="Datum des Dokuments." />
          </tooltip></DatePicker>
@@ -111,12 +111,12 @@
       </ScrollPane>
       <Label layoutX="762.0" layoutY="531.0" stylesheets="@../css/label.css" text="Speicherort des Dokuments:" />
       <Label fx:id="manualLabelDestinationPath" disable="true" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" stylesheets="@../css/application.css" text="Speicherort" />
-      <Label layoutX="466.0" layoutY="192.0" stylesheets="@../css/label.css" text="+">
+      <Label layoutX="466.0" layoutY="192.0" stylesheets="@../css/label.css" text="+" visible="false">
          <font>
             <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="468.0" layoutY="544.0" stylesheets="@../css/label.css" text="-">
+      <Label layoutX="468.0" layoutY="544.0" stylesheets="@../css/label.css" text="-" visible="false">
          <font>
             <Font name="Arial Black" size="24.0" />
          </font>
