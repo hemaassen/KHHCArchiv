@@ -99,12 +99,12 @@ public final class MainWindowController {
 
 	@FXML
 	void setOnMouseEntered(MouseEvent event) {
-		main.getPrimaryStage().getScene().setCursor(Cursor.HAND);
+		main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
 	}
 
 	@FXML
 	void setOnMouseExited(MouseEvent event) {
-		main.getPrimaryStage().getScene().setCursor(Cursor.DEFAULT);
+		main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
 	}
 
 	/**
@@ -153,7 +153,7 @@ public final class MainWindowController {
 					config.setDisable(false);
 					AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/ManualWindow.fxml"));
 					ManualWindowController.main = this.main;
-					main.getPrimaryStage().setTitle(main.getTitle() + " - " + "Manuelle Ablage");
+					main.getPrimarayStage().setTitle(main.getTitle() + " - " + "Manuelle Ablage");
 					anchorDetails.getChildren().setAll(pane);
 				}
 
@@ -186,7 +186,7 @@ public final class MainWindowController {
 			config.setDisable(false);
 			AnchorPane pane = FXMLLoader.load(getClass().getResource("../fxml/SearchWindow.fxml"));
 			SearchWindowController.main = this.main;
-			main.getPrimaryStage().setTitle(main.getTitle() + " - " + "Dokument suchen...");
+			main.getPrimarayStage().setTitle(main.getTitle() + " - " + "Dokument suchen...");
 			anchorDetails.getChildren().setAll(pane);
 		} catch (Exception e) {
 			System.out.println("Fehler in MainWindowController - handleSearchButtonAction");
@@ -217,7 +217,7 @@ public final class MainWindowController {
 			config.setDisable(true);
 			AnchorPane configPane = FXMLLoader.load(getClass().getResource("../fxml/ConfigWindow.fxml"));
 			ConfigWindowController.main = this.main;
-			main.getPrimaryStage().setTitle(main.getTitle() + " - " + "Einstellungen");
+			main.getPrimarayStage().setTitle(main.getTitle() + " - " + "Einstellungen");
 			List<Node> activeNodes = PaneHelper.activeNodes(configPane);
 			int count = 0;
 			for (Node n : activeNodes) {
