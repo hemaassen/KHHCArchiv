@@ -82,10 +82,7 @@ public class EditKeywordHelper {
 						// ist null
 						switchOff();
 					}
-					System.out.println("Id von myBox: " + myBox.getId());
-					System.out.println("alter Wert: " + oldValue);
-					System.out.println("neuer wert: " + newValue);
-					System.out.println("----------------");
+					
 
 				}
 			});
