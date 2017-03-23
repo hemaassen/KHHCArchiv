@@ -33,7 +33,7 @@ public class Main extends Application {
 		return title;
 	}
 
-	public Stage getPrimaryStage() {
+	public Stage getPrimarayStage() {
 		return primarayStage;
 	}
 
