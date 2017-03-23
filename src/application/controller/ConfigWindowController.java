@@ -8,10 +8,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import persistence.ConfigTable;
@@ -128,6 +130,20 @@ public class ConfigWindowController implements Initializable {
             // bei null hätte der User die Auswahl abgebrochen und es würde
             // nullpointerException geben
             lbl.setText(myFile.getAbsolutePath());
+            /*
+             * der untere Teil reicht nicht um die Auswahl eines geschützten Ordners
+             * zu verhindern
+             */
+            if(myFile.canRead() & myFile.canWrite()){
+                lbl.setText(myFile.getAbsolutePath());
+            } else{
+                Alert dialog = new Alert(AlertType.ERROR);
+                dialog.setTitle("Rechteproblem");
+                dialog.setContentText(
+                        "Auf diesem Ordner fehlen Ihnen Lese- oder Schreibrechte. Bitte wählen Sie einen Anderen.");
+                dialog.showAndWait();
+                myFile=null;
+            }
         }
     }
 
