@@ -70,12 +70,12 @@ public class EditKeywordHelper {
 									myChild.refresh();
 								}
 								switchON();
-								myButton.setDisable(false);
+								//myButton.setDisable(false);
 								} // ende normaler Wert
 						} else {
 							// leerString
 							myChild.switchOff();
-							myButton.setDisable(true);
+							//myButton.setDisable(true);
 						}
 
 					} else {
@@ -86,27 +86,27 @@ public class EditKeywordHelper {
 				}
 			});
 
-			myButton.setOnAction(new EventHandler<ActionEvent>() {
-
-				@Override
-				public void handle(ActionEvent arg0) {
-					// drei Dinge müssen hier passieren:
-					// 1. Ein Dialog zum Aufnehmen des neuen Wertes
-						//der vorhandene Name steht schon im Text und kann korrigiert werden
-					// 2. der neue Wert muss mit den bestehenden der Hierachie
-						// verglichen werden ob er schon vorhanden ist
-						// 2a. ist vorhanden: Fehlermeldung
-						// 2b. nicht vorhanden: 
-							// 2ba. gibt es Einträge für den Ursprungsschlüssel?
-								//Hinweis auf umändern der Dateinnamen/Verzeichnisnamen
-								//Ablehnen: Abbruch
-								//zustimmen: umbenennen der Datei/und Verzeichnisnamen
-					//3. Update in der Datenbank
-					
-					//KeywordTable.updateKeyword("Wert aus dem Dialog", myBox.getValue().getId());
-					System.out.println("knopf gedrückt bei "+ myBox.getId());
-				}
-			});
+//			myButton.setOnAction(new EventHandler<ActionEvent>() {
+//
+//				@Override
+//				public void handle(ActionEvent arg0) {
+//					// drei Dinge müssen hier passieren:
+//					// 1. Ein Dialog zum Aufnehmen des neuen Wertes
+//						//der vorhandene Name steht schon im Text und kann korrigiert werden
+//					// 2. der neue Wert muss mit den bestehenden der Hierachie
+//						// verglichen werden ob er schon vorhanden ist
+//						// 2a. ist vorhanden: Fehlermeldung
+//						// 2b. nicht vorhanden: 
+//							// 2ba. gibt es Einträge für den Ursprungsschlüssel?
+//								//Hinweis auf umändern der Dateinnamen/Verzeichnisnamen
+//								//Ablehnen: Abbruch
+//								//zustimmen: umbenennen der Datei/und Verzeichnisnamen
+//					//3. Update in der Datenbank
+//					
+//					//KeywordTable.updateKeyword("Wert aus dem Dialog", myBox.getValue().getId());
+//					System.out.println("knopf gedrückt bei "+ myBox.getId());
+//				}
+//			});
 		} catch (Exception e) {
 			System.out.println("Konstruktor schlägt fehl");
 		}
