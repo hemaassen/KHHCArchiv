@@ -40,9 +40,9 @@ public class Main extends Application {
 	}
 
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primarayStage) {
 		myConfig = new ConfigTable();
-		this.primarayStage = primaryStage;
+		this.primarayStage = primarayStage;
 		primarayStage.setTitle("Archivierung V 1.0");
 		mainWindow();
 	}
