@@ -412,6 +412,9 @@ public class ManualWindowController implements Initializable {
 				labelPath.setText(null);
 				datePicker.setValue(null);
 				save.setDisable(true);
+				zoomPlus.setDisable(true);
+				zoomMinus.setDisable(true);
+				manualLabelDestinationPath.setText(null);
 			} else {
 				Alert dialog = new Alert(AlertType.ERROR);
 				dialog.setTitle("Speicherfehler");
