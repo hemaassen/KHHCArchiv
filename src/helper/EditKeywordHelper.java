@@ -9,6 +9,8 @@ import application.KeyWord;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -54,7 +56,6 @@ public class EditKeywordHelper {
 							if (newValue.getKeyword().equals("Neuer Eintrag..")) {
 								// Hole den neuen Eintrag
 								if (myParent != null) {
-									System.out.println("eltern Id: " + myParent.getValue().getId());
 									parentId = myParent.getValue().getId();
 								} // else : Startwert scon gesetzt
 								myBox.setValue(inputManualKeyword());
@@ -70,8 +71,7 @@ public class EditKeywordHelper {
 								}
 								switchON();
 								myButton.setDisable(false);
-								System.out.println("parentId: " + parentId);
-							} // ende normaler Wert
+								} // ende normaler Wert
 						} else {
 							// leerString
 							myChild.switchOff();
@@ -82,8 +82,29 @@ public class EditKeywordHelper {
 						// ist null
 						switchOff();
 					}
-					
 
+				}
+			});
+
+			myButton.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent arg0) {
+					// drei Dinge müssen hier passieren:
+					// 1. Ein Dialog zum Aufnehmen des neuen Wertes
+						//der vorhandene Name steht schon im Text und kann korrigiert werden
+					// 2. der neue Wert muss mit den bestehenden der Hierachie
+						// verglichen werden ob er schon vorhanden ist
+						// 2a. ist vorhanden: Fehlermeldung
+						// 2b. nicht vorhanden: 
+							// 2ba. gibt es Einträge für den Ursprungsschlüssel?
+								//Hinweis auf umändern der Dateinnamen/Verzeichnisnamen
+								//Ablehnen: Abbruch
+								//zustimmen: umbenennen der Datei/und Verzeichnisnamen
+					//3. Update in der Datenbank
+					
+					//KeywordTable.updateKeyword("Wert aus dem Dialog", myBox.getValue().getId());
+					System.out.println("knopf gedrückt bei "+ myBox.getId());
 				}
 			});
 		} catch (Exception e) {
@@ -181,6 +202,7 @@ public class EditKeywordHelper {
 		}
 		return k;
 	}
+
 	/**
 	 * @author Kerstin
 	 * @return
