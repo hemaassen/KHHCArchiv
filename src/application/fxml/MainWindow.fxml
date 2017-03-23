@@ -61,12 +61,12 @@
                      </font></Button>
                   <Button id="menuAutoButton" fx:id="autoStore" disable="true" layoutX="25.0" layoutY="137.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Automatische Ablage">
                      <font>
-                        <Font name="Comic Sans MS Bold" size="11.0" />
+                        <Font name="Comic Sans MS Bold" size="10.0" />
                      </font>
                   </Button>
                   <Button id="menuSearchButton" fx:id="search" layoutX="25.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleSearchButton" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Dokument suchen..">
                      <font>
-                        <Font name="Comic Sans MS Bold" size="12.0" />
+                        <Font name="Comic Sans MS Bold" size="11.0" />
                      </font></Button>
                   <Button id="menuConfigButton" fx:id="config" layoutX="25.0" layoutY="602.0" mnemonicParsing="false" onAction="#handleConfigButtonAction" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Einstellungen">
                      <font>
