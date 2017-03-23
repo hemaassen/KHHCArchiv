@@ -41,8 +41,8 @@ public class FilePusherHelper {
             i++;
         }
 
-        System.out.println("Filename: " + destFileName + "  Ext: " + ext + "\nQuelle: "
-                + srcFile.toString() + "\nZiel: " + destinationFile); // remove
+//        System.out.println("Filename: " + destFileName + "  Ext: " + ext + "\nQuelle: "
+//                + srcFile.toString() + "\nZiel: " + destinationFile); // remove
 
         Path checkPath = null;
         try {
