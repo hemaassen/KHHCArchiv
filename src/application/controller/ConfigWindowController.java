@@ -79,6 +79,7 @@ public class ConfigWindowController implements Initializable {
         String title = "Bitte wählen Sie das WurzelVerzeichnis aus,"
                 + " in das Ihre Dateien abgelegt werden sollen";
         useDirChooser(labelPathDestinationLocation, title);
+        
         takeChange.setDisable(false);
     }
 
