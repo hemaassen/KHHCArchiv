@@ -25,7 +25,7 @@ import persistence.ConfigTable;
  */
 public class Main extends Application {
 
-	private Stage primaryStage; // ist das klassische "Fenster" unsere Bühne
+	private Stage primarayStage; // ist das klassische "Fenster" unsere Bühne
 	private ConfigTable myConfig;
 	private String title="Archivierung V 1.0";
 	
@@ -34,7 +34,7 @@ public class Main extends Application {
 	}
 
 	public Stage getPrimaryStage() {
-		return primaryStage;
+		return primarayStage;
 	}
 
 	public ConfigTable getMyConfig() {
@@ -46,11 +46,11 @@ public class Main extends Application {
 	}
 
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primarayStage) {
 		myConfig = new ConfigTable();
-		this.primaryStage = primaryStage;
-		primaryStage.setTitle(getTitle());
-		primaryStage.getIcons().add(new Image("file:resources/images/archiv_icon.png"));
+		this.primarayStage = primarayStage;
+		primarayStage.setTitle(getTitle());
+		primarayStage.getIcons().add(new Image("file:resources/images/archiv_icon.png"));
 		mainWindow();
 	}
 
@@ -62,13 +62,13 @@ public class Main extends Application {
 			// Was wird hier gespielt - die erste Szene = das Fenster im Urzustand
 			Scene scene = new Scene(pane);
 			// kopplung des Fensters (Bühne) mit der Szene
-			primaryStage.setScene(scene);
+			primarayStage.setScene(scene);
 			// und hier steht das Drehbuch
 			MainWindowController mainWindowController = loader.getController();
 			// dem Drehbuch mitteilen zu welchem Stück es gehört
 			mainWindowController.setMain(this);
 			// der Vorgang geht auf
-			primaryStage.show();
+			primarayStage.show();
 		} catch (IOException e) {
 			// TODO Automatisch generierter Erfassungsblock
 			e.printStackTrace();
