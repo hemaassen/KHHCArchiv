@@ -81,12 +81,12 @@ public class SearchWindowController implements Initializable {
 
   @FXML
   void setOnMouseEntered(MouseEvent event) {
-    main.getPrimaryStage().getScene().setCursor(Cursor.HAND);
+    main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
   }
 
   @FXML
   void setOnMouseExited(MouseEvent event) {
-    main.getPrimaryStage().getScene().setCursor(Cursor.DEFAULT);
+    main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
   }
 
   /**
