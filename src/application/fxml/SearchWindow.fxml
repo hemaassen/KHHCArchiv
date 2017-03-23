@@ -6,6 +6,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,7 +21,7 @@
          </image>
       </ImageView>
       <Label layoutX="23.0" layoutY="345.0" stylesheets="@../css/label.css" text="Datum von:" />
-      <DatePicker fx:id="dateFrom" layoutX="90.0" layoutY="341.0" onAction="#inputFromDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
+      <DatePicker fx:id="dateFrom" editable="false" layoutX="90.0" layoutY="341.0" onAction="#inputFromDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
       <Label layoutX="291.0" layoutY="345.0" stylesheets="@../css/label.css" text="Datum bis:" />
       <DatePicker fx:id="dateTill" editable="false" layoutX="352.0" layoutY="341.0" onAction="#inputTillDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
       <Label layoutX="118.0" layoutY="57.0" stylesheets="@../css/label.css" text="Schlüsselwort 1:" />
@@ -55,10 +56,15 @@
          <font>
             <Font name="Comic Sans MS Bold" size="12.0" />
          </font></Button>
-      <ImageView fx:id="choosenDoc" fitHeight="570.0" fitWidth="402.0" layoutX="645.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
-         <viewport>
-            <Rectangle2D height="842.0" width="595.0" />
-         </viewport></ImageView>
+      <ScrollPane fx:id="imageScrollPane" layoutX="640.0" layoutY="35.0" prefHeight="571.0" prefWidth="409.0">
+         <content>
+            <ImageView fx:id="choosenDoc" fitHeight="558.0" fitWidth="394.0" pickOnBounds="true" preserveRatio="true">
+               <viewport>
+                  <Rectangle2D height="842.0" width="595.0" />
+               </viewport>
+            </ImageView>
+         </content>
+      </ScrollPane>
       <Button id="searchNewSort" fx:id="newStore" disable="true" layoutX="784.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Neue Ablage">
          <font>
             <Font name="Comic Sans MS Bold" size="12.0" />
