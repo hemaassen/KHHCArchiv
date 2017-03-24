@@ -144,22 +144,21 @@ public class EditKeywordHelper {
         // es wurde entweder ok oder abbrechen gedrückt
         s = result.get(); // den String extrahieren
         if (s != null & s.length() > 0) {
-          // Bestätigungs-Dialog öffnen....
-          Alert alertConfirmNewKeyword = new Alert(AlertType.CONFIRMATION);
-          alertConfirmNewKeyword.setTitle("Bitte bestätigen oder abbrechen");
-          alertConfirmNewKeyword.setHeaderText("Sind diese Eingaben richtig?"
-              + " (Wenn Sie mit OK bestätigen, wird das Schlüsselwort gespeichert)");
-          alertConfirmNewKeyword
-              .setContentText("Ihr neues Schlüsselwort: " + result.get());
-          Optional<ButtonType> result2 = alertConfirmNewKeyword.showAndWait();
-          if (result2.get() == ButtonType.OK) {
-            // es wurde ok gedrückt und auch was eingegeben
-            // alle aktuellen Einträge der Box ermitteln
-            List<String> listMyChild = new ArrayList<String>();
-            for (KeyWord kw : myBox.getItems()) {
-              listMyChild.add(kw.getPath());
-            }
-            if (!listMyChild.contains(s)) {
+          List<String> listMyChild = new ArrayList<String>();
+          for (KeyWord kw : myBox.getItems()) {
+            listMyChild.add(kw.getPath());
+          }
+          if (!listMyChild.contains(s)) {
+            // Bestätigungs-Dialog öffnen....
+            Alert alertConfirmNewKeyword = new Alert(AlertType.CONFIRMATION);
+            alertConfirmNewKeyword.setTitle("Bitte bestätigen oder abbrechen");
+            alertConfirmNewKeyword.setHeaderText("Sind diese Eingaben richtig?"
+                + " (Wenn Sie mit OK bestätigen, wird das Schlüsselwort gespeichert)");
+            alertConfirmNewKeyword
+                .setContentText("Ihr neues Schlüsselwort: " + result.get());
+            Optional<ButtonType> resultConfirm = alertConfirmNewKeyword
+                .showAndWait();
+            if (resultConfirm.get() == ButtonType.OK) {
               // neuer Eintrag ist noch nicht enthalten
               // neues Keyword wird zusammengebaut
               k.setId(KeywordTable.getHighestID() + 1);
@@ -170,19 +169,18 @@ public class EditKeywordHelper {
               // und in die Datenbank geschrieben
               KeywordTable.insertKeyword(k);
             } else {
-              // diesen Eintrag gab es schon
+              // der Bestätigungs-Dialog wurde abgebrochen
               k = null; // Rückgabewert auf null(Fehlerfall) setzen
-              // Nutzer über den Doppelten Eintrag informieren
-              Alert alert = new Alert(AlertType.ERROR);
-              alert.setTitle("Doppelter Eintrag");
-              // alert.setHeaderText("Look, an Information Dialog");
-              alert
-                  .setContentText("Dieser Eintrag ist bereits vorhanden: " + s);
-              alert.showAndWait();
             }
           } else {
-            // es wurde kein Eintrag eingegeben, aber ok gedrückt
-            k = null;// Rückgabewert auf null(Fehlerfall) setzen
+            // diesen Eintrag gab es schon
+            k = null; // Rückgabewert auf null(Fehlerfall) setzen
+            // Nutzer über den Doppelten Eintrag informieren
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Doppelter Eintrag");
+            // alert.setHeaderText("Look, an Information Dialog");
+            alert.setContentText("Dieser Eintrag ist bereits vorhanden: " + s);
+            alert.showAndWait();
           }
         } else {
           // es wurde kein Eintrag eingegeben, aber ok gedrückt
