@@ -46,25 +46,6 @@
 }
 
 /**
- * MenuBar
- */
- 
-.menu-bar{
-	-fx-background-image: url('../images/header_back.png');
-}
-.menu-button{
-	-fx-font-family: "Comic Sans MS";
-}
-.menu-button:hover{
-	-fx-background-color: transparent;
-}
-.menu-bar > .container > .menu-button > .label {
-    -fx-padding: 7.0;
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-}
-
-/**
  * Label
  */
 
