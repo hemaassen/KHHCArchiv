@@ -31,7 +31,12 @@ public class HelpWindowController {
   @FXML
   private Button     closeHelp;
 
-  @FXML
+  /**
+   * Schliesst das Hilfefenster.
+   * @author holger, helge
+   * @param event Button Schliessen wurde geklickt
+   */
+  @FXML  
   void closeHelpWindow(ActionEvent event) {
     Stage stage = (Stage) closeHelp.getScene().getWindow();
     stage.close();

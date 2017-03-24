@@ -145,11 +145,13 @@ public class EditKeywordHelper {
         s = result.get(); // den String extrahieren
         if (s != null & s.length() > 0) {
           // Bestätigungs-Dialog öffnen....
-          Alert alert2 = new Alert(AlertType.CONFIRMATION);
-          alert2.setTitle("Bitte bestätigen oder abbrechen");
-          alert2.setHeaderText("Sind diese Eingaben richtig?");
-          alert2.setContentText("Ihr neues Schlüsselwort: " + result.get());
-          Optional<ButtonType> result2 = alert2.showAndWait();
+          Alert alertConfirmNewKeyword = new Alert(AlertType.CONFIRMATION);
+          alertConfirmNewKeyword.setTitle("Bitte bestätigen oder abbrechen");
+          alertConfirmNewKeyword.setHeaderText("Sind diese Eingaben richtig?"
+              + " (Wenn Sie mit OK bestätigen, wird das Schlüsselwort gespeichert)");
+          alertConfirmNewKeyword
+              .setContentText("Ihr neues Schlüsselwort: " + result.get());
+          Optional<ButtonType> result2 = alertConfirmNewKeyword.showAndWait();
           if (result2.get() == ButtonType.OK) {
             // es wurde ok gedrückt und auch was eingegeben
             // alle aktuellen Einträge der Box ermitteln
@@ -174,7 +176,8 @@ public class EditKeywordHelper {
               Alert alert = new Alert(AlertType.ERROR);
               alert.setTitle("Doppelter Eintrag");
               // alert.setHeaderText("Look, an Information Dialog");
-              alert.setContentText(s + " ist schon enthalten");
+              alert
+                  .setContentText("Dieser Eintrag ist bereits vorhanden: " + s);
               alert.showAndWait();
             }
           } else {
