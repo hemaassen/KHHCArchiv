@@ -21,9 +21,9 @@
          </image>
       </ImageView>
       <Label layoutX="23.0" layoutY="345.0" stylesheets="@../css/label.css" text="Datum von:" />
-      <DatePicker fx:id="dateFrom" editable="false" layoutX="90.0" layoutY="341.0" onAction="#inputFromDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
+      <DatePicker fx:id="dateFrom" disable="true" editable="false" layoutX="90.0" layoutY="341.0" onAction="#inputFromDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
       <Label layoutX="291.0" layoutY="345.0" stylesheets="@../css/label.css" text="Datum bis:" />
-      <DatePicker fx:id="dateTill" editable="false" layoutX="352.0" layoutY="341.0" onAction="#inputTillDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
+      <DatePicker fx:id="dateTill" disable="true" editable="false" layoutX="352.0" layoutY="341.0" onAction="#inputTillDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
       <Label layoutX="118.0" layoutY="57.0" stylesheets="@../css/label.css" text="Schlüsselwort 1:" />
       <ComboBox fx:id="listSearchKeywordOne" layoutX="215.0" layoutY="48.0" onAction="#listSearchKeywordOne" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <Label layoutX="118.0" layoutY="110.0" stylesheets="@../css/label.css" text="Schlüsselwort 2:" />

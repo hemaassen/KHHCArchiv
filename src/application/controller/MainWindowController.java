@@ -126,7 +126,7 @@ public final class MainWindowController {
 		 * disabled. Aufruf der Folgeseite über die Zuweisung an pane.
 		 * Ueberschrift wird auf den Wert "Manuelle Ablage" gesetzt
 		 */
-
+		main.setLastScene("manual");
 		try {
 			if (main.getMyConfig().getDestinationDir().equals("bitte Ziel-Verzeichnis auswählen")) {
 				//noch keine Einstellungen vorgenommen

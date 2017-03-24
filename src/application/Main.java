@@ -28,7 +28,16 @@ public class Main extends Application {
 	private Stage primarayStage; // ist das klassische "Fenster" unsere Bühne
 	private ConfigTable myConfig;
 	private String title="Archivierung V 1.0";
+	private String lastScene;
 	
+	public String getLastScene() {
+		return lastScene;
+	}
+
+	public void setLastScene(String lastScene) {
+		this.lastScene = lastScene;
+	}
+
 	public String getTitle() {
 		return title;
 	}

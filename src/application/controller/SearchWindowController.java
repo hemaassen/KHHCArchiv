@@ -122,8 +122,12 @@ public class SearchWindowController implements Initializable {
 	void listSearchKeywordOne(ActionEvent event) {
 		if (listSearchKeywordOne.getValue() != null && listSearchKeywordOne.getValue().getKeyword().length() >0) {
 				buttonSearch.setDisable(false);
+				dateFrom.setDisable(false);
+				dateTill.setDisable(false);
 			} else {
 				buttonSearch.setDisable(true);
+				dateFrom.setDisable(true);
+				dateTill.setDisable(true);
 			}
 	}
 
