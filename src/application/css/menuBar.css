@@ -7,9 +7,6 @@
 .menu-button:hover{
 	-fx-background-color: transparent;
 }
-.menu-button:focused{
-	-fx-background-color: transparent;
-}
 .menu-bar > .container > .menu-button > .label {
     -fx-padding: 7.0;
     -fx-background-color: transparent;
