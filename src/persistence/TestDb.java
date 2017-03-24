@@ -9,9 +9,9 @@ import java.sql.Statement;
 import application.KeyWord;
 import javafx.collections.ObservableList;
 
-public class TestDB {
+public class TestDb {
 
-	public TestDB() {
+	public TestDb() {
 		// TODO Auto-generated constructor stub
 	}
 

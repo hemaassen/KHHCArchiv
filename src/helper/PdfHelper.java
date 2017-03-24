@@ -17,7 +17,7 @@ import javafx.scene.image.Image;
  * @author holger
  *
  */
-public class PDFHelper {
+public class PdfHelper {
 
   private static PDDocument  document    = null;
   private static PDFRenderer pdfRenderer = null;

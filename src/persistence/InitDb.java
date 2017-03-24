@@ -10,7 +10,7 @@ import java.sql.Statement;
  * @author Kerstin
  *
  */
-public class InitDB {
+public class InitDb {
 	public static void main(String args[]) {
 		
 		try (Connection con=DriverManager.getConnection("jdbc:sqlite:database/archiv.db");

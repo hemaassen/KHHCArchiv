@@ -4,7 +4,7 @@ import application.KeyWord;
 import application.Main;
 import helper.EditKeywordHelper;
 import helper.FilePusherHelper;
-import helper.PDFHelper;
+import helper.PdfHelper;
 import helper.ZoomHelper;
 import java.io.File;
 import java.net.URL;
@@ -259,7 +259,7 @@ public class ManualWindowController implements Initializable {
 			// ausgewählte Datei anzeigen mit Zoommöglichkeit über Mausrad
 			try {
 				if (isPdf) {
-					fxImage = PDFHelper.convertPDFToImage(sourceFileName);
+					fxImage = PdfHelper.convertPDFToImage(sourceFileName);
 					zoomProperty.set(200);
 					imageActualDoc.setImage(
 							ZoomHelper.zoomMouse(fxImage, imageActualDoc, anchorMain, imageScrollPane, zoomProperty));
