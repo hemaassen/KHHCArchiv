@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import persistence.KeywordTable;
 
 /**
@@ -143,31 +144,42 @@ public class EditKeywordHelper {
         // es wurde entweder ok oder abbrechen gedrückt
         s = result.get(); // den String extrahieren
         if (s != null & s.length() > 0) {
-          // es wurde ok gedrückt und auch was eingegeben
-          // alle aktuellen Einträge der Box ermitteln
-          List<String> listMyChild = new ArrayList<String>();
-          for (KeyWord kw : myBox.getItems()) {
-            listMyChild.add(kw.getPath());
-          }
-          if (!listMyChild.contains(s)) {
-            // neuer Eintrag ist noch nicht enthalten
-            // neues Keyword wird zusammengebaut
-            k.setId(KeywordTable.getHighestID() + 1);
-            k.setKeyword(s);
-            k.setPath(s);
-            k.setLevel(myLevel);
-            k.setParent(myParentID);
-            // und in die Datenbank geschrieben
-            KeywordTable.insertKeyword(k);
+          // Bestätigungs-Dialog öffnen....
+          Alert alert2 = new Alert(AlertType.CONFIRMATION);
+          alert2.setTitle("Bitte bestätigen oder abbrechen");
+          alert2.setHeaderText("Sind diese Eingaben richtig?");
+          alert2.setContentText("Ihr neues Schlüsselwort: " + result.get());
+          Optional<ButtonType> result2 = alert2.showAndWait();
+          if (result2.get() == ButtonType.OK) {
+            // es wurde ok gedrückt und auch was eingegeben
+            // alle aktuellen Einträge der Box ermitteln
+            List<String> listMyChild = new ArrayList<String>();
+            for (KeyWord kw : myBox.getItems()) {
+              listMyChild.add(kw.getPath());
+            }
+            if (!listMyChild.contains(s)) {
+              // neuer Eintrag ist noch nicht enthalten
+              // neues Keyword wird zusammengebaut
+              k.setId(KeywordTable.getHighestID() + 1);
+              k.setKeyword(s);
+              k.setPath(s);
+              k.setLevel(myLevel);
+              k.setParent(myParentID);
+              // und in die Datenbank geschrieben
+              KeywordTable.insertKeyword(k);
+            } else {
+              // diesen Eintrag gab es schon
+              k = null; // Rückgabewert auf null(Fehlerfall) setzen
+              // Nutzer über den Doppelten Eintrag informieren
+              Alert alert = new Alert(AlertType.ERROR);
+              alert.setTitle("Doppelter Eintrag");
+              // alert.setHeaderText("Look, an Information Dialog");
+              alert.setContentText(s + " ist schon enthalten");
+              alert.showAndWait();
+            }
           } else {
-            // diesen Eintrag gab es schon
-            k = null; // Rückgabewert auf null(Fehlerfall) setzen
-            // Nutzer über den Doppelten Eintrag informieren
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Doppelter Eintrag");
-            // alert.setHeaderText("Look, an Information Dialog");
-            alert.setContentText(s + " ist schon enthalten");
-            alert.showAndWait();
+            // es wurde kein Eintrag eingegeben, aber ok gedrückt
+            k = null;// Rückgabewert auf null(Fehlerfall) setzen
           }
         } else {
           // es wurde kein Eintrag eingegeben, aber ok gedrückt
