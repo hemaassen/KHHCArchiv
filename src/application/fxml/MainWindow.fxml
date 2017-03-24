@@ -32,8 +32,8 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="Datei">
                         <items>
-                          <MenuItem fx:id="menuBarFileCloseAplication" mnemonicParsing="false" onAction="#stopProgram" text="Close" />
                               <MenuItem mnemonicParsing="false" onAction="#handleConfigButtonAction" text="Einstellungen" />
+                          <MenuItem fx:id="menuBarFileCloseAplication" mnemonicParsing="false" onAction="#stopProgram" text="Beenden" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Hilfe">
