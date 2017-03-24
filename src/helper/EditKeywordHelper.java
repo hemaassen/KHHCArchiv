@@ -21,11 +21,11 @@ import persistence.KeywordTable;
 public class EditKeywordHelper {
 
 	private ComboBox<KeyWord> myBox;
-	private Button myButton;
 	private EditKeywordHelper myChild;
 	private int myLevel;
 	private ComboBox<KeyWord> myParent;
 	private int parentId = 1;
+	boolean forSearch;
 
 	public EditKeywordHelper() {
 
@@ -35,14 +35,14 @@ public class EditKeywordHelper {
 		return myBox;
 	}
 
-	public EditKeywordHelper(ComboBox<KeyWord> myBox, Button myButton, ComboBox<KeyWord> myParent,
-			EditKeywordHelper myChild, int myLevel) {
+	public EditKeywordHelper(ComboBox<KeyWord> myBox, ComboBox<KeyWord> myParent,
+			EditKeywordHelper myChild, int myLevel, boolean forSearch) {
 		try {
 			this.myBox = myBox;
-			this.myButton = myButton;
 			this.myChild = myChild;
 			this.myLevel = myLevel;
 			this.myParent = myParent;
+			this.forSearch=forSearch;
 
 			myBox.valueProperty().addListener(new ChangeListener<KeyWord>() {
 
@@ -86,27 +86,7 @@ public class EditKeywordHelper {
 				}
 			});
 
-//			myButton.setOnAction(new EventHandler<ActionEvent>() {
-//
-//				@Override
-//				public void handle(ActionEvent arg0) {
-//					// drei Dinge müssen hier passieren:
-//					// 1. Ein Dialog zum Aufnehmen des neuen Wertes
-//						//der vorhandene Name steht schon im Text und kann korrigiert werden
-//					// 2. der neue Wert muss mit den bestehenden der Hierachie
-//						// verglichen werden ob er schon vorhanden ist
-//						// 2a. ist vorhanden: Fehlermeldung
-//						// 2b. nicht vorhanden: 
-//							// 2ba. gibt es Einträge für den Ursprungsschlüssel?
-//								//Hinweis auf umändern der Dateinnamen/Verzeichnisnamen
-//								//Ablehnen: Abbruch
-//								//zustimmen: umbenennen der Datei/und Verzeichnisnamen
-//					//3. Update in der Datenbank
-//					
-//					//KeywordTable.updateKeyword("Wert aus dem Dialog", myBox.getValue().getId());
-//					System.out.println("knopf gedrückt bei "+ myBox.getId());
-//				}
-//			});
+
 		} catch (Exception e) {
 			System.out.println("Konstruktor schlägt fehl");
 		}
@@ -122,7 +102,6 @@ public class EditKeywordHelper {
 	public void switchOff() {
 		myBox.setDisable(true);
 		myBox.setValue(null);
-		myButton.setDisable(true);
 		if (myChild != null) {
 			myChild.switchOff();
 		}
@@ -130,9 +109,9 @@ public class EditKeywordHelper {
 
 	public void refresh() {
 		if (myLevel == 1) {
-			myBox.setItems(KeywordTable.selectLevel(myLevel, false));
+			myBox.setItems(KeywordTable.selectLevel(myLevel, forSearch));
 		} else {
-			myBox.setItems(KeywordTable.getChildren(myParent.getValue().getId(), false));
+			myBox.setItems(KeywordTable.getChildren(myParent.getValue().getId(), forSearch));
 		}
 	}
 

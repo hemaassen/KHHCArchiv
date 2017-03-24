@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import application.KeyWord;
 import application.Main;
+import helper.EditKeywordHelper;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,12 +77,13 @@ public class SearchWindowController implements Initializable {
 	@FXML
 	private Button newStore;
 
-	private static int myId1 = 0;
-	private static int myId2 = 0;
-	private static int myId3 = 0;
-	private static int myId4 = 0;
-	private static int myId5 = 0;
+	
 	private int[] searchPathArray = new int[5];
+	private EditKeywordHelper editKeyword5;
+	private EditKeywordHelper editKeyword4;
+	private EditKeywordHelper editKeyword3;
+	private EditKeywordHelper editKeyword2;
+	private EditKeywordHelper editKeyword1;
 
 	@FXML
 	void setOnMouseEntered(MouseEvent event) {
@@ -118,101 +120,22 @@ public class SearchWindowController implements Initializable {
 
 	@FXML
 	void listSearchKeywordOne(ActionEvent event) {
-		listSearchKeywordOne.setItems(KeywordTable.selectLevel(1, true));
-		if (listSearchKeywordOne.getValue() != null) {
-			searchPathArray = new int[5];
-			if (listSearchKeywordOne.getValue().getKeyword().length() == 0) {
-				initializeChildren(1);
-				buttonSearch.setDisable(true);
-				searchPathArray = new int[5];
-			} else {
-				myId1 = listSearchKeywordOne.getValue().getId();
-				listSearchKeywordTwo.setItems(KeywordTable.getChildren(myId1, true));
-				listSearchKeywordThree.setItems(KeywordTable.getChildren(-1, true));
-				listSearchKeywordFour.setItems(KeywordTable.getChildren(-1, true));
-				listSearchKeywordFive.setItems(KeywordTable.getChildren(-1, true));
+		if (listSearchKeywordOne.getValue() != null && listSearchKeywordOne.getValue().getKeyword().length() >0) {
 				buttonSearch.setDisable(false);
-				searchPathArray[0] = myId1;
-				listSearchKeywordTwo.setDisable(false);
+			} else {
+				buttonSearch.setDisable(true);
 			}
-		} else {
-			buttonSearch.setDisable(true);
-			listSearchKeywordTwo.setDisable(true);
-			listSearchKeywordThree.setDisable(true);
-			listSearchKeywordFour.setDisable(true);
-			listSearchKeywordFive.setDisable(true);
-		}
 	}
 
-	@FXML
-	void listSearchKeywordTwo(ActionEvent event) {
-		if (listSearchKeywordTwo.getValue() != null) {
-			initializeChildren(2);
-			if (listSearchKeywordTwo.getValue().getKeyword().length() != 0) {
-				myId2 = listSearchKeywordTwo.getValue().getId();
-				listSearchKeywordThree.setItems(KeywordTable.getChildren(myId2, true));
-				listSearchKeywordFour.setItems(KeywordTable.getChildren(-1, true));
-				listSearchKeywordFive.setItems(KeywordTable.getChildren(-1, true));
-				searchPathArray[1] = myId2;
-				listSearchKeywordThree.setDisable(false);
-			} else {
-				searchPathArray[1] = -1;
-				listSearchKeywordThree.setDisable(true);
-				listSearchKeywordFour.setDisable(true);
-				listSearchKeywordFive.setDisable(true);
-			}
-		}
-	}
-
-	@FXML
-	void listSearchKeywordThree(ActionEvent event) {
-		if (listSearchKeywordThree.getValue() != null) {
-			initializeChildren(3);
-			if (listSearchKeywordThree.getValue().getKeyword().length() != 0) {
-				myId3 = listSearchKeywordThree.getValue().getId();
-				listSearchKeywordFour.setItems(KeywordTable.getChildren(myId3, true));
-				listSearchKeywordFive.setItems(KeywordTable.getChildren(-1, true));
-				searchPathArray[2] = myId3;
-				listSearchKeywordFour.setDisable(false);
-			} else {
-				searchPathArray[2] = -1;
-				listSearchKeywordFour.setDisable(true);
-				listSearchKeywordFive.setDisable(true);
-			}
-		}
-	}
-
-	@FXML
-	void listSearchKeywordFour(ActionEvent event) {
-		if (listSearchKeywordFour.getValue() != null) {
-			if (listSearchKeywordFour.getValue().getKeyword().length() != 0) {
-				initializeChildren(4);
-				myId4 = listSearchKeywordFour.getValue().getId();
-				listSearchKeywordFive.setItems(KeywordTable.getChildren(myId4, true));
-				searchPathArray[3] = myId4;
-				listSearchKeywordFive.setDisable(false);
-			} else {
-				searchPathArray[3] = -1;
-				listSearchKeywordFive.setDisable(true);
-			}
-		}
-	}
-
-	@FXML
-	void listSearchKeywordFive(ActionEvent event) {
-		if (listSearchKeywordFive.getValue() != null) {
-			if (listSearchKeywordFive.getValue().getKeyword().length() != 0) {
-				myId5 = listSearchKeywordFive.getValue().getId();
-				searchPathArray[4] = myId5;
-			} else {
-				searchPathArray[4] = -1;
-			}
-		}
-	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
+			editKeyword5 = new EditKeywordHelper(listSearchKeywordFive, listSearchKeywordFour, null, 5, true);
+			editKeyword4 = new EditKeywordHelper(listSearchKeywordFour, listSearchKeywordThree, editKeyword5, 4, true);
+			editKeyword3 = new EditKeywordHelper(listSearchKeywordThree, listSearchKeywordTwo, editKeyword4, 3, true);
+			editKeyword2 = new EditKeywordHelper(listSearchKeywordTwo, listSearchKeywordOne, editKeyword3, 2, true);
+			editKeyword1 = new EditKeywordHelper(listSearchKeywordOne,  null, editKeyword2, 1, true);
 			listSearchKeywordOne.setItems(KeywordTable.selectLevel(1, true));
 		} catch (Exception e) {
 			e.getStackTrace();

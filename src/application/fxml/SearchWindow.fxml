@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SearchWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SearchWindowController">
    <children>
       <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -27,13 +27,13 @@
       <Label layoutX="118.0" layoutY="57.0" stylesheets="@../css/label.css" text="Schlüsselwort 1:" />
       <ComboBox fx:id="listSearchKeywordOne" layoutX="215.0" layoutY="48.0" onAction="#listSearchKeywordOne" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <Label layoutX="118.0" layoutY="110.0" stylesheets="@../css/label.css" text="Schlüsselwort 2:" />
-      <ComboBox fx:id="listSearchKeywordTwo" layoutX="215.0" layoutY="101.0" onAction="#listSearchKeywordTwo" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <ComboBox fx:id="listSearchKeywordTwo" layoutX="215.0" layoutY="101.0" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <Label layoutX="118.0" layoutY="163.0" stylesheets="@../css/label.css" text="Schlüsselwort 3:" />
-      <ComboBox fx:id="listSearchKeywordThree" layoutX="215.0" layoutY="154.0" onAction="#listSearchKeywordThree" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <ComboBox fx:id="listSearchKeywordThree" layoutX="215.0" layoutY="154.0" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <Label layoutX="118.0" layoutY="216.0" stylesheets="@../css/label.css" text="Schlüsselwort 4:" />
-      <ComboBox fx:id="listSearchKeywordFour" layoutX="215.0" layoutY="207.0" onAction="#listSearchKeywordFour" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <ComboBox fx:id="listSearchKeywordFour" layoutX="215.0" layoutY="207.0" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <Label layoutX="118.0" layoutY="269.0" stylesheets="@../css/label.css" text="Schlüsselwort 5:" />
-      <ComboBox fx:id="listSearchKeywordFive" layoutX="215.0" layoutY="260.0" onAction="#listSearchKeywordFive" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <ComboBox fx:id="listSearchKeywordFive" layoutX="215.0" layoutY="260.0" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
       <Button id="searchSearch" fx:id="buttonSearch" disable="true" layoutX="236.0" layoutY="401.0" mnemonicParsing="false" onAction="#searchContent" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Suchen">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />

@@ -433,11 +433,11 @@ public class ManualWindowController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
 			listKeywordOne.setItems(KeywordTable.selectLevel(1, false));
-			editKeyword5 = new EditKeywordHelper(listKeywordFive, changeKeywordFive, listKeywordFour, null, 5);
-			editKeyword4 = new EditKeywordHelper(listKeywordFour, changeKeywordFour, listKeywordThree, editKeyword5, 4);
-			editKeyword3 = new EditKeywordHelper(listKeywordThree, changeKeywordThree, listKeywordTwo, editKeyword4, 3);
-			editKeyword2 = new EditKeywordHelper(listKeywordTwo, changeKeywordTwo, listKeywordOne, editKeyword3, 2);
-			editKeyword1 = new EditKeywordHelper(listKeywordOne, changeKeywordOne, null, editKeyword2, 1);
+			editKeyword5 = new EditKeywordHelper(listKeywordFive, listKeywordFour, null, 5, false);
+			editKeyword4 = new EditKeywordHelper(listKeywordFour, listKeywordThree, editKeyword5, 4, false);
+			editKeyword3 = new EditKeywordHelper(listKeywordThree, listKeywordTwo, editKeyword4, 3, false);
+			editKeyword2 = new EditKeywordHelper(listKeywordTwo, listKeywordOne, editKeyword3, 2, false);
+			editKeyword1 = new EditKeywordHelper(listKeywordOne,  null, editKeyword2, 1, false);
 			File myFile = new File(main.getMyConfig().getDestinationDir());
 			if (!myFile.exists()) {
 				Alert dialog = new Alert(AlertType.ERROR);
