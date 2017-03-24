@@ -35,7 +35,7 @@
       <RadioButton fx:id="radioButtonStoreAuto" disable="true" layoutX="887.0" layoutY="112.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" text="Automatisch **" />
       <Label fx:id="labelScannerChoice" disable="true" layoutX="51.0" layoutY="433.0" stylesheets="@../css/label.css" text="Scanner wählen: **" />
       <ChoiceBox fx:id="listScanner" disable="true" layoutX="164.0" layoutY="429.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="253.0" stylesheets="@../css/application.css" />
-      <Button id="configBreak" fx:id="abort" cancelButton="true" layoutX="804.0" layoutY="607.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Abbrechen">
+      <Button id="configBreak" fx:id="abort" cancelButton="true" layoutX="804.0" layoutY="607.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Abbrechen" visible="false">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font></Button>

@@ -30,12 +30,13 @@
                   </ImageView>
                   <MenuBar id="menuBar" fx:id="menuBar" layoutY="9.0" prefHeight="35.0" prefWidth="1280.0" stylesheets="@../css/menuBar.css">
                     <menus>
-                      <Menu mnemonicParsing="false" text="File">
+                      <Menu mnemonicParsing="false" text="Datei">
                         <items>
                           <MenuItem fx:id="menuBarFileCloseAplication" mnemonicParsing="false" onAction="#stopProgram" text="Close" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleConfigButtonAction" text="Einstellungen" />
                         </items>
                       </Menu>
-                      <Menu mnemonicParsing="false" text="Help">
+                      <Menu mnemonicParsing="false" text="Hilfe">
                         <items>
                               <MenuItem fx:id="menuBarHelpHelp" mnemonicParsing="false" text="Hilfe" />
                               <MenuItem fx:id="menuBarHelpFAQ" mnemonicParsing="false" text="FAQ" />
