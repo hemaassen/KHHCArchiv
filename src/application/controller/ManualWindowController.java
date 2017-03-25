@@ -442,15 +442,12 @@ public class ManualWindowController implements Initializable {
 			if (!myFile.exists()) {
 				Alert dialog = new Alert(AlertType.ERROR);
 				dialog.setTitle("Ziellaufwerk nicht erreichbar");
-				// alert.setHeaderText("Look, an Information Dialog");
 				dialog.setContentText(main.getMyConfig().getDestinationDir() + " kann nicht erreicht werden");
 				dialog.showAndWait();
 			}
 			manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir().toString());
-			System.out.println(main.getMyConfig().getDestinationDir());
+			//System.out.println(main.getMyConfig().getDestinationDir());
 		} catch (Exception e) {
-			// System.out.println("Fehler in ManualWindowController -
-			// initialize");
 			e.getStackTrace();
 		}
 	}
