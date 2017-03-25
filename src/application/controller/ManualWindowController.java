@@ -223,9 +223,8 @@ public class ManualWindowController implements Initializable {
 		fileChooser.setTitle("Bitte gewünschte Datei auswählen");
 		fileChooser.setInitialDirectory(sourceDir);
 		fileChooser.getExtensionFilters().addAll(
-				new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp"),
-				new ExtensionFilter("PDF Files", "*.pdf"));
-
+				new ExtensionFilter("PDF Files", "*.pdf"),
+				new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp"));
 		Image fxImage = null;
 		Boolean isPdf;
 		// file wird gelesen
