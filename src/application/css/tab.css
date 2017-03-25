@@ -1,0 +1,22 @@
+.tab-pane{
+	-fx-background-color: #0e7477
+}
+.tab-pane .tab-header-area .tab-header-background {
+	-fx-background-color: #0e7477;
+}
+.tab{
+	-fx-background-color: #effafa;
+}
+.tab-label{
+	-fx-font-family: "Comic Sans MS";
+}
+.tab:selected{
+	-fx-background-color: #0e7477;
+	-fx-border-color: black;
+	-fx-border-width: 2px;
+	-fx-text-fill: #ffffff;
+}
+.tab:selected .tab-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}

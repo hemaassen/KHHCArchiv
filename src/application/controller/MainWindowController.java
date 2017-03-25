@@ -20,6 +20,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -270,6 +271,7 @@ public final class MainWindowController {
     Scene secondScene = new Scene(secondaryLayout);
     Stage secondStage = new Stage();
     secondStage.setTitle("Hilfe zur Archivanwendung");
+    secondStage.getIcons().add(new Image("file:resources/images/help_icon.png"));
     secondStage.setScene(secondScene);
     secondStage.show();
   }

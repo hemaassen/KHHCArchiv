@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
@@ -9,75 +9,129 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="helpAnchorMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="680.0" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HelpWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HelpWindowController">
    <children>
-      <TabPane id="helpTabMain" prefHeight="488.0" prefWidth="680.0" stylesheets="@../css/application.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="6.0" prefHeight="500.0" prefWidth="600.0" stylesheets="@../css/tab.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab fx:id="helpGeneral" closable="false" text="Allgemein">
+          <Tab text="Allgemein">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="468.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/help_back.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="96.0" layoutY="40.0" text="Features (Freeware)">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="146.0" text="vorhandene Dokumente mit Schlüsselworten">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="174.0" text="archivieren (*.jpg, *.jpeg, *.bmp, *.gif, *.png, *.pdf)">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="248.0" text="archivierte Dokumente suchen und drucken, senden">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="276.0" text="oder neu archivieren">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="362.0" text="Quell- und Ziellaufwerk in den Einstellungen festlegen">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Button id="closeHelp" fx:id="closeHelp" layoutX="238.0" layoutY="431.0" mnemonicParsing="false" onAction="#closeHelpWindow" prefHeight="16.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Schließen">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="12.0" />
+                           </font></Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab closable="false" text="Manuelle Ablage">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="468.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../helpImages/help_manual_back.png" />
+                           </image>
+                        </ImageView>
+                        <Button id="closeHelp" fx:id="closeHelpManual" layoutX="238.0" layoutY="431.0" mnemonicParsing="false" onAction="#closeHelpWindow" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Schließen">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="12.0" />
+                           </font></Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab closable="false" text="Automatische Ablage">
                <content>
-                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
-                     <viewport>
-                        <Rectangle2D height="468.0" width="680.0" />
-                     </viewport>
-                     <image>
-                        <Image url="@../images/help_back.png" />
-                     </image>
-                  </ImageView>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="468.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/help_back.png" />
+                           </image>
+                        </ImageView>
+                        <Button id="closeHelp" fx:id="closeHelpAuto" layoutX="238.0" layoutY="431.0" mnemonicParsing="false" onAction="#closeHelpWindow" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Schließen">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
-          <Tab fx:id="helpManual" closable="false" text="Manuelle Ablage">
+            <Tab closable="false" text="Dokument suchen">
                <content>
-                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
-                     <viewport>
-                        <Rectangle2D height="468.0" width="680.0" />
-                     </viewport>
-                     <image>
-                        <Image url="@../images/help_back.png" />
-                     </image>
-                  </ImageView>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="468.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/help_back.png" />
+                           </image>
+                        </ImageView>
+                        <Button id="closeHelp" fx:id="closeHelpSearch" layoutX="238.0" layoutY="431.0" mnemonicParsing="false" onAction="#closeHelpWindow" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Schließen">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="helpAutomatic" closable="false" text="Autom. Ablage">
+            <Tab closable="false" text="Einstellungen">
                <content>
-                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
-                     <viewport>
-                        <Rectangle2D height="468.0" width="680.0" />
-                     </viewport>
-                     <image>
-                        <Image url="@../images/help_back.png" />
-                     </image>
-                  </ImageView>
-               </content>
-            </Tab>
-            <Tab fx:id="helpSearch" closable="false" text="Dokument suchen">
-               <content>
-                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
-                     <viewport>
-                        <Rectangle2D height="468.0" width="680.0" />
-                     </viewport>
-                     <image>
-                        <Image url="@../images/help_back.png" />
-                     </image>
-                  </ImageView>
-               </content>
-            </Tab>
-            <Tab fx:id="helbConfig" closable="false" text="Einstellungen">
-               <content>
-                  <ImageView fitHeight="468.0" fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
-                     <viewport>
-                        <Rectangle2D height="468.0" width="680.0" />
-                     </viewport>
-                     <image>
-                        <Image url="@../images/help_back.png" />
-                     </image>
-                  </ImageView>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="468.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/help_back.png" />
+                           </image>
+                        </ImageView>
+                        <Button id="closeHelp" fx:id="closeHelpConfig" layoutX="238.0" layoutY="431.0" mnemonicParsing="false" onAction="#closeHelpWindow" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Schließen">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
         </tabs>
       </TabPane>
-      <Button id="helpClose" fx:id="closeHelp" layoutX="278.0" layoutY="499.0" mnemonicParsing="false" onAction="#closeHelpWindow" onDragEntered="#setOnMouseEntered" onDragExited="#setOnMouseExited" prefHeight="25.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Schließen">
-         <font>
-            <Font name="Comic Sans MS Bold" size="12.0" />
-         </font></Button>
    </children>
 </AnchorPane>

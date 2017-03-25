@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -14,22 +13,19 @@ public class HelpWindowController {
   public static Main main;
 
   @FXML
-  private Tab        helpGeneral;
+  private Button closeHelp;
 
   @FXML
-  private Tab        helpManual;
+  private Button closeHelpManual;
 
   @FXML
-  private Tab        helpAutomatic;
+  private Button closeHelpAuto;
 
   @FXML
-  private Tab        helpSearch;
+  private Button closeHelpSearch;
 
   @FXML
-  private Tab        helbConfig;
-
-  @FXML
-  private Button     closeHelp;
+  private Button closeHelpConfig;
 
   /**
    * Schliesst das Hilfefenster.

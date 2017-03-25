@@ -143,10 +143,10 @@
  * HelpWindow Button
  */
  
-#helpClose{
+#closeHelp{
 	-fx-background-image: url('../images/button_back_125x25.png')
 }
-#helpClose:pressed{
+#closeHelp:pressed{
 	-fx-background-image: url('../images/button_back_pressed_125x25.png')
 }
 
