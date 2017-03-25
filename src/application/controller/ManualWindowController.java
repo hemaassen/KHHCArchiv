@@ -3,7 +3,7 @@ package application.controller;
 import application.KeyWord;
 import application.Main;
 import helper.EditKeywordHelper;
-import helper.FilePusherHelper;
+import helper.FileHelper;
 import helper.PdfHelper;
 import helper.ZoomHelper;
 import java.io.File;
@@ -404,7 +404,7 @@ public class ManualWindowController implements Initializable {
 	@FXML
 	void onClickSaveButton(ActionEvent event) {
 		try {
-			boolean result = FilePusherHelper.doFileMove(sourceFileName, pathToDestination,
+			boolean result = FileHelper.doFileMove(sourceFileName, pathToDestination,
 					destFileName + datePicker.getValue().toString(), main);
 			if (result) {
 				imageActualDoc.setVisible(false);

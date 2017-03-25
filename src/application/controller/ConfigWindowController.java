@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import application.Main;
+import helper.FileHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -114,40 +115,39 @@ public class ConfigWindowController implements Initializable {
 
 	}
 
-	private void useDirChooser(Label lbl, String title) {
-		/*
-		 * kerstin: damit nicht mehrmals faktisch derselbe Code dasteht eigene
-		 * Methode es wird ein Directory ausgewählt und das Ergebnis in das
-		 * entsprechende Label geschrieben. Bricht der Anwender die Auswahl ab,
-		 * passiert nix
-		 */
-		DirectoryChooser dirChooser = new DirectoryChooser();
-		File myFile = new File(lbl.getText());
-		if (myFile.exists() && myFile.isDirectory()) {
-			dirChooser.setInitialDirectory(myFile);
-		}
-		dirChooser.setTitle(title);
-		// dir wird gelesen
-		myFile = dirChooser.showDialog(lbl.getScene().getWindow());
-		if (myFile != null) {
-			// bei null hätte der User die Auswahl abgebrochen und es würde
-			// nullpointerException geben
-			lbl.setText(myFile.getAbsolutePath());
-			/*
-			 * der untere Teil reicht nicht um die Auswahl eines geschützten
-			 * Ordners zu verhindern
-			 */
-			if (myFile.canRead() & myFile.canWrite()) {
-				lbl.setText(myFile.getAbsolutePath());
-			} else {
-				Alert dialog = new Alert(AlertType.ERROR);
-				dialog.setTitle("Rechteproblem");
-				dialog.setContentText(
-						"Auf diesem Ordner fehlen Ihnen Lese- oder Schreibrechte. Bitte wählen Sie einen Anderen.");
-				dialog.showAndWait();
-				myFile = null;
-			}
-		}
-	}
+	 private void useDirChooser(Label lbl, String title) {
+	        /*
+	         * kerstin: damit nicht mehrmals faktisch derselbe Code dasteht -> eigene Methode. Es wird
+	         * ein Directory ausgewählt und das Ergebnis in das entsprechende Label geschrieben. Bricht
+	         * der Anwender die Auswahl ab, passiert nix.
+	         */
+	        DirectoryChooser dirChooser = new DirectoryChooser();
+	        File myFile = new File(lbl.getText());
+	        if (myFile.exists() && myFile.isDirectory()) {
+	            dirChooser.setInitialDirectory(myFile);
+	        }
+	        dirChooser.setTitle(title);
+	        // dir wird gelesen
+	        myFile = dirChooser.showDialog(lbl.getScene().getWindow());
+	        if (myFile != null) {
+	            // Bei null hätte der User die Auswahl abgebrochen und es würde
+	            // nullpointerException geben.
+	            // Hier soll verhindert werden das ein Verzeichnis eingestellt wird auf das der User
+	            // keinen schreibenden Zugriff hat.
+	            if (FileHelper.isDirWriteable(myFile)) {
+	                //mache einene Eintrag im Label wenn DU schreiben kannst
+	                lbl.setText(myFile.getAbsolutePath());
+	            } else {
+	                //mache nichts mit dem Label wenn Du nicht schreiben kannst
+	                //der alte Wert sollte bleiben
+	                Alert dialog = new Alert(AlertType.ERROR);
+	                dialog.setTitle("Rechteproblem");
+	                dialog.setContentText("Auf diesem Ordner fehlen Ihnen Lese- oder Schreibrechte."
+	                        + " Bitte wählen Sie einen Anderen.");
+	                dialog.showAndWait();
+	                myFile = null;
+	            }
+	        }
+	    }
 
 }

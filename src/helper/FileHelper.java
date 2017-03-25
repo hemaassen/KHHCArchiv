@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-public class FilePusherHelper {
+public class FileHelper {
 
     /**
      * Diese Methode kopiert im Erfolgsfall die Quelldatei und erzeugt daraus die Zieldatei. Ist das
@@ -41,8 +41,8 @@ public class FilePusherHelper {
             i++;
         }
 
-//        System.out.println("Filename: " + destFileName + "  Ext: " + ext + "\nQuelle: "
-//                + srcFile.toString() + "\nZiel: " + destinationFile); // remove
+        System.out.println("Filename: " + destFileName + "  Ext: " + ext + "\nQuelle: "
+                + srcFile.toString() + "\nZiel: " + destinationFile); // remove
 
         Path checkPath = null;
         try {
@@ -90,7 +90,7 @@ public class FilePusherHelper {
         } else {
             String result = "" + i;
             while (result.length() < maxChars) {
-                result = "0" + result; 
+                result = "0" + result;
             }
             return "_" + result;
         }
@@ -117,4 +117,36 @@ public class FilePusherHelper {
         }
     }
 
+    /**
+     * Gibt an ob in dieses Verzeichniss geschrieben werden kann.
+     * 
+     * @param myFile
+     *            Directory das zu testen ist
+     * @return boolean true wenn ich auf das Directory zugreifen kann
+     * @author Christian
+     */
+
+    public static boolean isDirWriteable(File myFile) {
+        File temp = null;
+        try {
+            // erzeuge einen irren Namen der hoffentlich nicht schon existiert
+            temp = File.createTempFile("k43o", ".p09", myFile);
+        } catch (IOException e) {
+            // throws IOException - If a file could not be created
+            // uns reicht es hier die Info zu bekommen das es nicht geht
+            return false;
+        }
+        // wenn temp existeiert und einen Wert hat
+        if (temp != null && temp.exists()) {
+            // Wir haben die Macht zu schreiben -> Datei wieder löschen
+            if (!temp.delete()) {
+                // eigentlich unmöglich, wenn ich das recht habe zu schreiben darf ich auch löschen
+                throw new IllegalStateException(
+                        "Error 007: Konnte angelegte Datei nicht wieder löschen.");
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
