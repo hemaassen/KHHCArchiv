@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import application.KeyWord;
@@ -91,8 +92,8 @@ public class SearchWindowController implements Initializable {
   private EditKeywordHelper editKeyword3;
   private EditKeywordHelper editKeyword2;
   private EditKeywordHelper editKeyword1;
-  private Boolean           isDateFrom;
-  private Boolean           isDateTill;
+  private LocalDate         myDateFrom;
+  private LocalDate         myDateTill;
   private List<String>      myresultList;
 
   @FXML
@@ -106,29 +107,36 @@ public class SearchWindowController implements Initializable {
   }
 
   /**
-   * @author helge
+   * Übernahme des ausgewählten Datum von in ein lokales Feld, um damit später
+   * das Suchergebnis zu filtern.
+   * 
+   * @author helge, holger
    * @param event
+   *          ActionEvent
    */
-
   @FXML
   void inputFromDate(ActionEvent event) {
     if (dateFrom.getValue() != null) {
-      isDateFrom = true;
-      // buttonSearch.setDisable(false);
+      myDateFrom = dateFrom.getValue();
     } else {
-      isDateFrom = false;
-      // buttonSearch.setDisable(true);
+      myDateFrom = null;
     }
   }
 
+  /**
+   * Übernahme des ausgewählten Datum bis in ein lokales Feld, um damit später
+   * das Suchergebnis zu filtern.
+   * 
+   * @author helge, holger
+   * @param event
+   *          ActionEvent
+   */
   @FXML
   void inputTillDate(ActionEvent event) {
     if (dateTill.getValue() != null) {
-      isDateTill = true;
-      // buttonSearch.setDisable(false);
+      myDateTill = dateTill.getValue();
     } else {
-      isDateTill = false;
-      // buttonSearch.setDisable(true);
+      myDateTill = null;
     }
   }
 
@@ -242,8 +250,10 @@ public class SearchWindowController implements Initializable {
     // Durchsuchen des Verzeichnisses über eine Hilfsmethode
     try {
       System.out.println("myresultList: " + myresultList);
+      System.out.println(myDateFrom);
+      System.out.println(myDateTill);
       myresultList = ListingFilesHelper.searchContentOfDirectory(myPath,
-          pattern);
+          pattern, myDateFrom, myDateTill);
       System.out.println("myresultList: " + myresultList);
       listResult.setItems((ObservableList<String>) FXCollections
           .observableArrayList(myresultList));
