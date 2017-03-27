@@ -19,6 +19,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PageLayout;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
 import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -84,7 +87,7 @@ public class SearchWindowController implements Initializable {
     private Button zoomMinus;
 
     @FXML
-    private Button print;
+    private Button printDok;
 
     @FXML
     private Button send;
@@ -296,6 +299,8 @@ public class SearchWindowController implements Initializable {
                                 Image fxImage = null;
                                 // Boolean isPdf = false;
                                 choosenDoc.setVisible(true);
+                                zoomPlus.setDisable(false);
+                                zoomMinus.setDisable(false);
                                 // überprüfung ob die Datei ein Pdf ist
                                 isPdf = newValue.toString().endsWith(".pdf");
                                 System.out.println(myPath + File.separator + newValue);
@@ -333,5 +338,13 @@ public class SearchWindowController implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+    @FXML
+    void onClickZoomIn(MouseEvent event) throws Exception {
+        ZoomHelper.zoomIn(event, zoomProperty);
+    }
 
+    @FXML
+    void onClickZoomOut(MouseEvent event) throws Exception {
+        ZoomHelper.zoomOut(event, zoomProperty);
+    }
 }

@@ -40,15 +40,15 @@
          </font></Button>
       <Label layoutX="67.0" layoutY="470.0" stylesheets="@../css/label.css" text="Ergebnis:" />
       <ListView fx:id="listResult" layoutX="123.0" layoutY="470.0" prefHeight="185.0" prefWidth="372.0" stylesheets="@../css/application.css" />
-      <Button id="searchZoomIn" fx:id="zoomPlus" disable="true" layoutX="644.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom +">
+      <Button id="searchZoomIn" fx:id="zoomPlus" disable="true" layoutX="644.0" layoutY="630.0" mnemonicParsing="false" onMouseClicked="#onClickZoomIn" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom +">
          <font>
             <Font name="Comic Sans MS Bold" size="12.0" />
          </font></Button>
-      <Button id="searchZoomOut" fx:id="zoomMinus" disable="true" layoutX="714.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom -">
+      <Button id="searchZoomOut" fx:id="zoomMinus" disable="true" layoutX="714.0" layoutY="630.0" mnemonicParsing="false" onMouseClicked="#onClickZoomOut" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Zoom -">
          <font>
             <Font name="Comic Sans MS Bold" size="12.0" />
          </font></Button>
-      <Button id="searchPrint" fx:id="print" disable="true" layoutX="916.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Drucken">
+      <Button id="searchPrint" fx:id="printDok" disable="true" layoutX="916.0" layoutY="630.0" mnemonicParsing="false" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="25.0" prefWidth="60.0" stylesheets="@../css/button.css" text="Drucken">
          <font>
             <Font name="Comic Sans MS Bold" size="11.0" />
          </font></Button>
