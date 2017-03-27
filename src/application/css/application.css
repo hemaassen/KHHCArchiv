@@ -65,6 +65,13 @@
 	-fx-text-fill: black;
 	-fx-font-size: 12.0px;
 }
+.combo-box-popup > .list-view > .list-cell:hover {
+	-fx-background-color: #0e7477;
+}
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: #0e7477;
+    -fx-text-fill: white;
+}
 
 /**
  * ChoiceBox
@@ -93,11 +100,20 @@
 .list-view{
 	-fx-background-color: #bcd9da;
 }.list-cell{
+	-fx-background-color: #bcd9da;
 	-fx-font-family: "Comic Sans MS";
 	-fx-font-weight: bold;
 	-fx-text-fill: black;
 	-fx-font-size: 12.0px;
 }
-.alert.confirmation {
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: #0e7477;
+    -fx-text-fill: white;
+}
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
+    -fx-background-color: #0e7477;
+    -fx-text-fill: white;
+}
+.alert.confirmation.dialog-pane {
     -fx-graphic: url('../images/checked.png');
 }
