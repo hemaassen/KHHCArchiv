@@ -331,6 +331,11 @@ public class SearchWindowController implements Initializable {
                                             "Fehler in searchContent (Auswahl eines Dokuments zur Anzeige)");
                                     System.out.println(e.getMessage());
                                 }
+                                
+// ==========================================================================================================================
+//                                myresultList=null;
+//                                myPath=Paths.get(searchPath);
+// ==========================================================================================================================
                             }
                         }
                     });
