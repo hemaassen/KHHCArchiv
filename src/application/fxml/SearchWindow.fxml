@@ -8,18 +8,12 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SearchWindowController">
+<AnchorPane fx:id="anchorSearchMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SearchWindowController">
    <children>
-      <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/details_back.png" />
-         </image>
-      </ImageView>
       <Label layoutX="23.0" layoutY="345.0" stylesheets="@../css/label.css" text="Datum von:" />
       <DatePicker fx:id="dateFrom" disable="true" layoutX="90.0" layoutY="341.0" onAction="#inputFromDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
       <Label layoutX="291.0" layoutY="345.0" stylesheets="@../css/label.css" text="Datum bis:" />
@@ -58,7 +52,7 @@
          </font></Button>
       <ScrollPane fx:id="imageScrollPane" layoutX="640.0" layoutY="35.0" prefHeight="571.0" prefWidth="409.0">
          <content>
-            <ImageView fx:id="choosenDoc" fitHeight="558.0" fitWidth="394.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="choosenDoc" accessibleRole="PARENT" fitHeight="558.0" fitWidth="394.0" pickOnBounds="true" preserveRatio="true">
                <viewport>
                   <Rectangle2D height="842.0" width="595.0" />
                </viewport>
