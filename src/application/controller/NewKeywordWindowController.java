@@ -6,13 +6,13 @@ import javafx.scene.control.TextField;
 
 public class NewKeywordWindowController {
 
-	@FXML
-	private Button newKeywordCancel;
+    @FXML
+    private Button newKeywordCancel;
 
-	@FXML
-	private Button newKeywordSave;
+    @FXML
+    private Button newKeywordSave;
 
-	@FXML
-	private TextField newKeywordTextField;
+    @FXML
+    private TextField newKeywordTextField;
 
 }

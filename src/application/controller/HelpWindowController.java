@@ -10,42 +10,44 @@ import javafx.stage.Stage;
 
 public class HelpWindowController {
 
-  public static Main main;
+    public static Main main;
 
-  @FXML
-  private Button closeHelp;
+    @FXML
+    private Button closeHelp;
 
-  @FXML
-  private Button closeHelpManual;
+    @FXML
+    private Button closeHelpManual;
 
-  @FXML
-  private Button closeHelpAuto;
+    @FXML
+    private Button closeHelpAuto;
 
-  @FXML
-  private Button closeHelpSearch;
+    @FXML
+    private Button closeHelpSearch;
 
-  @FXML
-  private Button closeHelpConfig;
+    @FXML
+    private Button closeHelpConfig;
 
-  /**
-   * Schliesst das Hilfefenster.
-   * @author holger, helge
-   * @param event Button Schliessen wurde geklickt
-   */
-  @FXML  
-  void closeHelpWindow(ActionEvent event) {
-    Stage stage = (Stage) closeHelp.getScene().getWindow();
-    stage.close();
-  }
+    /**
+     * Schliesst das Hilfefenster.
+     * 
+     * @author holger, helge
+     * @param event
+     *            Button Schliessen wurde geklickt
+     */
+    @FXML
+    void closeHelpWindow(ActionEvent event) {
+        Stage stage = (Stage) closeHelp.getScene().getWindow();
+        stage.close();
+    }
 
-  @FXML
-  void setOnMouseEntered(MouseEvent event) {
-    main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
-  }
+    @FXML
+    void setOnMouseEntered(MouseEvent event) {
+        main.getPrimarayStage().getScene().setCursor(Cursor.HAND);
+    }
 
-  @FXML
-  void setOnMouseExited(MouseEvent event) {
-    main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
-  }
+    @FXML
+    void setOnMouseExited(MouseEvent event) {
+        main.getPrimarayStage().getScene().setCursor(Cursor.DEFAULT);
+    }
 
 }
