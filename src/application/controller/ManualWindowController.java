@@ -195,6 +195,7 @@ public class ManualWindowController implements Initializable {
             dialog.setTitle("Kein Dokument ausgewählt");
             dialog.setContentText("Bitte suchen Sie zunächst ein Dokument zum Ablegen aus!");
             dialog.showAndWait();
+           
         }
         return false;
     }
@@ -251,7 +252,8 @@ public class ManualWindowController implements Initializable {
             imageActualDoc.setVisible(true); // ? cb
             labelPath.setText(sourceFileName.getPath());
             labelPath.setVisible(true);
-
+            zoomPlus.setDisable(false);
+            zoomMinus.setDisable(false);
             // überprüfung ob die Datei ein Pdf ist
             isPdf = sourceFileName.getName().toString().endsWith(".pdf");
 
@@ -274,9 +276,10 @@ public class ManualWindowController implements Initializable {
                 System.out.println(e.getMessage());
 
             }
+        }else{
+            zoomPlus.setDisable(true);
+            zoomMinus.setDisable(true);
         }
-        zoomPlus.setDisable(false);
-        zoomMinus.setDisable(false);
     }
 
     /**
