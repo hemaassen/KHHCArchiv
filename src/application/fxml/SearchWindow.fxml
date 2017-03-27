@@ -8,27 +8,33 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorSearchMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SearchWindowController">
    <children>
-      <Label layoutX="23.0" layoutY="345.0" stylesheets="@../css/label.css" text="Datum von:" />
-      <DatePicker fx:id="dateFrom" disable="true" layoutX="90.0" layoutY="341.0" onAction="#inputFromDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
-      <Label layoutX="291.0" layoutY="345.0" stylesheets="@../css/label.css" text="Datum bis:" />
-      <DatePicker fx:id="dateTill" disable="true" layoutX="352.0" layoutY="341.0" onAction="#inputTillDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
-      <Label layoutX="118.0" layoutY="57.0" stylesheets="@../css/label.css" text="Schlüsselwort 1:" />
-      <ComboBox fx:id="listSearchKeywordOne" layoutX="215.0" layoutY="48.0" onAction="#listSearchKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
-      <Label layoutX="118.0" layoutY="110.0" stylesheets="@../css/label.css" text="Schlüsselwort 2:" />
-      <ComboBox fx:id="listSearchKeywordTwo" layoutX="215.0" layoutY="101.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
-      <Label layoutX="118.0" layoutY="163.0" stylesheets="@../css/label.css" text="Schlüsselwort 3:" />
-      <ComboBox fx:id="listSearchKeywordThree" layoutX="215.0" layoutY="154.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
-      <Label layoutX="118.0" layoutY="216.0" stylesheets="@../css/label.css" text="Schlüsselwort 4:" />
-      <ComboBox fx:id="listSearchKeywordFour" layoutX="215.0" layoutY="207.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
-      <Label layoutX="118.0" layoutY="269.0" stylesheets="@../css/label.css" text="Schlüsselwort 5:" />
-      <ComboBox fx:id="listSearchKeywordFive" layoutX="215.0" layoutY="260.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
-      <Button id="searchSearch" fx:id="buttonSearch" disable="true" layoutX="236.0" layoutY="401.0" mnemonicParsing="false" onAction="#searchContent" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Suchen">
+      <ImageView fitHeight="674.0" fitWidth="1108.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/details_back.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="23.0" layoutY="303.0" stylesheets="@../css/label.css" text="Datum von:" />
+      <DatePicker fx:id="dateFrom" disable="true" layoutX="90.0" layoutY="299.0" onAction="#inputFromDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
+      <Label layoutX="291.0" layoutY="303.0" stylesheets="@../css/label.css" text="Datum bis:" />
+      <DatePicker fx:id="dateTill" disable="true" layoutX="352.0" layoutY="299.0" onAction="#inputTillDate" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefWidth="180.0" promptText="tt.mm.jj" stylesheets="@../css/datePicker.css" />
+      <Label layoutX="118.0" layoutY="33.0" stylesheets="@../css/label.css" text="Schlüsselwort 1:" />
+      <ComboBox fx:id="listSearchKeywordOne" layoutX="215.0" layoutY="24.0" onAction="#listSearchKeywordOne" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <Label layoutX="118.0" layoutY="86.0" stylesheets="@../css/label.css" text="Schlüsselwort 2:" />
+      <ComboBox fx:id="listSearchKeywordTwo" layoutX="215.0" layoutY="77.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <Label layoutX="118.0" layoutY="139.0" stylesheets="@../css/label.css" text="Schlüsselwort 3:" />
+      <ComboBox fx:id="listSearchKeywordThree" layoutX="215.0" layoutY="130.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <Label layoutX="118.0" layoutY="192.0" stylesheets="@../css/label.css" text="Schlüsselwort 4:" />
+      <ComboBox fx:id="listSearchKeywordFour" layoutX="215.0" layoutY="183.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <Label layoutX="118.0" layoutY="245.0" stylesheets="@../css/label.css" text="Schlüsselwort 5:" />
+      <ComboBox fx:id="listSearchKeywordFive" layoutX="215.0" layoutY="236.0" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="35.0" prefWidth="200.0" stylesheets="@../css/application.css" />
+      <Button id="searchSearch" fx:id="buttonSearch" disable="true" layoutX="236.0" layoutY="347.0" mnemonicParsing="false" onAction="#searchContent" onMouseEntered="#setOnMouseEntered" onMouseExited="#setOnMouseExited" prefHeight="40.0" prefWidth="125.0" stylesheets="@../css/button.css" text="Suchen">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font></Button>
@@ -64,5 +70,7 @@
             <Font name="Comic Sans MS Bold" size="12.0" />
          </font></Button>
       <Separator layoutX="23.0" layoutY="43.0" prefHeight="4.0" prefWidth="510.0" visible="false" />
+      <Label layoutX="216.0" layoutY="405.0" stylesheets="@../css/label.css" text="Speicherort der Dokumente:" />
+      <Label fx:id="labelStoredPath" disable="true" layoutX="30.0" layoutY="434.0" prefHeight="25.0" prefWidth="497.0" stylesheets="@../css/application.css" text="Speicherort" />
    </children>
 </AnchorPane>
