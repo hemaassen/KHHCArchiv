@@ -187,6 +187,8 @@ public class ManualWindowController implements Initializable {
     boolean isThereAnOpenDocument(MouseEvent event) {
         event.consume();
         if (sourceFileName != null && sourceFileName.length() > 0) {
+            zoomPlus.setDisable(true);
+            zoomMinus.setDisable(true);
             return true;
         } else {
             // es wurde noch kein Dokument ausgewählt
@@ -221,7 +223,7 @@ public class ManualWindowController implements Initializable {
         // vordefinierte Klasse zur Dateiauswahl
         FileChooser fileChooser = new FileChooser();
         // grundkonfiguration
-        fileChooser.setTitle("Bitte gewünschte Datei auswählen");
+        fileChooser.setTitle("Datei auswählen");
         fileChooser.setInitialDirectory(sourceDir);
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("PDF Files", "*.pdf"),
                 new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp"));
@@ -277,8 +279,7 @@ public class ManualWindowController implements Initializable {
 
             }
         }else{
-            zoomPlus.setDisable(true);
-            zoomMinus.setDisable(true);
+            
         }
     }
 
