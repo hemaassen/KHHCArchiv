@@ -330,4 +330,9 @@ public class SearchWindowController implements Initializable {
   void onClickZoomOut(MouseEvent event) throws Exception {
     ZoomHelper.zoomOut(event, zoomProperty);
   }
+  
+  @FXML
+  void printThis(ActionEvent event) {
+
+  }
 }
