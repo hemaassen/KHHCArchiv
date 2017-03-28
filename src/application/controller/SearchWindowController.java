@@ -309,97 +309,9 @@ public class SearchWindowController implements Initializable {
               choosenDoc.setImage(ZoomHelper.zoomMouse(myImage, choosenDoc,
                   anchorSearchMain, imageScrollPane, zoomProperty));
             }
-<<<<<<< HEAD
-        }
-
-        // Pfad für die Suche aus den ausgewählten Schlüsselwörtern zusammensetzen
-        searchPath = main.getMyConfig().getDestinationDir().toString();
-        for (String sa : searchPathArray) {
-            if (sa.length() > 0) {
-                searchPath += File.separator;
-                searchPath += sa;
-            }
-        }
-        myPath = Paths.get(searchPath);
-        // Eingrenzung auf gültige Dateiformate
-        String pattern = "glob:*.{pdf,png,jpg,jpeg,gif,bmp}";
-        // Durchsuchen des Verzeichnisses über eine Hilfsmethode
-        try {
-            System.out.println("myresultList: " + myresultList);
-            System.out.println(myDateFrom);
-            System.out.println(myDateTill);
-
-            // hinweis: vielleicht könnte man auch eine map zurückgeben, wobei der key
-            // die datei ist
-            // und der value der komplette pfad...oder anders rum....
-            myresultList = ListingFilesHelper.searchContentOfDirectory(myPath, pattern, myDateFrom,
-                    myDateTill);
-            System.out.println("myresultList: " + myresultList);
-            listResult.setItems(
-                    (ObservableList<String>) FXCollections.observableArrayList(myresultList));
-
-            labelStoredPath.setText(myPath.toString() + File.separator);
-
-            // noch fehlerhaft: bei jedem neuaufbau resultliste wird der syso einmal
-            // mehr ausgegeben
-
-            listResult.getSelectionModel().selectedItemProperty()
-                    .addListener(new ChangeListener<String>() {
-                        @Override
-                        public void changed(ObservableValue<? extends String> observable,
-                                String oldValue, String newValue) {
-                            System.out.println(
-                                    "direkt: " + listResult.getSelectionModel().getSelectedItem());
-                            if (newValue != null) {
-                                System.out.println("ausgewählte Datei: " + newValue);
-                                // Anzeige des ausgewählten Dokuments
-                                Image fxImage = null;
-                                // Boolean isPdf = false;
-                                choosenDoc.setVisible(true);
-                                zoomPlus.setDisable(false);
-                                zoomMinus.setDisable(false);
-                                printDok.setDisable(false);
-                                // überprüfung ob die Datei ein Pdf ist
-                                isPdf = newValue.toString().endsWith(".pdf");
-                                System.out.println(myPath + File.separator + newValue);
-                                myChoosenFile = new File(myPath + File.separator + newValue);
-                                System.out.println("myChoosenFile: " + myChoosenFile);
-                                System.out.println("isPDF? " + isPdf);
-                                // ausgewählte Datei anzeigen mit Zoommöglichkeit über Mausrad
-                                try {
-                                    if (isPdf) {
-                                        fxImage = PdfHelper.convertPDFToImage(myChoosenFile);
-                                        System.out.println(fxImage.toString());
-                                        zoomProperty.set(200);
-                                        choosenDoc.setImage(ZoomHelper.zoomMouse(fxImage,
-                                                choosenDoc, anchorSearchMain, imageScrollPane,
-                                                zoomProperty));
-                                    } else {
-                                        Image myImage = new Image(
-                                                myChoosenFile.toURI().toURL().toExternalForm(),
-                                                595.0, 842.0, false, true);
-                                        System.out.println(myImage.toString());
-                                        zoomProperty.set(200);
-                                        choosenDoc.setImage(ZoomHelper.zoomMouse(myImage,
-                                                choosenDoc, anchorSearchMain, imageScrollPane,
-                                                zoomProperty));
-                                    }
-                                } catch (Exception e) {
-                                    System.out.println(
-                                            "Fehler in searchContent (Auswahl eines Dokuments zur Anzeige)");
-                                    System.out.println(e.getMessage());
-                                }
-                                myresultList = null;
-                                myPath = Paths.get(searchPath);
-                            }
-                        }
-                    });
-        } catch (Exception e) {
-=======
           } catch (Exception e) {
             System.out.println(
                 "Fehler in searchContent (Auswahl eines Dokuments zur Anzeige)");
->>>>>>> branch 'master' of https://github.com/telenair/KHHCArchiv.git
             System.out.println(e.getMessage());
           }
         }
@@ -414,49 +326,8 @@ public class SearchWindowController implements Initializable {
     ZoomHelper.zoomIn(event, zoomProperty);
   }
 
-<<<<<<< HEAD
-    @FXML
-    void onClickZoomOut(MouseEvent event) throws Exception {
-        ZoomHelper.zoomOut(event, zoomProperty);
-    }
-    
-    
-//----------------------------------------------------------------------------
-//     Druck Anweisungen
-//----------------------------------------------------------------------------
-    
-    
-//    @FXML
-//    public void printThis() {
-//        // note you can use overloaded forms of the Image constructor
-//        // if you want to scale, etc
-////        String path = myChoosenFile.toString();
-////        System.out.println(path);
-//        Image image = new SearchWindowController().printImage(choosenDoc);
-//        System.out.println(image);
-//        ImageView imageView = new ImageView(image);
-//        new Thread(() -> printImage(imageView)).start();
-//    }
-//
-//    @FXML
-//    public Image printImage(ImageView image) {
-//        Printer printer = Printer.getDefaultPrinter();
-//        PrinterJob printJob = PrinterJob.createPrinterJob(printer);
-//        PageLayout pageLayout = printJob.getJobSettings().getPageLayout();
-//        //PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
-//        printJob.getJobSettings().setPageLayout(pageLayout);
-//        if (printJob != null) {
-//            boolean success = printJob.printPage(image);
-//            if (success) {
-//                printJob.endJob();
-//            }
-//        }
-//        return null;
-//    }
-=======
   @FXML
   void onClickZoomOut(MouseEvent event) throws Exception {
     ZoomHelper.zoomOut(event, zoomProperty);
   }
->>>>>>> branch 'master' of https://github.com/telenair/KHHCArchiv.git
 }
