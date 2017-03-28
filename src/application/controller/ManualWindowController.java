@@ -362,6 +362,8 @@ public class ManualWindowController implements Initializable {
         }
         manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir().toString()
                 + File.separator + pathToDestination);
+        toolTipDestinationPath.setText(main.getMyConfig().getDestinationDir().toString()
+                + File.separator + pathToDestination);
     }
 
     @FXML
