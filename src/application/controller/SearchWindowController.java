@@ -1,6 +1,8 @@
 package application.controller;
 
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PrinterJob;
 import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -290,6 +293,7 @@ public class SearchWindowController implements Initializable {
           choosenDoc.setVisible(true);
           zoomPlus.setDisable(false);
           zoomMinus.setDisable(false);
+          printDok.setDisable(false);
           // überprüfung ob die Datei ein Pdf ist
           isPdf = choosenFileString.endsWith(".pdf");
           // ausgewähltes Listenelement als File übernehmen
@@ -332,7 +336,11 @@ public class SearchWindowController implements Initializable {
   }
   
   @FXML
-  void printThis(ActionEvent event) {
-
+  void printThis(ActionEvent event){
+    try {
+      Desktop.getDesktop().print(new File(myChoosenFile.toString()));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
