@@ -363,16 +363,16 @@ public class SearchWindowController implements Initializable {
 //    public void printThis() {
 //        // note you can use overloaded forms of the Image constructor
 //        // if you want to scale, etc
-//        String path = myChoosenFile.toString();
-//        System.out.println(path);
-//        Image image = new Image(getClass().getResource(path).toExternalForm());
+////        String path = myChoosenFile.toString();
+////        System.out.println(path);
+//        Image image = new SearchWindowController().printImage(choosenDoc);
 //        System.out.println(image);
 //        ImageView imageView = new ImageView(image);
 //        new Thread(() -> printImage(imageView)).start();
 //    }
 //
 //    @FXML
-//    public void printImage(ImageView image) {
+//    public Image printImage(ImageView image) {
 //        Printer printer = Printer.getDefaultPrinter();
 //        PrinterJob printJob = PrinterJob.createPrinterJob(printer);
 //        PageLayout pageLayout = printJob.getJobSettings().getPageLayout();
@@ -384,5 +384,6 @@ public class SearchWindowController implements Initializable {
 //                printJob.endJob();
 //            }
 //        }
+//        return null;
 //    }
 }
