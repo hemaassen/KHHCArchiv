@@ -302,6 +302,7 @@ public class SearchWindowController implements Initializable {
                                 choosenDoc.setVisible(true);
                                 zoomPlus.setDisable(false);
                                 zoomMinus.setDisable(false);
+                                printDok.setDisable(false);
                                 // überprüfung ob die Datei ein Pdf ist
                                 isPdf = newValue.toString().endsWith(".pdf");
                                 System.out.println(myPath + File.separator + newValue);
@@ -351,4 +352,35 @@ public class SearchWindowController implements Initializable {
     void onClickZoomOut(MouseEvent event) throws Exception {
         ZoomHelper.zoomOut(event, zoomProperty);
     }
+    
+    
+//----------------------------------------------------------------------------
+//     Druck Anweisungen
+//----------------------------------------------------------------------------
+    
+    
+//    public void printThis() {
+//
+//        System.out.println("I was called");
+//        // note you can use overloaded forms of the Image constructor
+//        // if you want to scale, etc
+//        String path = myChoosenFile.toString();
+//        Image image = new Image(getClass().getResource(path).toExternalForm());
+//        ImageView imageView = new ImageView(image);
+//        new Thread(() -> printImage(imageView)).start();
+//    }
+//
+//    public void printImage(ImageView image) {
+//        Printer printer = Printer.getDefaultPrinter();
+//        PrinterJob printJob = PrinterJob.createPrinterJob(printer);
+//        PageLayout pageLayout = printJob.getJobSettings().getPageLayout();
+//        //PageLayout pageLayout = printer.createPageLayout(Paper.A4, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
+//        printJob.getJobSettings().setPageLayout(pageLayout);
+//        if (printJob != null) {
+//            boolean success = printJob.printPage(image);
+//            if (success) {
+//                printJob.endJob();
+//            }
+//        }
+//    }
 }
