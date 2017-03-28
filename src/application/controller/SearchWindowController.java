@@ -359,17 +359,19 @@ public class SearchWindowController implements Initializable {
 //----------------------------------------------------------------------------
     
     
+//    @FXML
 //    public void printThis() {
-//
-//        System.out.println("I was called");
 //        // note you can use overloaded forms of the Image constructor
 //        // if you want to scale, etc
 //        String path = myChoosenFile.toString();
+//        System.out.println(path);
 //        Image image = new Image(getClass().getResource(path).toExternalForm());
+//        System.out.println(image);
 //        ImageView imageView = new ImageView(image);
 //        new Thread(() -> printImage(imageView)).start();
 //    }
 //
+//    @FXML
 //    public void printImage(ImageView image) {
 //        Printer printer = Printer.getDefaultPrinter();
 //        PrinterJob printJob = PrinterJob.createPrinterJob(printer);
