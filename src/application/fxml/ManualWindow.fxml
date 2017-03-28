@@ -110,7 +110,10 @@
          </content>
       </ScrollPane>
       <Label layoutX="762.0" layoutY="531.0" stylesheets="@../css/label.css" text="Speicherort des Dokuments:" />
-      <Label fx:id="manualLabelDestinationPath" disable="true" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" stylesheets="@../css/application.css" text="Speicherort" />
+      <Label fx:id="manualLabelDestinationPath" disable="true" layoutX="643.0" layoutY="556.0" prefHeight="19.0" prefWidth="409.0" stylesheets="@../css/application.css" text="Speicherort">
+         <tooltip>
+            <Tooltip fx:id="toolTipDestinationPath" />
+         </tooltip></Label>
       <Label layoutX="466.0" layoutY="192.0" stylesheets="@../css/label.css" text="+" visible="false">
          <font>
             <Font name="Arial Black" size="18.0" />

@@ -22,6 +22,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -130,6 +131,9 @@ public class ManualWindowController implements Initializable {
 
     @FXML
     private Button changeKeywordFive;
+    
+    @FXML
+    private Tooltip toolTipDestinationPath;
 
     EditKeywordHelper editKeyword5;
     EditKeywordHelper editKeyword4;

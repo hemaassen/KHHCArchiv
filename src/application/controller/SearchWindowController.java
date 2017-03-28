@@ -117,6 +117,7 @@ public class SearchWindowController implements Initializable {
     final DoubleProperty zoomProperty = new SimpleDoubleProperty(200);
     private File myChoosenFile;
     private static Boolean isPdf = false;
+    private Path myPath;
 
     @FXML
     void setOnMouseEntered(MouseEvent event) {
@@ -263,7 +264,7 @@ public class SearchWindowController implements Initializable {
                 searchPath += sa;
             }
         }
-        Path myPath = Paths.get(searchPath);
+        myPath = Paths.get(searchPath);
         // Eingrenzung auf gültige Dateiformate
         String pattern = "glob:*.{pdf,png,jpg,jpeg,gif,bmp}";
         // Durchsuchen des Verzeichnisses über eine Hilfsmethode
@@ -281,7 +282,7 @@ public class SearchWindowController implements Initializable {
             listResult.setItems(
                     (ObservableList<String>) FXCollections.observableArrayList(myresultList));
 
-            labelStoredPath.setText(myPath.toString());
+            labelStoredPath.setText(myPath.toString() + File.separator);
 
             // noch fehlerhaft: bei jedem neuaufbau resultliste wird der syso einmal
             // mehr ausgegeben
@@ -331,11 +332,8 @@ public class SearchWindowController implements Initializable {
                                             "Fehler in searchContent (Auswahl eines Dokuments zur Anzeige)");
                                     System.out.println(e.getMessage());
                                 }
-                                
-// ==========================================================================================================================
-//                                myresultList=null;
-//                                myPath=Paths.get(searchPath);
-// ==========================================================================================================================
+                                myresultList = null;
+                                myPath = Paths.get(searchPath);
                             }
                         }
                     });
@@ -343,6 +341,7 @@ public class SearchWindowController implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+
     @FXML
     void onClickZoomIn(MouseEvent event) throws Exception {
         ZoomHelper.zoomIn(event, zoomProperty);
