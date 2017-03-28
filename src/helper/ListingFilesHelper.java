@@ -46,17 +46,12 @@ public class ListingFilesHelper extends SimpleFileVisitor<Path> {
                 if (myTmpDateString.endsWith(".jpeg")) {
                   myTmpDateString = myTmpDateString
                       .substring(myTmpDateString.length() - 15);
-                  System.out.println(myTmpDateString);
                 } else {
                   myTmpDateString = myTmpDateString
                       .substring(myTmpDateString.length() - 14);
-                  System.out.println(myTmpDateString);
                 }
                 myTmpDateString = myTmpDateString.substring(0, 10);
-                System.out.println("myTmpDateString: " + myTmpDateString);
-
                 myFileDate = LocalDate.parse(myTmpDateString, formatter);
-                System.out.println("myTmpDate: " + myFileDate);
                 // Wenn die Methode zum Datumvergleich true zurückgibt, wird die
                 // Datei zur Liste hinzugefügt
                 if (DateCompareHelper.compareDate(searchdateFrom,

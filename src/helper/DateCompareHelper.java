@@ -7,17 +7,6 @@ public class DateCompareHelper {
 
   public static Boolean compareDate(LocalDate searchdateFrom,
       LocalDate searchdateTill, LocalDate myFileDate) {
-    if (searchdateFrom != null) {
-      System.out.println("Datum von: " + searchdateFrom.toString());
-      System.out.println(
-          "Vergleich Datum von : " + searchdateFrom.compareTo(myFileDate));
-    }
-    if (searchdateTill != null) {
-      System.out.println("Datum bis: " + searchdateTill.toString());
-      System.out.println(
-          "Vergleich Datum bis : " + searchdateTill.compareTo(myFileDate));
-    }
-
     isValid = false;
     if (searchdateFrom != null) {
       if (searchdateTill != null) {
