@@ -41,6 +41,7 @@ import persistence.KeywordTable;
 import helper.ListingFilesHelper;
 import helper.PdfHelper;
 import helper.ZoomHelper;
+import helper.ShowPdf;
 
 /**
  * Controller für das Fenster zur Dokumentensuche
