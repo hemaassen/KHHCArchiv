@@ -334,9 +334,9 @@ public class SearchWindowController implements Initializable {
   void onClickZoomOut(MouseEvent event) throws Exception {
     ZoomHelper.zoomOut(event, zoomProperty);
   }
-  
+
   @FXML
-  void printThis(ActionEvent event){
+  void printThis(ActionEvent event) {
     try {
       Desktop.getDesktop().print(new File(myChoosenFile.toString()));
     } catch (IOException e) {
