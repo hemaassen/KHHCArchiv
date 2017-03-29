@@ -341,15 +341,15 @@ public class SearchWindowController implements Initializable {
   @FXML
   void printThis(ActionEvent event) {
     
-//    String nomfichier = "delphi.pdf";
-//    lecteurPDF lecteur = new lecteurPDF(nomfichier);
+//    String pdfFile = myChoosenFile.toString();
+//    showPDF show = new showPDF(pdfFile);
 //    //créer le JFrame
 //    JFrame f = new JFrame("Lecteur PDF");
 //    f.setSize(1024,768);
 //    f.setLocationRelativeTo(null);
 //    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //    f.setVisible(true);
-//    f.getContentPane().add(lecteur);
+//    f.getContentPane().add(show);
     
     try {
       Desktop.getDesktop().print(new File(myChoosenFile.toString()));

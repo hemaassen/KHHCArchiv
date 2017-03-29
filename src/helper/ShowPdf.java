@@ -9,13 +9,13 @@ import com.adobe.acrobat.Viewer;
 public class ShowPdf extends JPanel{
   private Viewer viewer;
   
-  public ShowPdf(String nomfichier) throws Exception{
+  public ShowPdf(String pdfFile) throws Exception{
       this.setLayout(new BorderLayout());
 
       //créer le viewer qui va servir à afficher le contenu du pdf
       viewer = new Viewer();
       this.add(viewer, BorderLayout.CENTER);
-      FileInputStream fis = new FileInputStream(nomfichier);
+      FileInputStream fis = new FileInputStream(pdfFile);
       viewer.setDocumentInputStream(fis);
       viewer.activate();
   }
