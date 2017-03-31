@@ -42,7 +42,6 @@ import helper.ListingFilesHelper;
 import helper.PdfHelper;
 import helper.PdfPrintHelper;
 import helper.ZoomHelper;
-import helper.PdfDruckHelper;
 
 /**
  * Controller für das Fenster zur Dokumentensuche
