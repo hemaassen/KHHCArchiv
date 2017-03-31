@@ -25,5 +25,11 @@
 	<classpathentry kind="lib" path="libs/acrobat-1.1.jar"/>
 	<classpathentry kind="lib" path="libs/pdfclown-0.1.2-javadoc.jar"/>
 	<classpathentry kind="lib" path="libs/pdfclown.jar"/>
+	<classpathentry kind="lib" path="libs/icepdf-core.jar"/>
+	<classpathentry kind="lib" path="libs/icepdf-extra.jar"/>
+	<classpathentry kind="lib" path="libs/icepdf-pro-intl.jar"/>
+	<classpathentry kind="lib" path="libs/icepdf-pro.jar"/>
+	<classpathentry kind="lib" path="libs/icepdf-viewer.jar"/>
+	<classpathentry kind="lib" path="libs/levigo-jbig2-imageio.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
