@@ -42,7 +42,7 @@ public class PdfPrintHelper {
                         PropertiesManager.DEFAULT_MESSAGE_BUNDLE);
                 new FontPropertiesManager(properties, System.getProperties(), messageBundle);
 
-                properties.set(PropertiesManager.PROPERTY_DEFAULT_ZOOM_LEVEL, "1.00");
+                properties.set(PropertiesManager.PROPERTY_DEFAULT_ZOOM_LEVEL, "0.75");
                 properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_OPEN, "false");
                 properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_SAVE, "false");
                 properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_SEARCH, "false");
@@ -73,8 +73,9 @@ public class PdfPrintHelper {
                 JPanel viewerComponentPanel = factory.buildViewerPanel();
                 JFrame applicationFrame = new JFrame();
                 applicationFrame.setTitle("PDF Druck");
-                applicationFrame.setSize(768, 900);
+                applicationFrame.setSize(500, 700);
                 applicationFrame.setResizable(false);
+                applicationFrame.setLocationRelativeTo(null);
                 applicationFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
                 applicationFrame.getContentPane().add(viewerComponentPanel);
                 // Now that the GUI is all in place, we can try openning a PDF
