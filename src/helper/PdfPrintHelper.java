@@ -73,7 +73,6 @@ public class PdfPrintHelper {
                 JPanel viewerComponentPanel = factory.buildViewerPanel();
                 JFrame applicationFrame = new JFrame();
                 applicationFrame.setTitle("Drucken");
-                //applicationFrame.setIconImage("file:resources/images/archiv_icon.png");
                 applicationFrame.setSize(500, 700);
                 applicationFrame.setResizable(false);
                 applicationFrame.setLocationRelativeTo(null);
