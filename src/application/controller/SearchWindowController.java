@@ -9,9 +9,6 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import javax.swing.JFrame;
-
 import application.KeyWord;
 import application.Main;
 import helper.EditKeywordHelper;
@@ -23,7 +20,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.print.PrinterJob;
 import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
