@@ -40,6 +40,7 @@ import javafx.scene.layout.AnchorPane;
 import persistence.KeywordTable;
 import helper.ListingFilesHelper;
 import helper.PdfHelper;
+import helper.PdfPrintHelper;
 import helper.ZoomHelper;
 import helper.PdfDruckHelper;
 
@@ -342,19 +343,15 @@ public class SearchWindowController implements Initializable {
   @FXML
   void printThis(ActionEvent event) {
 
-    // String pdfFile = myChoosenFile.toString();
-    // showPDF show = new showPDF(pdfFile);
-    // //créer le JFrame
-    // JFrame f = new JFrame("Lecteur PDF");
-    // f.setSize(1024,768);
-    // f.setLocationRelativeTo(null);
-    // f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    // f.setVisible(true);
-    // f.getContentPane().add(show);
-
     try {
-      Desktop.getDesktop().print(new File(myChoosenFile.toString()));
+      if (isPdf) {
+        String[] meinArray = { myChoosenFile.toString() };
+        PdfPrintHelper.main(meinArray);
 
+      } else {
+
+        Desktop.getDesktop().print(new File(myChoosenFile.toString()));
+      }
     } catch (IOException e) {
       e.printStackTrace();
     }
