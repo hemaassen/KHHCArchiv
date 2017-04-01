@@ -17,53 +17,58 @@ import java.util.List;
 import java.util.Locale;
 
 public class ListingFilesHelper extends SimpleFileVisitor<Path> {
-  static String            myTmpDateString;
-  static LocalDate         myFileDate;
-  static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd",
-      Locale.ENGLISH);
-  static String            pattern   = "{pdf,png,jpg,jpeg,gif}";
+    static String            myTmpDateString;
+    static LocalDate         myFileDate;
+    static DateTimeFormatter formatter = DateTimeFormatter
+            .ofPattern("yyyy-MM-dd", Locale.ENGLISH);
+    static String            pattern   = "{pdf,png,jpg,jpeg,gif}";
 
-  public static List<String> searchContentOfDirectory(final Path searchPath,
-      final String searchPattern, LocalDate searchdateFrom,
-      LocalDate searchdateTill) throws IOException {
+    public static List<String> searchContentOfDirectory(final Path searchPath,
+            final String searchPattern, LocalDate searchdateFrom,
+            LocalDate searchdateTill) throws IOException {
 
-    final List<String> files = new ArrayList<String>();
-    final PathMatcher myMatcher = FileSystems.getDefault()
-        .getPathMatcher(searchPattern);
-    // Begrenzung der Suchtiefe auf das aktuelle Verzeichnis
-    Files.walkFileTree(searchPath, EnumSet.noneOf(FileVisitOption.class), 1,
-        new SimpleFileVisitor<Path>() {
+        final List<String> files = new ArrayList<String>();
+        final PathMatcher myMatcher = FileSystems.getDefault()
+                .getPathMatcher(searchPattern);
+        // Begrenzung der Suchtiefe auf das aktuelle Verzeichnis
+        Files.walkFileTree(searchPath, EnumSet.noneOf(FileVisitOption.class), 1,
+                new SimpleFileVisitor<Path>() {
 
-          @Override
-          public FileVisitResult visitFile(Path file,
-              BasicFileAttributes attributes) throws IOException {
-            // nur das aktuelle Verzeichnis durchsuchen
-            if (!attributes.isDirectory()) {
-              // nur gültige Dateiformate
-              if (myMatcher.matches(file.getFileName())) {
-                // Datum aus Dateiname extrahieren
-                myTmpDateString = (file.getFileName().toString());
-                if (myTmpDateString.endsWith(".jpeg")) {
-                  myTmpDateString = myTmpDateString
-                      .substring(myTmpDateString.length() - 15);
-                } else {
-                  myTmpDateString = myTmpDateString
-                      .substring(myTmpDateString.length() - 14);
-                }
-                myTmpDateString = myTmpDateString.substring(0, 10);
-                myFileDate = LocalDate.parse(myTmpDateString, formatter);
-                // Wenn die Methode zum Datumvergleich true zurückgibt, wird die
-                // Datei zur Liste hinzugefügt
-                if (DateCompareHelper.compareDate(searchdateFrom,
-                    searchdateTill, myFileDate)) {
-                  // Übernahme des Dateinamens in die Liste
-                  files.add(file.getFileName().toString());
-                }
-              }
-            }
-            return FileVisitResult.CONTINUE;
-          }
-        });
-    return files;
-  }
+                    @Override
+                    public FileVisitResult visitFile(Path file,
+                            BasicFileAttributes attributes) throws IOException {
+                        // nur das aktuelle Verzeichnis durchsuchen
+                        if (!attributes.isDirectory()) {
+                            // nur gültige Dateiformate
+                            if (myMatcher.matches(file.getFileName())) {
+                                // Datum aus Dateiname extrahieren
+                                myTmpDateString = (file.getFileName()
+                                        .toString());
+                                if (myTmpDateString.endsWith(".jpeg")) {
+                                    myTmpDateString = myTmpDateString.substring(
+                                            myTmpDateString.length() - 15);
+                                } else {
+                                    myTmpDateString = myTmpDateString.substring(
+                                            myTmpDateString.length() - 14);
+                                }
+                                myTmpDateString = myTmpDateString.substring(0,
+                                        10);
+                                myFileDate = LocalDate.parse(myTmpDateString,
+                                        formatter);
+                                // Wenn die Methode zum Datumvergleich true
+                                // zurückgibt, wird die
+                                // Datei zur Liste hinzugefügt
+                                if (DateCompareHelper.compareDate(
+                                        searchdateFrom, searchdateTill,
+                                        myFileDate)) {
+                                    // Übernahme des Dateinamens in die Liste
+                                    files.add(file.getFileName().toString());
+                                }
+                            }
+                        }
+                        return FileVisitResult.CONTINUE;
+                    }
+                });
+        return files;
+    }
 }

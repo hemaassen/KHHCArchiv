@@ -39,56 +39,56 @@ import persistence.KeywordTable;
  */
 public class ManualWindowController implements Initializable {
 
-    public static Main main;
+    public static Main        main;
 
     // das wird unsere Datei
-    private File sourceFileName;
+    private File              sourceFileName;
 
-    private String pathToDestination = "";
+    private String            pathToDestination = "";
 
-    private String destFileName = "";
-
-    @FXML
-    private AnchorPane anchorMain;
+    private String            destFileName      = "";
 
     @FXML
-    private Label labelActualDoc;
+    private AnchorPane        anchorMain;
 
     @FXML
-    private Button searchDoc;
+    private Label             labelActualDoc;
 
     @FXML
-    private Label labelPath;
+    private Button            searchDoc;
 
     @FXML
-    private ImageView imageActualDoc;
+    private Label             labelPath;
 
     @FXML
-    private Label labelKeywords;
+    private ImageView         imageActualDoc;
 
     @FXML
-    private DatePicker datePicker;
+    private Label             labelKeywords;
 
     @FXML
-    private Label labelDate;
+    private DatePicker        datePicker;
 
     @FXML
-    private Label labelKeywordOne;
+    private Label             labelDate;
 
     @FXML
-    private Label labelKeywordTwo;
+    private Label             labelKeywordOne;
 
     @FXML
-    private Label labelKeywordThree;
+    private Label             labelKeywordTwo;
 
     @FXML
-    private Label labelKeywordFour;
+    private Label             labelKeywordThree;
 
     @FXML
-    private Label labelKeywordFive;
+    private Label             labelKeywordFour;
 
     @FXML
-    private Button save;
+    private Label             labelKeywordFive;
+
+    @FXML
+    private Button            save;
 
     @FXML
     private ComboBox<KeyWord> listKeywordOne;
@@ -106,40 +106,40 @@ public class ManualWindowController implements Initializable {
     private ComboBox<KeyWord> listKeywordFive;
 
     @FXML
-    private Button zoomPlus;
+    private Button            zoomPlus;
 
     @FXML
-    private Button zoomMinus;
+    private Button            zoomMinus;
 
     @FXML
-    private ScrollPane imageScrollPane;
+    private ScrollPane        imageScrollPane;
 
     @FXML
-    private Label manualLabelDestinationPath;
+    private Label             manualLabelDestinationPath;
 
     @FXML
-    private Button changeKeywordOne;
+    private Button            changeKeywordOne;
 
     @FXML
-    private Button changeKeywordTwo;
+    private Button            changeKeywordTwo;
 
     @FXML
-    private Button changeKeywordThree;
+    private Button            changeKeywordThree;
 
     @FXML
-    private Button changeKeywordFour;
+    private Button            changeKeywordFour;
 
     @FXML
-    private Button changeKeywordFive;
-    
-    @FXML
-    private Tooltip toolTipDestinationPath;
+    private Button            changeKeywordFive;
 
-    EditKeywordHelper editKeyword5;
-    EditKeywordHelper editKeyword4;
-    EditKeywordHelper editKeyword3;
-    EditKeywordHelper editKeyword2;
-    EditKeywordHelper editKeyword1;
+    @FXML
+    private Tooltip           toolTipDestinationPath;
+
+    EditKeywordHelper         editKeyword5;
+    EditKeywordHelper         editKeyword4;
+    EditKeywordHelper         editKeyword3;
+    EditKeywordHelper         editKeyword2;
+    EditKeywordHelper         editKeyword1;
 
     @FXML
     void onChangeKeywordOne(ActionEvent event) {
@@ -199,9 +199,10 @@ public class ManualWindowController implements Initializable {
             // das gibt ERROR Terror!!!
             Alert dialog = new Alert(AlertType.ERROR);
             dialog.setTitle("Kein Dokument ausgewählt");
-            dialog.setContentText("Bitte suchen Sie zunächst ein Dokument zum Ablegen aus!");
+            dialog.setContentText(
+                    "Bitte suchen Sie zunächst ein Dokument zum Ablegen aus!");
             dialog.showAndWait();
-           
+
         }
         return false;
     }
@@ -229,12 +230,15 @@ public class ManualWindowController implements Initializable {
         // grundkonfiguration
         fileChooser.setTitle("Datei auswählen");
         fileChooser.setInitialDirectory(sourceDir);
-        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("PDF Files", "*.pdf"),
-                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp"));
+        fileChooser.getExtensionFilters().addAll(
+                new ExtensionFilter("PDF Files", "*.pdf"),
+                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg",
+                        "*.gif", "*.bmp"));
         Image fxImage = null;
         Boolean isPdf;
         // file wird gelesen
-        sourceFileName = fileChooser.showOpenDialog(labelPath.getScene().getWindow());
+        sourceFileName = fileChooser
+                .showOpenDialog(labelPath.getScene().getWindow());
         // wer schreiben darf sollte auch löschen dürfen (kann es leider nicht
         // prüfen)
         // (ich bekomme keine Datei hin die ich nicht löschen kann ???)
@@ -268,27 +272,31 @@ public class ManualWindowController implements Initializable {
                 if (isPdf) {
                     fxImage = PdfHelper.convertPDFToImage(sourceFileName);
                     zoomProperty.set(200);
-                    imageActualDoc.setImage(ZoomHelper.zoomMouse(fxImage, imageActualDoc,
-                            anchorMain, imageScrollPane, zoomProperty));
+                    imageActualDoc.setImage(
+                            ZoomHelper.zoomMouse(fxImage, imageActualDoc,
+                                    anchorMain, imageScrollPane, zoomProperty));
                 } else {
-                    Image myImage = new Image(sourceFileName.toURI().toURL().toExternalForm(),
+                    Image myImage = new Image(
+                            sourceFileName.toURI().toURL().toExternalForm(),
                             595.0, 842.0, false, true);
                     zoomProperty.set(200);
-                    imageActualDoc.setImage(ZoomHelper.zoomMouse(myImage, imageActualDoc,
-                            anchorMain, imageScrollPane, zoomProperty));
+                    imageActualDoc.setImage(
+                            ZoomHelper.zoomMouse(myImage, imageActualDoc,
+                                    anchorMain, imageScrollPane, zoomProperty));
                 }
             } catch (Exception e) {
                 System.out.println("Fehler in handleSearchDoc");
                 System.out.println(e.getMessage());
 
             }
-        }else{
-            
+        } else {
+
         }
     }
 
     /**
-     * Zwei Methoden für Zoom In und Zoom Out per Mausklick auf die entsprechenden Buttons.
+     * Zwei Methoden für Zoom In und Zoom Out per Mausklick auf die
+     * entsprechenden Buttons.
      * 
      * @author kerstin, helge, chris, holger
      * @param event
@@ -305,7 +313,8 @@ public class ManualWindowController implements Initializable {
     }
 
     /**
-     * Auswahl eines Datums -ohne Datum darf kein Schlüsselwort ausgewählt oder hinzugefügt werden
+     * Auswahl eines Datums -ohne Datum darf kein Schlüsselwort ausgewählt oder
+     * hinzugefügt werden
      * und eine Speicherung findet nicht statt.
      * 
      * @author helge
@@ -316,7 +325,8 @@ public class ManualWindowController implements Initializable {
     void inputManualDate(ActionEvent event) {
         if (datePicker.getValue() != null) {
             editKeyword1.switchON();
-            manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir());
+            manualLabelDestinationPath
+                    .setText(main.getMyConfig().getDestinationDir());
         } else {
             editKeyword1.switchOff();
             save.setDisable(true);
@@ -354,16 +364,19 @@ public class ManualWindowController implements Initializable {
                                 "setPathToDestination mit falschen Paramter aufgerufen");
                 }
                 // wenn tmp leer ist kein Seperator anhängen
-                pathToDestination += tmp.length() > 0 ? tmp + File.separator : "";
+                pathToDestination += tmp.length() > 0 ? tmp + File.separator
+                        : "";
             }
         } catch (Exception e) {
             System.out.println("Fehler beim Zusammenbauen des Filenamens");
             e.getStackTrace();
         }
-        manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir().toString()
-                + File.separator + pathToDestination);
-        toolTipDestinationPath.setText(main.getMyConfig().getDestinationDir().toString()
-                + File.separator + pathToDestination);
+        manualLabelDestinationPath
+                .setText(main.getMyConfig().getDestinationDir().toString()
+                        + File.separator + pathToDestination);
+        toolTipDestinationPath
+                .setText(main.getMyConfig().getDestinationDir().toString()
+                        + File.separator + pathToDestination);
     }
 
     @FXML
@@ -415,7 +428,8 @@ public class ManualWindowController implements Initializable {
     @FXML
     void onClickSaveButton(ActionEvent event) {
         try {
-            boolean result = FileHelper.doFileMove(sourceFileName, pathToDestination,
+            boolean result = FileHelper.doFileMove(sourceFileName,
+                    pathToDestination,
                     destFileName + datePicker.getValue().toString(), main);
             if (result) {
                 imageActualDoc.setVisible(false);
@@ -428,7 +442,8 @@ public class ManualWindowController implements Initializable {
             } else {
                 Alert dialog = new Alert(AlertType.ERROR);
                 dialog.setTitle("Speicherfehler");
-                dialog.setHeaderText("Beim Speichern der Datei ist ein Fehler aufgetreten");
+                dialog.setHeaderText(
+                        "Beim Speichern der Datei ist ein Fehler aufgetreten");
                 dialog.setContentText("Bitte überprüfen Sie Ihre Rechte");
                 dialog.showAndWait();
             }
@@ -443,23 +458,26 @@ public class ManualWindowController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         try {
             listKeywordOne.setItems(KeywordTable.selectLevel(1, false));
-            editKeyword5 = new EditKeywordHelper(listKeywordFive, listKeywordFour, null, 5, false);
-            editKeyword4 = new EditKeywordHelper(listKeywordFour, listKeywordThree, editKeyword5, 4,
-                    false);
-            editKeyword3 = new EditKeywordHelper(listKeywordThree, listKeywordTwo, editKeyword4, 3,
-                    false);
-            editKeyword2 = new EditKeywordHelper(listKeywordTwo, listKeywordOne, editKeyword3, 2,
-                    false);
-            editKeyword1 = new EditKeywordHelper(listKeywordOne, null, editKeyword2, 1, false);
+            editKeyword5 = new EditKeywordHelper(listKeywordFive,
+                    listKeywordFour, null, 5, false);
+            editKeyword4 = new EditKeywordHelper(listKeywordFour,
+                    listKeywordThree, editKeyword5, 4, false);
+            editKeyword3 = new EditKeywordHelper(listKeywordThree,
+                    listKeywordTwo, editKeyword4, 3, false);
+            editKeyword2 = new EditKeywordHelper(listKeywordTwo, listKeywordOne,
+                    editKeyword3, 2, false);
+            editKeyword1 = new EditKeywordHelper(listKeywordOne, null,
+                    editKeyword2, 1, false);
             File myFile = new File(main.getMyConfig().getDestinationDir());
             if (!myFile.exists()) {
                 Alert dialog = new Alert(AlertType.ERROR);
                 dialog.setTitle("Ziellaufwerk nicht erreichbar");
-                dialog.setContentText(
-                        main.getMyConfig().getDestinationDir() + " kann nicht erreicht werden");
+                dialog.setContentText(main.getMyConfig().getDestinationDir()
+                        + " kann nicht erreicht werden");
                 dialog.showAndWait();
             }
-            manualLabelDestinationPath.setText(main.getMyConfig().getDestinationDir().toString());
+            manualLabelDestinationPath
+                    .setText(main.getMyConfig().getDestinationDir().toString());
             // System.out.println(main.getMyConfig().getDestinationDir());
         } catch (Exception e) {
             e.getStackTrace();

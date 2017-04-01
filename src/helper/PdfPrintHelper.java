@@ -34,49 +34,66 @@ public class PdfPrintHelper {
                 controller.setIsEmbeddedComponent(true);
 
                 PropertiesManager properties = new PropertiesManager(
-                        System.getProperties(),
-                        ResourceBundle.getBundle(PropertiesManager.DEFAULT_MESSAGE_BUNDLE));
+                        System.getProperties(), ResourceBundle.getBundle(
+                                PropertiesManager.DEFAULT_MESSAGE_BUNDLE));
 
                 // read/store the font cache.
-                ResourceBundle messageBundle = ResourceBundle.getBundle(
-                        PropertiesManager.DEFAULT_MESSAGE_BUNDLE);
-                new FontPropertiesManager(properties, System.getProperties(), messageBundle);
+                ResourceBundle messageBundle = ResourceBundle
+                        .getBundle(PropertiesManager.DEFAULT_MESSAGE_BUNDLE);
+                new FontPropertiesManager(properties, System.getProperties(),
+                        messageBundle);
 
-                properties.set(PropertiesManager.PROPERTY_DEFAULT_ZOOM_LEVEL, "0.75");
-                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_OPEN, "false");
-                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_SAVE, "false");
-                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_SEARCH, "false");
-                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_PRINT, "true");
-                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_UPANE, "false");
+                properties.set(PropertiesManager.PROPERTY_DEFAULT_ZOOM_LEVEL,
+                        "0.75");
+                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_OPEN,
+                        "false");
+                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_SAVE,
+                        "false");
+                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_SEARCH,
+                        "false");
+                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_PRINT,
+                        "true");
+                properties.set(PropertiesManager.PROPERTY_SHOW_UTILITY_UPANE,
+                        "false");
                 properties.set(
-                    PropertiesManager.PROPERTY_SHOW_TOOLBAR_ANNOTATION_HIGHLIGHT,
-                    "false");
-                properties.set(PropertiesManager.PROPERTY_SHOW_TOOLBAR_ANNOTATION_TEXT,
-                    "false");
+                        PropertiesManager.PROPERTY_SHOW_TOOLBAR_ANNOTATION_HIGHLIGHT,
+                        "false");
                 properties.set(
-                    PropertiesManager.PROPERTY_SHOW_TOOLBAR_ANNOTATION_SELECTION,
-                    "false");
+                        PropertiesManager.PROPERTY_SHOW_TOOLBAR_ANNOTATION_TEXT,
+                        "false");
+                properties.set(
+                        PropertiesManager.PROPERTY_SHOW_TOOLBAR_ANNOTATION_SELECTION,
+                        "false");
                 // hide the status bar
-                properties.set(PropertiesManager.PROPERTY_SHOW_STATUSBAR, "false");
-                // hide a few toolbars, just to show how the prefered size of the viewer
+                properties.set(PropertiesManager.PROPERTY_SHOW_STATUSBAR,
+                        "false");
+                // hide a few toolbars, just to show how the prefered size of
+                // the viewer
                 // changes.
-                properties.set(PropertiesManager.PROPERTY_SHOW_TOOLBAR_FIT, "false");
-                properties.set(PropertiesManager.PROPERTY_SHOW_TOOLBAR_ROTATE, "false");
-                properties.set(PropertiesManager.PROPERTY_SHOW_TOOLBAR_TOOL, "false");
-                properties.set(PropertiesManager.PROPERTY_SHOW_TOOLBAR_FORMS, "false");
+                properties.set(PropertiesManager.PROPERTY_SHOW_TOOLBAR_FIT,
+                        "false");
+                properties.set(PropertiesManager.PROPERTY_SHOW_TOOLBAR_ROTATE,
+                        "false");
+                properties.set(PropertiesManager.PROPERTY_SHOW_TOOLBAR_TOOL,
+                        "false");
+                properties.set(PropertiesManager.PROPERTY_SHOW_TOOLBAR_FORMS,
+                        "false");
 
-                SwingViewBuilder factory = new SwingViewBuilder(controller, properties);
+                SwingViewBuilder factory = new SwingViewBuilder(controller,
+                        properties);
 
                 // add interactive mouse link annotation support via callback
                 controller.getDocumentViewController().setAnnotationCallback(
-                        new org.icepdf.ri.common.MyAnnotationCallback(controller.getDocumentViewController()));
+                        new org.icepdf.ri.common.MyAnnotationCallback(
+                                controller.getDocumentViewController()));
                 JPanel viewerComponentPanel = factory.buildViewerPanel();
                 JFrame applicationFrame = new JFrame();
                 applicationFrame.setTitle("Drucken");
                 applicationFrame.setSize(500, 700);
                 applicationFrame.setResizable(false);
                 applicationFrame.setLocationRelativeTo(null);
-                applicationFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                applicationFrame.setDefaultCloseOperation(
+                        WindowConstants.DISPOSE_ON_CLOSE);
                 applicationFrame.getContentPane().add(viewerComponentPanel);
                 // Now that the GUI is all in place, we can try openning a PDF
                 controller.openDocument(filePath);
@@ -90,7 +107,6 @@ public class PdfPrintHelper {
                 applicationFrame.setVisible(true);
             }
         });
-
 
     }
 }
