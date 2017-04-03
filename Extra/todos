@@ -6,4 +6,23 @@
 				(abhängigkeit der reihenfolge beachten), javadoc für neu erstellte methoden, usw.... 
 				170313: Datensicherung für Datenbank, import(überprüfung ob Struktur richtig ist), export 
 				170313: Datenbank aus der Struktur wiederherstellen path=Keyword (absoluter Notfall)
-				
+	
+03.04.2017
+
+Installer !!!!!!!!!!
+
+Bei jedem Start des Programms db verbindung prüfen und ggfs einen Alert geben (bisher kackt das programm dann einfach ab)
+
+Import/Export Datenbank für Neuinstallation
+
+Überprüfen ob es möglich ist über die installationsroutine umgebungsvariablen zu schreiben
+
+EmailAttachementSenderHelper hinzugefügt
+link: http://www.tutorialspoint.com/javamail_api/javamail_api_send_email_with_attachment.htm
+neue table für email in die db integrieren
+
+Lizensierung. wie? wo? was?
+
+logfile schreiben und einsehen über gui
+
+Resize des fensters auf systemeinstellungen
