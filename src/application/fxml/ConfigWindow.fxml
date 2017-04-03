@@ -56,21 +56,21 @@
       </Label>
       <Label layoutX="640.0" layoutY="90.0" stylesheets="@../css/label.css" text="Provider:" />
       <ChoiceBox disable="true" layoutX="706.0" layoutY="86.0" prefHeight="25.0" prefWidth="314.0" stylesheets="@../css/application.css" />
-      <Label layoutX="640.0" layoutY="162.0" stylesheets="@../css/label.css" text="Benutzername:" />
-      <TextField disable="true" layoutX="737.0" layoutY="158.0" prefHeight="25.0" prefWidth="282.0" />
-      <PasswordField disable="true" layoutX="737.0" layoutY="213.0" prefHeight="25.0" prefWidth="282.0" promptText="*******" />
-      <Label layoutX="640.0" layoutY="217.0" stylesheets="@../css/label.css" text="Passwort:" />
-      <Label layoutX="640.0" layoutY="278.0" stylesheets="@../css/label.css" text="Port:" visible="false" />
-      <Label layoutX="640.0" layoutY="338.0" stylesheets="@../css/label.css" text="POP3 Server:" visible="false" />
-      <Label layoutX="640.0" layoutY="394.0" stylesheets="@../css/label.css" text="Smtp Server:" visible="false" />
-      <TextField layoutX="737.0" layoutY="275.0" prefHeight="25.0" prefWidth="282.0" visible="false" />
-      <TextField layoutX="737.0" layoutY="335.0" prefHeight="25.0" prefWidth="282.0" visible="false" />
-      <TextField layoutX="737.0" layoutY="391.0" prefHeight="25.0" prefWidth="282.0" visible="false" />
-      <Label layoutX="771.0" layoutY="462.0" stylesheets="@../css/label.css" text="Lizenzschlüssel: **">
+      <Label layoutX="637.0" layoutY="213.0" stylesheets="@../css/label.css" text="Benutzername:" />
+      <TextField disable="true" layoutX="737.0" layoutY="210.0" prefHeight="25.0" prefWidth="282.0" />
+      <PasswordField disable="true" layoutX="737.0" layoutY="265.0" prefHeight="25.0" prefWidth="282.0" promptText="*******" />
+      <Label layoutX="639.0" layoutY="268.0" stylesheets="@../css/label.css" text="Passwort:" />
+      <Label layoutX="640.0" layoutY="320.0" stylesheets="@../css/label.css" text="POP3 Port:" />
+      <Label layoutX="640.0" layoutY="376.0" stylesheets="@../css/label.css" text="POP3 Server:" />
+      <Label layoutX="640.0" layoutY="468.0" stylesheets="@../css/label.css" text="Smtp Server:" />
+      <TextField layoutX="737.0" layoutY="317.0" prefHeight="25.0" prefWidth="83.0" />
+      <TextField layoutX="737.0" layoutY="373.0" prefHeight="25.0" prefWidth="282.0" />
+      <TextField layoutX="737.0" layoutY="465.0" prefHeight="25.0" prefWidth="282.0" />
+      <Label layoutX="770.0" layoutY="527.0" stylesheets="@../css/label.css" text="Lizenzschlüssel: **">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>
       </Label>
-      <TextField disable="true" layoutX="638.0" layoutY="507.0" prefHeight="25.0" prefWidth="386.0" />
+      <TextField disable="true" layoutX="640.0" layoutY="560.0" prefHeight="25.0" prefWidth="386.0" />
    </children>
 </AnchorPane>
