@@ -7,6 +7,7 @@ import helper.ListingFilesHelper;
 import helper.PdfHelper;
 import helper.PdfPrintHelper;
 import helper.ZoomHelper;
+import helper.ImagePrinterHelper;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -344,7 +345,7 @@ public class SearchWindowController implements Initializable {
     }
 
     @FXML
-    void printThis(ActionEvent event) {
+    public void printThis(ActionEvent event) {
 
         try {
             if (isPdf) {
@@ -354,6 +355,7 @@ public class SearchWindowController implements Initializable {
             } else {
 
                 Desktop.getDesktop().print(new File(myChoosenFile.toString()));
+                
             }
         } catch (IOException e) {
             e.printStackTrace();
